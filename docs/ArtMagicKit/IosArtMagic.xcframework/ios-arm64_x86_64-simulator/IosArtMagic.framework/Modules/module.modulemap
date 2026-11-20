@@ -1,0 +1,3 @@
+framework module IosArtMagic {
+  header "IosArtMagic-Swift.h"
+}

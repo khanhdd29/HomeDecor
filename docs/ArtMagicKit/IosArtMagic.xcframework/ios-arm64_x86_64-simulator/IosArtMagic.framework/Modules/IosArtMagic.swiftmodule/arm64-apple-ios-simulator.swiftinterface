@@ -1,0 +1,163 @@
+// swift-interface-format-version: 1.0
+// swift-compiler-version: Apple Swift version 6.4 effective-5.10 (swiftlang-6.4.0.34.1 clang-2100.3.34.1)
+// swift-module-flags: -target arm64-apple-ios15.0-simulator -enable-objc-interop -enable-library-evolution -language-mode 5 -O -enable-experimental-feature DebugDescriptionMacro -enable-bare-slash-regex -module-name IosArtMagic
+// swift-module-flags-ignorable: -no-verify-emitted-module-interface -formal-cxx-interoperability-mode=off -interface-compiler-version 6.4
+import CommonCrypto
+import Foundation
+import Security
+import Swift
+import UIKit
+import _Concurrency
+import _StringProcessing
+import _SwiftConcurrencyShims
+public class ArtMagicClient {
+  public var upgradeProfile: UpgradeProfile {
+    get
+  }
+  public init(appId: String, appSecretKey: String)
+  public func request(method: String, path: String, queryParams: [String : String] = [:], headers: [String : String] = [:], body: [String : Any]? = nil, contentType: String? = nil, callback: @escaping (Result<Any, any Error>) -> Void)
+  public func testEnsureValidToken(completion: @escaping (String?) -> Void)
+  public func testFetchThemePrivateKey(completion: @escaping (Result<(appId: String?, privateKey: String), any Error>) -> Void)
+  public func processGeneralAgent(fileURL: URL?, code: String, options: String = "{}", attachmentFiles: [URL] = [], uuid: String? = nil, callback: @escaping (Result<Any, any Error>) -> Void)
+  public func getImageEditingCategories(page: Int = 0, size: Int = 10, groupCode: String? = nil, callback: @escaping (Result<Any, any Error>) -> Void)
+  public func getTemplateApps(page: Int = 0, size: Int = 10, category: String? = nil, callback: @escaping (Result<Any, any Error>) -> Void)
+  public func getImageEditingCategoryGroups(callback: @escaping (Result<Any, any Error>) -> Void)
+  public func getImageEditingResult(requestId: String, callback: @escaping (Result<Any, any Error>) -> Void)
+  public func processImageEditing(fileURL: URL?, code: String, options: String = "{}", attachmentFiles: [URL] = [], prompt: String? = nil, callback: @escaping (Result<Any, any Error>) -> Void)
+  public func searchFood(foodName: String, uuid: String? = nil, callback: @escaping (Result<Any, any Error>) -> Void)
+  public func getTemplateDetail(templateCode: String, callback: @escaping (Result<Any, any Error>) -> Void)
+  public func generateStaticVideo(templateCode: String, fileURL: URL, options: String = "{}", prompt: String? = nil, callback: @escaping (Result<Any, any Error>) -> Void)
+  public func getFoodDetail(idMeal: Int, language: String, uuid: String? = nil, callback: @escaping (Result<Any, any Error>) -> Void)
+  public func createCharacter(name: String, prompt: String, greetingMessage: String, isPublic: Bool, description: String? = nil, tagCode: String? = nil, gender: String? = nil, personality: String? = nil, languageCode: String? = nil, imageFileURL: URL? = nil, imageUrl: String? = nil, uuid: String? = nil, callback: @escaping (Result<Any, any Error>) -> Void)
+  public func updateCharacter(characterId: String, name: String? = nil, prompt: String? = nil, greetingMessage: String? = nil, isPublic: Bool? = nil, imageFileURL: URL? = nil, imageUrl: String? = nil, uuid: String? = nil, callback: @escaping (Result<Any, any Error>) -> Void)
+  public func deleteCharacter(characterId: String, uuid: String? = nil, callback: @escaping (Result<Any, any Error>) -> Void)
+  public func getMyAgent(uuid: String? = nil, callback: @escaping (Result<Any, any Error>) -> Void)
+  public func getConversation(aiFriendId: String, page: Int = 0, size: Int = 20, languageCode: String = "vi", extraParams: [String : String] = [:], uuid: String? = nil, callback: @escaping (Result<Any, any Error>) -> Void)
+  public func getAgents(queryParams: [String : String] = [:], callback: @escaping (Result<Any, any Error>) -> Void)
+  public func getTags(languageCode: String, callback: @escaping (Result<Any, any Error>) -> Void)
+  public func sendMessage(content: String, userId: String? = nil, agentId: String, lang: String = "vi", callback: @escaping (Result<Any, any Error>) -> Void)
+  public func getWeather(latitude: Double, longitude: Double, callback: @escaping (Result<Any, any Error>) -> Void)
+  public func removeObject(fileURL: URL, maskFileURL: URL? = nil, feature: String? = "{ \"feature\": \"REMOVE_OBJECT\", \"options\": {} }", uuid: String? = nil, callback: @escaping (Result<Any, any Error>) -> Void)
+  @objc deinit
+}
+public struct SegmentRuleConfig : Codable, Equatable {
+  public let version: Int
+  public let sessionTimeoutMinutes: Int
+  public let activeDaysRetain: Int
+  public let limitErrorCodes: [Int]
+  public let quotaBump: [String : String]
+  public let featurePathMap: [String : String]
+  public let rules: [SegmentRule]
+  public init(version: Int, sessionTimeoutMinutes: Int, activeDaysRetain: Int, limitErrorCodes: [Int], quotaBump: [String : String], featurePathMap: [String : String], rules: [SegmentRule])
+  public func featureCategory(forPath path: String) -> String?
+  public static func parse(from data: Data) throws -> SegmentRuleConfig
+  public static func parse(fromJSONObject object: Any) throws -> SegmentRuleConfig
+  public static let bundledDefault: SegmentRuleConfig
+  public static func == (a: SegmentRuleConfig, b: SegmentRuleConfig) -> Bool
+  public func encode(to encoder: any Encoder) throws
+  public init(from decoder: any Decoder) throws
+}
+public enum SegmentRuleConfigError : Error {
+  case invalidConfig
+  public static func == (a: SegmentRuleConfigError, b: SegmentRuleConfigError) -> Bool
+  public func hash(into hasher: inout Hasher)
+  public var hashValue: Int {
+    get
+  }
+}
+public struct SegmentRule : Codable, Equatable {
+  public let id: String
+  public let enabled: Bool?
+  public let fallback: Bool?
+  public let offerCode: String
+  public let description: String?
+  public let when: RuleWhen
+  public init(id: String, enabled: Bool? = true, fallback: Bool? = false, offerCode: String, description: String? = nil, when: RuleWhen)
+  public static func == (a: SegmentRule, b: SegmentRule) -> Bool
+  public func encode(to encoder: any Encoder) throws
+  public init(from decoder: any Decoder) throws
+}
+public struct RuleWhen : Codable, Equatable {
+  public let all: [RuleConditionNode]?
+  public let any: [RuleConditionNode]?
+  public init(all: [RuleConditionNode]? = nil, any: [RuleConditionNode]? = nil)
+  public static func == (a: RuleWhen, b: RuleWhen) -> Bool
+  public func encode(to encoder: any Encoder) throws
+  public init(from decoder: any Decoder) throws
+}
+public enum RuleConditionNode : Codable, Equatable {
+  case leaf(RulePredicate)
+  case group(RuleWhen)
+  public init(from decoder: any Decoder) throws
+  public func encode(to encoder: any Encoder) throws
+  public static func == (a: RuleConditionNode, b: RuleConditionNode) -> Bool
+}
+public struct RulePredicate : Codable, Equatable {
+  public let metric: String
+  public let op: String
+  public let value: Double
+  public init(metric: String, op: String, value: Double)
+  public init(from decoder: any Decoder) throws
+  public static func == (a: RulePredicate, b: RulePredicate) -> Bool
+  public func encode(to encoder: any Encoder) throws
+}
+@_hasMissingDesignatedInitializers final public class SignatureHelpers {
+  public static func hasPrivateKey(appId: String) -> Bool
+  public static func updatePrivateKey(obfuscatedPem: String, appId: String) -> Bool
+  public static func signData(appId: String, _ data: String) -> String?
+  @objc deinit
+}
+public enum FeatureNeed : String, Codable, Equatable {
+  case photo
+  case video
+  case agent
+  case food
+  case mixed
+  case unknown
+  public init?(rawValue: String)
+  public typealias RawValue = String
+  public var rawValue: String {
+    get
+  }
+}
+public struct UserEngagementMetrics : Equatable {
+  public let daysSinceInstall: Double
+  public let sessionCount: Double
+  public let daysSinceLastOpen: Double
+  public let sessionsLast7d: Double
+  public let sessionsLast30d: Double
+  public let activeDaysLast7d: Double
+  public let activeDaysLast30d: Double
+  public let retainedD1: Double
+  public let retainedD7: Double
+  public let retainedD30: Double
+  public let totalFeatureCount: Double
+  public let totalFeatureCountLast7d: Double
+  public let uniqueFeatureCount: Double
+  public let photoCount: Double
+  public let videoCount: Double
+  public let agentCount: Double
+  public let foodCount: Double
+  public let photoShare: Double
+  public let videoShare: Double
+  public let agentShare: Double
+  public let foodShare: Double
+  public let quotaOrLimitHits: Double
+  public init(daysSinceInstall: Double, sessionCount: Double, daysSinceLastOpen: Double, sessionsLast7d: Double, sessionsLast30d: Double, activeDaysLast7d: Double, activeDaysLast30d: Double, retainedD1: Double, retainedD7: Double, retainedD30: Double, totalFeatureCount: Double, totalFeatureCountLast7d: Double, uniqueFeatureCount: Double, photoCount: Double, videoCount: Double, agentCount: Double, foodCount: Double, photoShare: Double, videoShare: Double, agentShare: Double, foodShare: Double, quotaOrLimitHits: Double)
+  public var dominantNeed: FeatureNeed {
+    get
+  }
+  public static func == (a: UserEngagementMetrics, b: UserEngagementMetrics) -> Bool
+}
+public struct UpgradeProfile : Equatable {
+  public let segment: String
+  public let offerCode: String
+  public let dominantNeed: FeatureNeed
+  public let metrics: UserEngagementMetrics
+  public init(segment: String, offerCode: String, dominantNeed: FeatureNeed, metrics: UserEngagementMetrics)
+  public static func == (a: UpgradeProfile, b: UpgradeProfile) -> Bool
+}
+extension SegmentRuleConfigError : Equatable {}
+extension SegmentRuleConfigError : Hashable {}
+extension FeatureNeed : Hashable {}
+extension FeatureNeed : RawRepresentable {}
