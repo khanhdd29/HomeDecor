@@ -2,171 +2,198 @@
 //  SearchScreen.swift  (Inspiration tab)
 //  HomeDecor
 //
-//  Category browser — matches Figma node 10:2689. "Category" header +
-//  Outside/Inside segmented control + big style-card sections.
-//  Sample data for now; wire to `artMagic.categories/templates` with credentials.
+//  Category browser — Figma 10:25576 (Inside) / 10:25180 (Loading). "Category"
+//  header + Outside/Inside segmented control + per-category rails (each with a
+//  See-All arrow). Tapping a style opens Style Detail; the arrow opens
+//  Category — See All. Sample data for now (InspirationCatalog); wire to
+//  `artMagic.categories/templates` with credentials.
 //
 
 import SwiftUI
-
-private struct CatCard: Identifiable {
-    let id = UUID()
-    let image: String
-    let title: String
-}
-
-private struct CatSection: Identifiable {
-    let id = UUID()
-    let title: String
-    let items: [CatCard]
-}
-
-private let categorySections: [CatSection] = [
-    .init(title: "Modern Outside", items: [
-        .init(image: "cat_snow_cozy", title: "Snow Cozy"),
-        .init(image: "cat_garden_view", title: "Garden View"),
-        .init(image: "cat_hillside", title: "Hillside"),
-        .init(image: "cat_lake_house", title: "Lake House"),
-    ]),
-    .init(title: "Living room", items: [
-        .init(image: "cat_warm_minimal", title: "Warm Minimal"),
-        .init(image: "cat_earthy_loft", title: "Earthy Loft"),
-        .init(image: "cat_sunlit", title: "Sunlit"),
-        .init(image: "cat_boho", title: "Boho"),
-    ]),
-    .init(title: "Bedroom", items: [
-        .init(image: "cat_linen_calm", title: "Linen Calm"),
-        .init(image: "cat_soft_neutral", title: "Soft Neutral"),
-        .init(image: "cat_cozy_nook", title: "Cozy Nook"),
-        .init(image: "cat_terra_suite", title: "Terra Suite"),
-    ]),
-    .init(title: "Bathroom", items: [
-        .init(image: "cat_spa_stone", title: "Spa Stone"),
-        .init(image: "cat_clean_lines", title: "Clean Lines"),
-        .init(image: "cat_marble", title: "Marble"),
-        .init(image: "cat_greenery", title: "Greenery"),
-    ]),
-    .init(title: "Kitchen", items: [
-        .init(image: "cat_oak_island", title: "Oak Island"),
-        .init(image: "cat_bright_cook", title: "Bright Cook"),
-        .init(image: "cat_rustic", title: "Rustic"),
-        .init(image: "cat_modern_chef", title: "Modern Chef"),
-    ]),
-    .init(title: "Fantasy style", items: [
-        .init(image: "cat_enchanted", title: "Enchanted"),
-        .init(image: "cat_mossy_hall", title: "Mossy Hall"),
-        .init(image: "cat_starlit", title: "Starlit"),
-        .init(image: "cat_misty_vale", title: "Misty Vale"),
-    ]),
-    .init(title: "Anime style", items: [
-        .init(image: "cat_sakura_room", title: "Sakura Room"),
-        .init(image: "cat_studio_sky", title: "Studio Sky"),
-        .init(image: "cat_neon_soft", title: "Neon Soft"),
-        .init(image: "cat_cel_shade", title: "Cel Shade"),
-    ]),
-    .init(title: "Cyberpunk bedroom", items: [
-        .init(image: "cat_neon_night", title: "Neon Night"),
-        .init(image: "cat_synth_loft", title: "Synth Loft"),
-        .init(image: "cat_holo_den", title: "Holo Den"),
-        .init(image: "cat_grid_city", title: "Grid City"),
-    ]),
-    .init(title: "Isometric room", items: [
-        .init(image: "cat_tiny_studio", title: "Tiny Studio"),
-        .init(image: "cat_mini_loft", title: "Mini Loft"),
-        .init(image: "cat_cube_home", title: "Cube Home"),
-        .init(image: "cat_pastel_box", title: "Pastel Box"),
-    ]),
-]
+import Factory
 
 struct SearchScreen: View {
+    @Injected(\.app) private var app
+    @InjectedObject(\.createSession) private var session: CreateSession
+    @Injected(\.inspiration) private var store: InspirationStore
+
     @State private var isOutside = true
+    @State private var loading = true
+
+    private var sections: [InspirationCategory] { InspirationCatalog.sections(outside: isOutside) }
 
     var body: some View {
         ZStack(alignment: .top) {
             BlobBackground()
 
-            ScrollView(showsIndicators: false) {
-                VStack(spacing: 28) {
-                    segmented
-                        .padding(.horizontal, 20)
+            VStack(spacing: 0) {
+                header
+                segmented
+                    .padding(.horizontal, 20)
+                    .padding(.top, 4)
+                    .padding(.bottom, 8)
 
-                    ForEach(categorySections) { section in
-                        sectionView(section)
-                    }
+                if loading {
+                    skeleton
+                } else {
+                    content
                 }
-                .padding(.top, 110)
-                .padding(.bottom, 130)
             }
-
-            header
+            .padding(.top, 50)
         }
         .trackScreen(.inspiration)
+        .task {
+            loading = true
+            try? await Task.sleep(nanoseconds: 650_000_000)
+            loading = false
+        }
     }
+
+    // MARK: Header
 
     private var header: some View {
         Text("category".localized)
-            .font(.system(size: 17, weight: .semibold))
-            .foregroundStyle(AppColor.ink)
-            .frame(height: 44)
-            .frame(maxWidth: .infinity)
+            .font(.system(size: 17, weight: .semibold)).foregroundStyle(AppColor.ink)
+            .frame(height: 44).frame(maxWidth: .infinity)
             .padding(.top, 8)
     }
 
+    // MARK: Segmented
+
     private var segmented: some View {
-        HStack(spacing: 4) {
-            segItem("outside".localized, active: isOutside) { isOutside = true }
-            segItem("inside".localized, active: !isOutside) { isOutside = false }
+        HStack(spacing: 10) {
+            segItem("outside".localized, icon: "house", active: isOutside) { isOutside = true }
+            segItem("inside".localized, icon: "sofa", active: !isOutside) { isOutside = false }
         }
-        .padding(4)
-        .frame(height: 52)
-        .background(.ultraThinMaterial, in: RoundedRectangle(cornerRadius: 26, style: .continuous))
-        .overlay(RoundedRectangle(cornerRadius: 26, style: .continuous).strokeBorder(.white.opacity(0.75), lineWidth: 1))
     }
 
-    private func segItem(_ title: String, active: Bool, action: @escaping () -> Void) -> some View {
+    private func segItem(_ title: String, icon: String, active: Bool, action: @escaping () -> Void) -> some View {
         Button(action: action) {
-            Text(title)
-                .font(.system(size: 15, weight: .semibold))
-                .foregroundStyle(active ? .white : AppColor.inkSecondary)
-                .frame(maxWidth: .infinity)
-                .frame(height: 44)
-                .background(active ? AppColor.ink : Color.clear,
-                           in: RoundedRectangle(cornerRadius: 22, style: .continuous))
-                .contentShape(Rectangle())
+            HStack(spacing: 8) {
+                Image(systemName: icon).font(.system(size: 15, weight: active ? .semibold : .regular))
+                Text(title).font(.system(size: 15, weight: active ? .semibold : .medium))
+            }
+            .foregroundStyle(active ? AppColor.coral : AppColor.inkSecondary)
+            .frame(maxWidth: .infinity).frame(height: 40)
+            .background(active ? Color(hex: 0xEAE8E6).opacity(0.9) : AppColor.ink.opacity(0.07),
+                       in: RoundedRectangle(cornerRadius: 20, style: .continuous))
+            .overlay(RoundedRectangle(cornerRadius: 20, style: .continuous)
+                .strokeBorder(active ? AppColor.coral : AppColor.ink.opacity(0.12), lineWidth: 1))
+            .contentShape(Rectangle())
         }
         .buttonStyle(.plain)
     }
 
-    private func sectionView(_ section: CatSection) -> some View {
+    // MARK: Content
+
+    private var content: some View {
+        ScrollView(showsIndicators: false) {
+            VStack(spacing: 24) {
+                ForEach(sections) { section in
+                    sectionView(section)
+                }
+            }
+            .padding(.top, 8)
+            .padding(.bottom, 130)
+        }
+    }
+
+    private func sectionView(_ section: InspirationCategory) -> some View {
         VStack(alignment: .leading, spacing: 14) {
             HStack {
-                Text(section.title).font(.system(size: 20, weight: .semibold)).tracking(-0.4)
+                Text(section.title)
+                    .font(.system(size: 21, weight: .bold)).tracking(-0.3)
                     .foregroundStyle(AppColor.ink)
                 Spacer()
-                Text("show_all".localized).font(.system(size: 14)).foregroundStyle(AppColor.inkSecondary)
+                Button {
+                    store.browseStyles = section.styles
+                    store.browseTitle = section.title
+                    app.navi.push(.categorySeeAll)
+                } label: {
+                    Image(systemName: "arrow.right")
+                        .font(.system(size: 13, weight: .semibold)).foregroundStyle(AppColor.coral)
+                        .frame(width: 34, height: 34)
+                        .background(.ultraThinMaterial, in: RoundedRectangle(cornerRadius: 17, style: .continuous))
+                        .overlay(RoundedRectangle(cornerRadius: 17, style: .continuous).strokeBorder(AppColor.coral, lineWidth: 1))
+                }
+                .buttonStyle(PressableStyle())
             }
             .padding(.horizontal, 20)
 
             ScrollView(.horizontal, showsIndicators: false) {
-                HStack(spacing: 12) {
-                    ForEach(section.items) { item in
-                        card(item)
+                HStack(spacing: 14) {
+                    ForEach(section.styles) { style in
+                        card(style, in: section.styles)
                     }
                 }
                 .padding(.horizontal, 20)
-                .padding(.bottom, 6)
+                .padding(.bottom, 4)
             }
         }
     }
 
-    private func card(_ item: CatCard) -> some View {
-        ZStack(alignment: .bottomLeading) {
-            Image(item.image).resizable().scaledToFill().frame(width: 156, height: 200)
-            LinearGradient(colors: [.clear, Color(hex: 0x140F0D).opacity(0.55)],
-                           startPoint: .center, endPoint: .bottom)
-            Text(item.title).font(.system(size: 15, weight: .semibold)).foregroundStyle(.white).padding(14)
+    private func card(_ style: CreateStyle, in styles: [CreateStyle]) -> some View {
+        Button {
+            session.start(style, in: styles)
+            app.navi.push(.styleDetail)
+        } label: {
+            ZStack(alignment: .bottomLeading) {
+                Image(style.image).resizable().scaledToFill().frame(width: 156, height: 200)
+                LinearGradient(colors: [.clear, .black.opacity(0.62)], startPoint: .center, endPoint: .bottom)
+                Text(style.name).font(.system(size: 14, weight: .semibold)).foregroundStyle(.white).padding(11)
+            }
+            .frame(width: 156, height: 200)
+            .clipShape(RoundedRectangle(cornerRadius: 22, style: .continuous))
+            .overlay(RoundedRectangle(cornerRadius: 22, style: .continuous).strokeBorder(AppColor.ink.opacity(0.12), lineWidth: 1))
         }
-        .frame(width: 156, height: 200)
-        .clipShape(RoundedRectangle(cornerRadius: 24, style: .continuous))
+        .buttonStyle(PressableStyle())
+    }
+
+    // MARK: Loading skeleton
+
+    private var skeleton: some View {
+        ScrollView(showsIndicators: false) {
+            VStack(alignment: .leading, spacing: 24) {
+                ForEach(0..<3, id: \.self) { _ in
+                    VStack(alignment: .leading, spacing: 14) {
+                        HStack {
+                            shimmer.frame(width: 150, height: 20).clipShape(RoundedRectangle(cornerRadius: 8))
+                            Spacer()
+                            shimmer.frame(width: 34, height: 34).clipShape(RoundedRectangle(cornerRadius: 17))
+                        }
+                        .padding(.horizontal, 20)
+                        HStack(spacing: 10) {
+                            ForEach(0..<3, id: \.self) { _ in
+                                shimmer.frame(width: 156, height: 200).clipShape(RoundedRectangle(cornerRadius: 22))
+                            }
+                        }
+                        .padding(.leading, 20)
+                    }
+                }
+            }
+            .padding(.top, 8)
+        }
+    }
+
+    private var shimmer: some View {
+        ShimmerBox()
+    }
+}
+
+/// Soft shimmering placeholder used by the loading skeleton.
+private struct ShimmerBox: View {
+    @State private var phase: CGFloat = -1
+    var body: some View {
+        Rectangle()
+            .fill(Color(hex: 0xDDD8D4))
+            .overlay(
+                LinearGradient(colors: [.clear, Color(hex: 0xEAE8E6).opacity(0.9), .clear],
+                               startPoint: .leading, endPoint: .trailing)
+                    .scaleEffect(x: 0.5, y: 1, anchor: .leading)
+                    .offset(x: phase * 400)
+            )
+            .onAppear {
+                withAnimation(.linear(duration: 1.2).repeatForever(autoreverses: false)) { phase = 1.5 }
+            }
     }
 }

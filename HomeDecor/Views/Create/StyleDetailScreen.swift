@@ -13,8 +13,17 @@ import Factory
 struct StyleDetailScreen: View {
     @Injected(\.app) private var app
     @InjectedObject(\.createSession) private var session: CreateSession
+    @Injected(\.inspiration) private var store: InspirationStore
 
     private let bg = Color(hex: 0xEAE8E6)
+
+    private func openPreview() {
+        let styles = session.categoryStyles.isEmpty ? (session.style.map { [$0] } ?? []) : session.categoryStyles
+        guard !styles.isEmpty else { return }
+        store.browseStyles = styles
+        store.previewStart = styles.firstIndex { $0.id == session.style?.id } ?? 0
+        app.navi.push(.styleImagePreview)
+    }
 
     var body: some View {
         ZStack(alignment: .top) {
@@ -24,6 +33,7 @@ struct StyleDetailScreen: View {
                 .frame(height: 560)
                 .frame(maxWidth: .infinity, alignment: .top)
                 .ignoresSafeArea(edges: .top)
+                .onTapGesture { openPreview() }
 
             VStack(spacing: 0) {
                 CreateHeader(onBack: { app.navi.pop() })

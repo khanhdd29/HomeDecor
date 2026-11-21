@@ -27,6 +27,8 @@ enum Destination: Equatable {
     case compare
     case camera
     case adjustPhoto
+    case categorySeeAll
+    case styleImagePreview
 }
 
 extension Destination {
@@ -46,6 +48,8 @@ extension Destination {
         case .compare:            return "compare"
         case .camera:             return "camera"
         case .adjustPhoto:        return "adjustPhoto"
+        case .categorySeeAll:     return "categorySeeAll"
+        case .styleImagePreview:  return "styleImagePreview"
         }
     }
 }
@@ -82,6 +86,10 @@ extension Navigation {
             CameraScreen()
         case .adjustPhoto:
             AdjustPhotoScreen()
+        case .categorySeeAll:
+            CategorySeeAllScreen()
+        case .styleImagePreview:
+            StyleImagePreviewScreen()
         }
     }
 }
