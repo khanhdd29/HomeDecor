@@ -22,6 +22,10 @@ struct GeneratingScreen: View {
     @State private var progress: Double = 0
     @State private var scan: CGFloat = 0
     @State private var work: Task<Void, Never>?
+    @State private var showStop = false
+    @State private var failure: GenFailure?
+
+    private enum GenFailure { case failed, noInternet }
 
     private let cardHeight: CGFloat = 340
 
@@ -50,8 +54,33 @@ struct GeneratingScreen: View {
         }
         .background(BlobBackground().ignoresSafeArea())
         .toolbar(.hidden, for: .navigationBar)
+        .overlay { popupOverlay }
+        .animation(.easeInOut(duration: 0.2), value: showStop)
+        .animation(.easeInOut(duration: 0.2), value: failure != nil)
         .onAppear { start() }
         .onDisappear { work?.cancel() }
+    }
+
+    @ViewBuilder
+    private var popupOverlay: some View {
+        if showStop {
+            CoralPopup(
+                icon: "stop.fill", badge: "hourglass",
+                title: "stop_title".localized, message: "stop_message".localized,
+                primaryTitle: "keep_waiting".localized, primaryAction: { showStop = false },
+                secondaryTitle: "stop".localized,
+                secondaryAction: { showStop = false; work?.cancel(); app.navi.pop() })
+        } else if let failure {
+            let noNet = failure == .noInternet
+            CoralPopup(
+                icon: noNet ? "wifi.slash" : "exclamationmark.triangle.fill", badge: "arrow.clockwise",
+                title: (noNet ? "no_internet_title" : "gen_failed_title").localized,
+                message: (noNet ? "no_internet_message" : "gen_failed_message").localized,
+                primaryTitle: "try_again".localized,
+                primaryAction: { self.failure = nil; progress = 0; work?.cancel(); work = Task { await run() } },
+                secondaryTitle: "cancel".localized,
+                secondaryAction: { self.failure = nil; app.navi.pop() })
+        }
     }
 
     // MARK: Header (close)
@@ -61,7 +90,7 @@ struct GeneratingScreen: View {
             Text("generating".localized)
                 .font(.system(size: 17, weight: .semibold)).foregroundStyle(AppColor.ink)
             HStack {
-                Button { app.navi.pop() } label: {
+                Button { showStop = true } label: {
                     Image(systemName: "xmark")
                         .font(.system(size: 16, weight: .semibold)).foregroundStyle(AppColor.ink)
                         .frame(width: 44, height: 44).glassButton()
@@ -197,8 +226,8 @@ struct GeneratingScreen: View {
         // produced inside the detached task and awaited back).
         let code = session.style?.templateCode
         let file: URL? = session.sourcePhoto.flatMap { try? PhotoTools.jpegFile($0) }
-        let realTask: Task<UIImage?, Never>? = (code != nil && file != nil)
-            ? Task.detached { try? await Container.shared.artMagic().generate(photo: file!, code: code!) }
+        let realTask: Task<UIImage?, Error>? = (code != nil && file != nil)
+            ? Task.detached { try await Container.shared.artMagic().generate(photo: file!, code: code!) }
             : nil
 
         // Animate the fake progress over ~5s.
@@ -208,10 +237,31 @@ struct GeneratingScreen: View {
             progress = Double(i) / Double(ticks)
             try? await Task.sleep(nanoseconds: 85_000_000)
         }
-        let real = await realTask?.value
         if Task.isCancelled { return }
 
-        let after = real
+        if let realTask {
+            // Real generation: surface failures as popups rather than silently
+            // falling back.
+            do {
+                let img = try await realTask.value
+                if Task.isCancelled { return }
+                finish(with: img)
+            } catch is CancellationError {
+                return
+            } catch {
+                if Task.isCancelled { return }
+                let noNet = (error as? URLError)?.code == .notConnectedToInternet
+                failure = noNet ? .noInternet : .failed
+            }
+        } else {
+            // No credentials yet → mock render so the flow is usable.
+            finish(with: nil)
+        }
+    }
+
+    @MainActor
+    private func finish(with image: UIImage?) {
+        let after = image
             ?? session.style.flatMap { UIImage(named: $0.image) }
             ?? session.sourcePhoto
         session.result = after

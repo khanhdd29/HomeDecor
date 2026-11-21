@@ -21,6 +21,9 @@ struct UploadPhotoScreen: View {
     @State private var pickerItem: PhotosPickerItem?
     @State private var showCamera = false
     @State private var wantCamera = false
+    @State private var showChangeStyle = false
+    @State private var tempStyle: CreateStyle?
+    @State private var showPhotoQuality = false
 
     var body: some View {
         VStack(spacing: 0) {
@@ -38,7 +41,11 @@ struct UploadPhotoScreen: View {
             }
 
             FlowCTAButton(title: "continue".localized, enabled: session.sourcePhoto != nil) {
-                app.navi.push(.chooseStyle)
+                if let p = session.sourcePhoto, PhotoTools.isTooDark(p) {
+                    showPhotoQuality = true
+                } else {
+                    app.navi.push(.chooseStyle)
+                }
             }
             .padding(.horizontal, 20)
             .padding(.top, 8)
@@ -46,7 +53,20 @@ struct UploadPhotoScreen: View {
         }
         .background(BlobBackground().ignoresSafeArea())
         .toolbar(.hidden, for: .navigationBar)
+        .overlay {
+            if showPhotoQuality {
+                CoralPopup(
+                    icon: "exclamationmark.triangle.fill", badge: "sun.max.fill",
+                    title: "photo_quality_title".localized, message: "photo_quality_message".localized,
+                    primaryTitle: "choose_another".localized,
+                    primaryAction: { showPhotoQuality = false; showAddPhoto = true },
+                    secondaryTitle: "use_anyway".localized,
+                    secondaryAction: { showPhotoQuality = false; app.navi.push(.chooseStyle) })
+            }
+        }
+        .animation(.easeInOut(duration: 0.2), value: showPhotoQuality)
         .sheet(isPresented: $showAddPhoto) { addPhotoSheet }
+        .sheet(isPresented: $showChangeStyle) { changeStyleSheet }
         .fullScreenCover(isPresented: $showCamera) {
             SystemCameraPicker { session.sourcePhoto = $0 }
                 .ignoresSafeArea()
@@ -76,7 +96,7 @@ struct UploadPhotoScreen: View {
                         .font(.system(size: 15, weight: .semibold)).foregroundStyle(AppColor.ink)
                 }
                 Spacer()
-                Button { app.navi.push(.chooseStyle) } label: {
+                Button { tempStyle = session.style; showChangeStyle = true } label: {
                     Text("change".localized)
                         .font(.system(size: 14, weight: .semibold)).foregroundStyle(AppColor.coral)
                 }
@@ -229,6 +249,72 @@ struct UploadPhotoScreen: View {
         .frame(maxWidth: .infinity, alignment: .leading)
         .padding(.horizontal, 16).padding(.vertical, 18)
         .glassPanel(28)
+    }
+
+    // MARK: Change Style sheet
+
+    private var styleOptions: [CreateStyle] {
+        let cat = session.style?.category ?? ""
+        let base: [CreateStyle] = [
+            .init(image: "cat_snow_cozy", name: "Snow Cozy", category: cat),
+            .init(image: "cat_warm_minimal", name: "Warm Minimal", category: cat),
+            .init(image: "cat_earthy_loft", name: "Earthy Loft", category: cat),
+            .init(image: "cat_linen_calm", name: "Linen Calm", category: cat),
+            .init(image: "cat_spa_stone", name: "Spa Stone", category: cat),
+            .init(image: "cat_oak_island", name: "Oak Island", category: cat),
+        ]
+        var all = session.style.map { [$0] } ?? []
+        for s in base where !all.contains(where: { $0.id == s.id }) { all.append(s) }
+        return all
+    }
+
+    private var changeStyleSheet: some View {
+        let columns = Array(repeating: GridItem(.flexible(), spacing: 10), count: 3)
+        return VStack(spacing: 16) {
+            Text("choose_a_style".localized)
+                .font(.system(size: 19, weight: .bold)).foregroundStyle(AppColor.ink)
+                .padding(.top, 8)
+
+            ScrollView(showsIndicators: false) {
+                LazyVGrid(columns: columns, spacing: 14) {
+                    ForEach(styleOptions) { style in
+                        let selected = tempStyle?.id == style.id
+                        Button { tempStyle = style } label: {
+                            VStack(spacing: 6) {
+                                Color.clear.frame(height: 96)
+                                    .overlay(Image(style.image).resizable().scaledToFill())
+                                    .clipShape(RoundedRectangle(cornerRadius: 16, style: .continuous))
+                                    .overlay(RoundedRectangle(cornerRadius: 16, style: .continuous)
+                                        .strokeBorder(selected ? AppColor.coral : AppColor.ink.opacity(0.12),
+                                                      lineWidth: selected ? 2 : 1))
+                                Text(style.name)
+                                    .font(.system(size: 13, weight: selected ? .semibold : .medium))
+                                    .foregroundStyle(selected ? AppColor.coral : AppColor.ink.opacity(0.8))
+                                    .lineLimit(1)
+                            }
+                        }
+                        .buttonStyle(PressableStyle())
+                    }
+                }
+            }
+
+            Button {
+                if let t = tempStyle { session.select(t) }
+                showChangeStyle = false
+            } label: {
+                Text("apply_style".localized)
+                    .font(.system(size: 15, weight: .semibold)).foregroundStyle(.white)
+                    .frame(maxWidth: .infinity).frame(height: 52)
+                    .background(AppColor.ink, in: RoundedRectangle(cornerRadius: 26, style: .continuous))
+            }
+            .buttonStyle(PressableStyle())
+        }
+        .padding(.horizontal, 20)
+        .padding(.bottom, 20)
+        .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
+        .background(BlobBackground())
+        .presentationDetents([.medium, .large])
+        .presentationDragIndicator(.visible)
     }
 
     // MARK: Picker load

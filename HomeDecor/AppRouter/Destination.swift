@@ -24,6 +24,7 @@ enum Destination: Equatable {
     case chooseStyle
     case generating
     case result
+    case compare
 }
 
 extension Destination {
@@ -40,6 +41,7 @@ extension Destination {
         case .chooseStyle:        return "chooseStyle"
         case .generating:         return "generating"
         case .result:             return "result"
+        case .compare:            return "compare"
         }
     }
 }
@@ -70,6 +72,8 @@ extension Navigation {
             GeneratingScreen()
         case .result:
             ResultScreen()
+        case .compare:
+            CompareScreen()
         }
     }
 }

@@ -119,3 +119,34 @@
 "your_design" = "Your Design";
 "save_to_my_look" = "Save to My look";
 "view_in_my_look" = "View in My look";
+"drag_to_compare" = "Drag to compare";
+"choose_a_style" = "Choose a style";
+"apply_style" = "Apply style";
+
+/* Create flow — popups */
+"stop_title" = "Stop generating?";
+"stop_message" = "Your design is almost ready. If you leave now, progress will be lost.";
+"keep_waiting" = "Keep waiting";
+"stop" = "Stop";
+"gen_failed_title" = "Generation failed";
+"gen_failed_message" = "Something went wrong while creating your design. Please try again.";
+"no_internet_title" = "No internet";
+"no_internet_message" = "You're offline. Reconnect and try again.";
+"try_again" = "Try again";
+"discard_title" = "Discard design?";
+"discard_message" = "This design hasn't been saved. Leaving will discard it.";
+"keep_editing" = "Keep editing";
+"discard" = "Discard";
+"regenerate_title" = "Regenerate design?";
+"regenerate_message" = "Create a new version with the same photo and style.";
+"regenerate" = "Regenerate";
+"photo_quality_title" = "Photo looks dark";
+"photo_quality_message" = "This photo may be too dark for a good result. Try a brighter one.";
+"choose_another" = "Choose another";
+"use_anyway" = "Use anyway";
+"camera_access_title" = "Camera access";
+"camera_access_message" = "Allow camera access to take a photo of your room.";
+"camera_off_title" = "Camera is off";
+"camera_off_message" = "Enable camera access in Settings to take a photo.";
+"open_settings" = "Open Settings";
+"not_now" = "Not now";

@@ -18,6 +18,8 @@ struct ResultScreen: View {
     @State private var split: CGFloat = 0.5
     @State private var saved = false
     @State private var showShare = false
+    @State private var showDiscard = false
+    @State private var showRegen = false
 
     private let cardHeight: CGFloat = 440
 
@@ -43,6 +45,28 @@ struct ResultScreen: View {
         .sheet(isPresented: $showShare) {
             if let img = session.result { ActivityView(items: [img]) }
         }
+        .overlay { popupOverlay }
+        .animation(.easeInOut(duration: 0.2), value: showDiscard)
+        .animation(.easeInOut(duration: 0.2), value: showRegen)
+    }
+
+    @ViewBuilder
+    private var popupOverlay: some View {
+        if showDiscard {
+            CoralPopup(
+                icon: "trash.fill", badge: "xmark",
+                title: "discard_title".localized, message: "discard_message".localized,
+                primaryTitle: "keep_editing".localized, primaryAction: { showDiscard = false },
+                secondaryTitle: "discard".localized,
+                secondaryAction: { showDiscard = false; app.navi.pop() })
+        } else if showRegen {
+            CoralPopup(
+                icon: "sparkles", badge: "arrow.clockwise",
+                title: "regenerate_title".localized, message: "regenerate_message".localized,
+                primaryTitle: "regenerate".localized,
+                primaryAction: { showRegen = false; app.navi.pop(onComplete: { app.navi.push(.generating) }) },
+                secondaryTitle: "cancel".localized, secondaryAction: { showRegen = false })
+        }
     }
 
     // MARK: Header
@@ -52,7 +76,7 @@ struct ResultScreen: View {
             Text("your_design".localized)
                 .font(.system(size: 17, weight: .semibold)).foregroundStyle(AppColor.ink)
             HStack {
-                Button { app.navi.pop() } label: {
+                Button { if saved { app.navi.pop() } else { showDiscard = true } } label: {
                     Image(systemName: "chevron.left").font(.system(size: 18, weight: .semibold))
                         .foregroundStyle(AppColor.ink).frame(width: 44, height: 44).glassButton()
                 }
@@ -88,15 +112,18 @@ struct ResultScreen: View {
                         .frame(width: w, height: cardHeight).clipped()
                         .mask(alignment: .leading) { Rectangle().frame(width: w * split) }
                 }
-                // Divider + handle
+                // Divider + handle (tap to open fullscreen compare)
                 Rectangle().fill(.white).frame(width: 2, height: cardHeight)
                     .offset(x: w * split - 1)
-                Image(systemName: "arrow.left.arrow.right")
-                    .font(.system(size: 15, weight: .semibold)).foregroundStyle(.white)
-                    .frame(width: 44, height: 44)
-                    .background(.ultraThinMaterial, in: Circle())
-                    .overlay(Circle().strokeBorder(.white.opacity(0.5), lineWidth: 1))
-                    .offset(x: w * split - 22, y: cardHeight / 2 - 22)
+                Button { app.navi.push(.compare) } label: {
+                    Image(systemName: "arrow.left.arrow.right")
+                        .font(.system(size: 15, weight: .semibold)).foregroundStyle(.white)
+                        .frame(width: 44, height: 44)
+                        .background(.ultraThinMaterial, in: Circle())
+                        .overlay(Circle().strokeBorder(.white.opacity(0.5), lineWidth: 1))
+                }
+                .buttonStyle(PressableStyle())
+                .offset(x: w * split - 22, y: cardHeight / 2 - 22)
 
                 chip("before".localized, bg: Color.white.opacity(0.22)).padding(11)
                 chip("after".localized, bg: Color.white.opacity(0.22))
@@ -133,9 +160,7 @@ struct ResultScreen: View {
                     .font(.system(size: 13)).foregroundStyle(AppColor.inkSecondary)
             }
             Spacer()
-            iconButton("arrow.triangle.2.circlepath") {
-                app.navi.pop(onComplete: { app.navi.push(.generating) })
-            }
+            iconButton("arrow.triangle.2.circlepath") { showRegen = true }
             iconButton("square.and.arrow.up") { showShare = true }
         }
     }
