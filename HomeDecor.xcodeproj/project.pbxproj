@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		00853075507E2E0A3C773FA7 /* IosArtMagic.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = FAFC937ADB3958E36DA45617 /* IosArtMagic.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		2B745AF85551C12A50736312 /* IosArtMagic.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = FAFC937ADB3958E36DA45617 /* IosArtMagic.xcframework */; };
 		3A1F00010000000000000022 /* Factory in Frameworks */ = {isa = PBXBuildFile; productRef = 3A1F00010000000000000021 /* Factory */; };
 		3A1F00010000000000000057 /* Factory in Frameworks */ = {isa = PBXBuildFile; productRef = 3A1F00010000000000000059 /* Factory */; };
 		5F02775F2FE3EC5A00CFAE5F /* FacebookCore in Frameworks */ = {isa = PBXBuildFile; productRef = 5F02775E2FE3EC5A00CFAE5F /* FacebookCore */; };
@@ -23,15 +25,43 @@
 		5F0277B32FE3EFCF00CFAE5F /* FirebaseCore in Frameworks */ = {isa = PBXBuildFile; productRef = 5F0277B22FE3EFCF00CFAE5F /* FirebaseCore */; };
 		5F0277B62FE3F03A00CFAE5F /* AdjustSdk in Frameworks */ = {isa = PBXBuildFile; productRef = 5F0277B52FE3F03A00CFAE5F /* AdjustSdk */; };
 		5F0277B82FE3F05100CFAE5F /* AdjustSdk in Frameworks */ = {isa = PBXBuildFile; productRef = 5F0277B72FE3F05100CFAE5F /* AdjustSdk */; };
+		9D71B07AC6CE4B41CA3838A0 /* IosArtMagic.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = FAFC937ADB3958E36DA45617 /* IosArtMagic.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		A5313CC4146B380CBBCC2956 /* IosArtMagic.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = FAFC937ADB3958E36DA45617 /* IosArtMagic.xcframework */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		60B5296A0BD137D5E6DE226E /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				00853075507E2E0A3C773FA7 /* IosArtMagic.xcframework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D6420972C8D3C0EA18D7D999 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				9D71B07AC6CE4B41CA3838A0 /* IosArtMagic.xcframework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		3A1F00010000000000000001 /* SwiftBase.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftBase.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3A1F00010000000000000002 /* SwiftBase-dev.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "SwiftBase-dev.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		FAFC937ADB3958E36DA45617 /* IosArtMagic.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; includeInIndex = 1; name = IosArtMagic.xcframework; path = Frameworks/IosArtMagic.xcframework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
-		3A1F00010000000000000060 /* Exceptions for "SwiftBase" folder in "SwiftBase" target */ = {
+		3A1F00010000000000000060 /* Exceptions for "HomeDecor" folder in "SwiftBase" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
 				"Resources/GoogleService-Info-dev.plist",
@@ -39,7 +69,7 @@
 			);
 			target = 3A1F00010000000000000008 /* SwiftBase */;
 		};
-		3A1F00010000000000000061 /* Exceptions for "SwiftBase" folder in "SwiftBase-dev" target */ = {
+		3A1F00010000000000000061 /* Exceptions for "HomeDecor" folder in "SwiftBase-dev" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
 				"Resources/GoogleService-Info.plist",
@@ -50,11 +80,11 @@
 /* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
-		5F246F362FE3A1E300F2A107 /* SwiftBase */ = {
+		5F246F362FE3A1E300F2A107 /* HomeDecor */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			exceptions = (
-				3A1F00010000000000000060 /* Exceptions for "SwiftBase" folder in "SwiftBase" target */,
-				3A1F00010000000000000061 /* Exceptions for "SwiftBase" folder in "SwiftBase-dev" target */,
+				3A1F00010000000000000060 /* Exceptions for "HomeDecor" folder in "SwiftBase" target */,
+				3A1F00010000000000000061 /* Exceptions for "HomeDecor" folder in "SwiftBase-dev" target */,
 			);
 			path = HomeDecor;
 			sourceTree = "<group>";
@@ -74,6 +104,7 @@
 				5F0277A12FE3EF0500CFAE5F /* FirebaseAnalytics in Frameworks */,
 				5F0277B62FE3F03A00CFAE5F /* AdjustSdk in Frameworks */,
 				5F02779F2FE3EF0000CFAE5F /* ads-swift in Frameworks */,
+				A5313CC4146B380CBBCC2956 /* IosArtMagic.xcframework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -89,6 +120,7 @@
 				5F0277AB2FE3EF4200CFAE5F /* FirebaseAnalytics in Frameworks */,
 				5F0277B82FE3F05100CFAE5F /* AdjustSdk in Frameworks */,
 				5F0277A72FE3EF3700CFAE5F /* ads-swift in Frameworks */,
+				2B745AF85551C12A50736312 /* IosArtMagic.xcframework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -98,7 +130,7 @@
 		3A1F00010000000000000006 = {
 			isa = PBXGroup;
 			children = (
-				5F246F362FE3A1E300F2A107 /* SwiftBase */,
+				5F246F362FE3A1E300F2A107 /* HomeDecor */,
 				5F02779D2FE3EF0000CFAE5F /* Frameworks */,
 				3A1F00010000000000000007 /* Products */,
 			);
@@ -116,6 +148,7 @@
 		5F02779D2FE3EF0000CFAE5F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				FAFC937ADB3958E36DA45617 /* IosArtMagic.xcframework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -131,13 +164,14 @@
 				3A1F00010000000000000005 /* Frameworks */,
 				3A1F0001000000000000000B /* Resources */,
 				5FB8733D2FE3F9B50084F7DE /* Firebase Crashlytics */,
+				D6420972C8D3C0EA18D7D999 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
 			fileSystemSynchronizedGroups = (
-				5F246F362FE3A1E300F2A107 /* SwiftBase */,
+				5F246F362FE3A1E300F2A107 /* HomeDecor */,
 			);
 			name = SwiftBase;
 			packageProductDependencies = (
@@ -161,13 +195,14 @@
 				3A1F00010000000000000054 /* Sources */,
 				3A1F00010000000000000055 /* Frameworks */,
 				3A1F00010000000000000056 /* Resources */,
+				60B5296A0BD137D5E6DE226E /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
 			fileSystemSynchronizedGroups = (
-				5F246F362FE3A1E300F2A107 /* SwiftBase */,
+				5F246F362FE3A1E300F2A107 /* HomeDecor */,
 			);
 			name = "SwiftBase-dev";
 			packageProductDependencies = (
@@ -202,7 +237,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 3A1F0001000000000000000D /* Build configuration list for PBXProject "SwiftBase" */;
+			buildConfigurationList = 3A1F0001000000000000000D /* Build configuration list for PBXProject "HomeDecor" */;
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -418,6 +453,10 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				ENABLE_PREVIEWS = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Frameworks",
+				);
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = HomeDecor/Resources/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -444,6 +483,10 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				ENABLE_PREVIEWS = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Frameworks",
+				);
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = HomeDecor/Resources/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -470,6 +513,10 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				ENABLE_PREVIEWS = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Frameworks",
+				);
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = HomeDecor/Resources/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "SwiftBase Dev";
@@ -498,6 +545,10 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				ENABLE_PREVIEWS = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Frameworks",
+				);
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = HomeDecor/Resources/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "SwiftBase Dev";
@@ -530,7 +581,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		3A1F0001000000000000000D /* Build configuration list for PBXProject "SwiftBase" */ = {
+		3A1F0001000000000000000D /* Build configuration list for PBXProject "HomeDecor" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				3A1F0001000000000000000E /* Debug */,

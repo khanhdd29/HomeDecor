@@ -60,20 +60,22 @@
 
 ---
 
-## PHASE 1 — Tích hợp ArtMagicKit (nền AI gen)
+## PHASE 1 — Tích hợp ArtMagicKit (nền AI gen) — ✅ tích hợp xong (2026-11-21)
 *Theo `docs/ArtMagicKit/README.md` + `REFERENCE.md`. Làm TRƯỚC khi dựng màn Create.*
 
-- [ ] 1.1 Add `IosArtMagic.xcframework` vào target: **Link + Embed & Sign**. Chạy `scripts/patch_artmagic_interface.sh` (Xcode 26.x / Swift 6.4).
-- [ ] 1.2 Copy `Sources/` vào `HomeDecor/Services/ArtMagic/`: `ArtMagicService.swift`, `+Generate`, `+Catalog`, `+Chat`, `Parsing/*`, `PhotoTools.swift`.
-- [ ] 1.3 Credentials qua Remote Config `app_configs` (dev + prod): `appId`, `secretKey`, `agentId`. Để rỗng 2 hằng `hardcoded*`. **Cần xin từ Code12** (xem ❓).
-- [ ] 1.4 Factory: `artMagic` singleton (`Container+Services`). Service đọc credentials lười sau splash fetch.
-- [ ] 1.5 Info.plist usage descriptions (nội dung Home Decor): `NSCameraUsageDescription`, `NSPhotoLibraryUsageDescription`, `NSPhotoLibraryAddUsageDescription`.
-- [ ] 1.6 **Smoke test (DEBUG, làm ngay):** in payload `categoryGroups()`, `templates()`, `decorate(...)`; chỉnh `GenerationParser.urlKeys` / `HomeContentParser` khớp key thật của server.
-- [ ] 1.7 `LookStore` (Documents/Looks) — lưu/đọc/xoá ảnh kết quả.
-- [ ] 1.8 Models: `CreateSession` (state luồng tạo), `HomeContent`/`HomeSection`/`HomeTemplate` (đã có trong Parsing) — gỡ phần dính `Zone` của HomeDecor cũ nếu còn.
-- [ ] 1.9 Policy `premium` cho v1: lọc bỏ hoặc hiển-thị-không-chặn template premium (**không** paywall).
+> **BUILD SUCCEEDED + app chạy không dyld-crash** → framework embed đúng. Chưa test gen thật (chờ credentials Code12).
 
-**Done khi:** gọi được `sections()` / `generate(photo:code:)` thật end-to-end bằng 1 code test (log ra UIImage).
+- [x] 1.1 Add `IosArtMagic.xcframework` (patch interface + copy ra `Frameworks/`) → **Link + Embed & Sign** cho cả 2 target (via gem `xcodeproj`), set `FRAMEWORK_SEARCH_PATHS`.
+- [x] 1.2 Copy `Sources/` → `HomeDecor/Services/ArtMagic/` (service + `+Generate`/`+Catalog`/`+Chat` + `Parsing/*` + `PhotoTools`).
+- [x] 1.3 Credentials qua Remote Config `app_configs`: thêm `appId`/`secretKey`/`agentId` vào `AppConfig`. **Cần Code12 cấp giá trị thật** (xem ❓).
+- [x] 1.4 Factory `artMagic` singleton (`Container+Services.swift`) đọc credentials lười; `ArtMagicConfig.agentId` cho chat.
+- [x] 1.5 Info.plist: `NSCameraUsageDescription`, `NSPhotoLibraryUsageDescription`, `NSPhotoLibraryAddUsageDescription` (wording Home Decor).
+- [~] 1.6 **Smoke test**: đã có scaffold `ArtMagicSmokeTest.run()` (DEBUG, chạy tay). **Chạy thật + chỉnh key parser khi có credentials.**
+- [x] 1.7 `LookStore` (Documents/Looks) — lưu/đọc/xoá ảnh kết quả.
+- [x] 1.8 Models: `HomeContent`/`HomeSection`/`HomeTemplate` (đi kèm kit, đã sạch `Zone`). `CreateSession` → dựng ở **Phase 4** (state luồng tạo).
+- [x] 1.9 Policy `premium` v1: **hiển thị tất cả template, không gate, không badge** (vì không paywall) — áp khi render ở Phase 3/5.
+
+**Done khi:** gọi được `sections()` / `generate(photo:code:)` thật end-to-end. → **Tích hợp + build + chạy OK; gọi server thật chờ credentials Code12.**
 
 ---
 

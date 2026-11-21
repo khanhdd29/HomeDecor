@@ -2,6 +2,12 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>NSCameraUsageDescription</key>
+	<string>Home Decor uses the camera to take a photo of your room so AI can redesign it.</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>Home Decor needs access to your photos so you can pick a room image to redesign.</string>
+	<key>NSPhotoLibraryAddUsageDescription</key>
+	<string>Home Decor saves your generated room designs to your photo library.</string>
 	<key>CFBundleURLTypes</key>
 	<array>
 		<dict>

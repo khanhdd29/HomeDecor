@@ -15,6 +15,12 @@ struct AppConfig: Codable {
     var appToken: String = ""
     var eventToken: String = ""
 
+    // ArtMagic (Code12) credentials — supplied via Remote Config `app_configs`,
+    // never committed. `ArtMagicService` reads appId/secretKey; chat uses agentId.
+    var appId: String = ""
+    var secretKey: String = ""
+    var agentId: String = ""
+
     init() {}
 
     init(from decoder: Decoder) throws {
@@ -23,6 +29,9 @@ struct AppConfig: Codable {
         appVersion = try c.decodeIfPresent(String.self, forKey: .appVersion) ?? ""
         appToken = try c.decodeIfPresent(String.self, forKey: .appToken) ?? ""
         eventToken = try c.decodeIfPresent(String.self, forKey: .eventToken) ?? ""
+        appId = try c.decodeIfPresent(String.self, forKey: .appId) ?? ""
+        secretKey = try c.decodeIfPresent(String.self, forKey: .secretKey) ?? ""
+        agentId = try c.decodeIfPresent(String.self, forKey: .agentId) ?? ""
     }
 
     var isInReview: Bool {
