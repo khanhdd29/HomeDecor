@@ -179,21 +179,3 @@ struct SearchScreen: View {
         ShimmerBox()
     }
 }
-
-/// Soft shimmering placeholder used by the loading skeleton.
-private struct ShimmerBox: View {
-    @State private var phase: CGFloat = -1
-    var body: some View {
-        Rectangle()
-            .fill(Color(hex: 0xDDD8D4))
-            .overlay(
-                LinearGradient(colors: [.clear, Color(hex: 0xEAE8E6).opacity(0.9), .clear],
-                               startPoint: .leading, endPoint: .trailing)
-                    .scaleEffect(x: 0.5, y: 1, anchor: .leading)
-                    .offset(x: phase * 400)
-            )
-            .onAppear {
-                withAnimation(.linear(duration: 1.2).repeatForever(autoreverses: false)) { phase = 1.5 }
-            }
-    }
-}

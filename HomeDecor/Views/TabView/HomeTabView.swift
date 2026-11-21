@@ -30,7 +30,7 @@ struct HomeTabView: View {
                 tab(.setting, destination: .setting, navigation: settingNavi)
             }
 
-            if activeNavigation.isAtRoot {
+            if activeNavigation.isAtRoot && !app.hideShellChrome {
                 ZStack(alignment: .topTrailing) {
                     CoralTabBar(selection: $app.activeTab)
                     AIChatFAB(action: { /* Phase 7: open AI chat */ })
@@ -42,6 +42,7 @@ struct HomeTabView: View {
             }
         }
         .animation(.easeInOut(duration: 0.2), value: activeNavigation.isAtRoot)
+        .animation(.easeInOut(duration: 0.2), value: app.hideShellChrome)
         .onAppear {
             guard !isFirstAppear else { return }
             isFirstAppear = true

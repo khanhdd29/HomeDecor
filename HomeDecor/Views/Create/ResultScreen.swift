@@ -181,7 +181,9 @@ struct ResultScreen: View {
                 app.navi.popToRoot(.root)
                 app.activeTab = .mylook
             } else if let img = session.result {
-                try? LookStore.shared.add(img)
+                try? LookStore.shared.add(before: session.sourcePhoto, after: img,
+                                          name: session.style?.name, room: session.roomType,
+                                          isOutside: session.isOutside)
                 saved = true
             }
         } label: {

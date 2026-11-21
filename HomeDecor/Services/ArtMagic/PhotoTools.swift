@@ -87,4 +87,11 @@ enum PhotoTools {
     static func openSettings() {
         if let url = URL(string: UIApplication.openSettingsURLString) { UIApplication.shared.open(url) }
     }
+
+    /// Save an image to the system Photos library (prompts for add-access on
+    /// first use via NSPhotoLibraryAddUsageDescription).
+    @MainActor
+    static func saveToPhotos(_ image: UIImage) {
+        UIImageWriteToSavedPhotosAlbum(image, nil, nil, nil)
+    }
 }

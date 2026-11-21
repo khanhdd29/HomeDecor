@@ -84,6 +84,18 @@
 "empty_title" = "It's seem to be empty";
 "empty_subtitle" = "Upload your photo to start trying on house style";
 "start_transform" = "Start to transform";
+"download" = "Download";
+"share_action" = "Share";
+"delete" = "Delete";
+"n_selected" = "%d selected";
+"all" = "All";
+"delete_look_title" = "Delete design?";
+"delete_look_message" = "This design will be removed from My look. This can't be undone.";
+"delete_selected_title" = "Delete %d designs?";
+"delete_selected_message" = "The selected designs will be removed from My look. This can't be undone.";
+"saved_to_photos" = "Saved to Photos";
+"saved_n_to_photos" = "Saved %d to Photos";
+"deleted_toast" = "Deleted";
 
 /* Create flow — Phase 4 */
 "try_this_style" = "Try this style";

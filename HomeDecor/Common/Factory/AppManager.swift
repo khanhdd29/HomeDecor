@@ -18,4 +18,8 @@ final class AppManager: ObservableObject {
 
     /// Whether the app is currently backgrounded.
     @Published var isInBackground: Bool = false
+
+    /// Hides the floating tab bar + AI Chat FAB even at the root (e.g. while the
+    /// My look gallery is in multi-select mode).
+    @Published var hideShellChrome: Bool = false
 }

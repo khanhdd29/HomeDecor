@@ -29,6 +29,7 @@ enum Destination: Equatable {
     case adjustPhoto
     case categorySeeAll
     case styleImagePreview
+    case galleryDetail
 }
 
 extension Destination {
@@ -50,6 +51,7 @@ extension Destination {
         case .adjustPhoto:        return "adjustPhoto"
         case .categorySeeAll:     return "categorySeeAll"
         case .styleImagePreview:  return "styleImagePreview"
+        case .galleryDetail:      return "galleryDetail"
         }
     }
 }
@@ -90,6 +92,8 @@ extension Navigation {
             CategorySeeAllScreen()
         case .styleImagePreview:
             StyleImagePreviewScreen()
+        case .galleryDetail:
+            GalleryDetailScreen()
         }
     }
 }
