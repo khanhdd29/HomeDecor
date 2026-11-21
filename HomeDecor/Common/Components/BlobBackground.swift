@@ -2,30 +2,29 @@
 //  BlobBackground.swift
 //  HomeDecor
 //
-//  The Coral Glass screen background: warm peach gradient + soft blurred blobs.
-//  Use as a screen background: `.background(BlobBackground())`.
+//  Coral Glass screen background: neutral base (#EAE8E6) with soft warm peach
+//  blobs — matches the Figma onboarding background (peach wash fading down).
 //
 
 import SwiftUI
 
 struct BlobBackground: View {
-    /// Tune how strong the coral blobs read on this screen.
     var intensity: Double = 1.0
 
     var body: some View {
         ZStack {
-            AppGradient.background
+            AppColor.bgBase
 
             GeometryReader { geo in
                 let w = geo.size.width
                 let h = geo.size.height
                 ZStack {
-                    blob(AppColor.blobCoral.opacity(0.32 * intensity), size: 340, x: w * 0.86, y: h * 0.10)
-                    blob(AppColor.blobPeach.opacity(0.55 * intensity), size: 380, x: w * 0.06, y: h * 0.42)
-                    blob(AppColor.blobCoral.opacity(0.20 * intensity), size: 320, x: w * 0.92, y: h * 0.82)
-                    blob(AppColor.blobPeach.opacity(0.40 * intensity), size: 300, x: w * 0.10, y: h * 0.95)
+                    blob(AppColor.blobWarm.opacity(0.85 * intensity), size: 460, x: w * 0.80, y: h * 0.06)
+                    blob(AppColor.blobPeach.opacity(0.80 * intensity), size: 420, x: w * 0.15, y: h * 0.02)
+                    blob(AppColor.blobWarm.opacity(0.45 * intensity), size: 360, x: w * 0.95, y: h * 0.40)
+                    blob(AppColor.blobPeach.opacity(0.35 * intensity), size: 320, x: w * 0.05, y: h * 0.52)
                 }
-                .blur(radius: 70)
+                .blur(radius: 80)
             }
         }
         .ignoresSafeArea()
@@ -43,9 +42,7 @@ struct BlobBackground: View {
 #Preview {
     ZStack {
         BlobBackground()
-        Text("Coral Glass")
-            .font(.appDisplay())
-            .foregroundStyle(AppColor.ink)
+        Text("Coral Glass").font(.appDisplay()).foregroundStyle(AppColor.ink)
     }
 }
 #endif

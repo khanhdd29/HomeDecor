@@ -79,14 +79,17 @@
 
 ---
 
-## PHASE 2 — Onboarding reskin (Splash · Language · Intro)
-- [ ] 2.1 **Splash** Coral Glass + progress bar % theo bước config thật (giữ thứ tự `configAds`, ads tắt).
-- [ ] 2.2 **Language** (onboarding) + **Language 3** theo Figma (list cờ + chọn).
-- [ ] 2.3 **Intro** 4 slide (Intro 1–4) nội dung + minh hoạ Coral Glass; nút next/skip/done → `finishOnboarding()`.
-  - *Ghi chú:* Figma có thêm biến thể Intro 13–16 (A/B) — chốt 1 bộ khi làm.
-- [ ] 2.4 Cập nhật `IntroPage.all` + localize.
+## PHASE 2 — Onboarding reskin (Splash · Language · Intro) — ✅ XONG, bám Figma 1:1 (2026-11-21)
+*Dựng lại từ `get_design_context` thật (nodes 13:38678 splash, 13:38180–38348 intro, 10:23507 language) + tải asset thật từ Figma. Bản "tự chế" (SF Symbol/gradient tự chọn) trước đó đã bỏ.*
 
-**Done khi:** luồng Splash→Language→Intro→Home đúng theme, returning user vào thẳng Home.
+- [x] 2.0 **Assets thật**: tải 11 ảnh phòng + 15 cờ tròn + logo glyph → 27 imageset trong `Assets.xcassets`. Nền design = `#EAE8E6` + blob peach (BlobBackground dựng lại), coral `#EF5B3A` + gradient `#FF9E78→#E04229`, inkSecondary `#6E6A66`.
+- [x] 2.1 **Splash**: 3 ảnh phòng **polaroid thật** xoè + vòng orbit nét đứt + logo coral (ảnh) + "HOME DECOR" + tagline + progress gradient coral. Giữ nguyên `configAds`/`step`.
+- [x] 2.2 **Language**: **16 ngôn ngữ đúng Figma** (bỏ Tiếng Việt), row kính (white .6 + viền + blur), **cờ ảnh tròn**, native name + tên tiếng Anh, radio coral; header check coral; **back chỉ khi mở từ Settings**.
+- [x] 2.3 **Intro** 4 slide **thật** (no-ad): (1) polaroid Before/After + badge sparkle; (2) ảnh office + bubble chat user(đen)/AI(kính, logo avatar) + palette; (3) 3 card style + chip "✦ Applied: Japandi"; (4) 2 polaroid + 2 chip saves + chip "✦ Save to my board". Nút **Next đen**, **Start (slide cuối) coral**. Carousel bằng `DragGesture` (bỏ `.page` TabView).
+- [x] 2.4 `IntroPage.all` = 4 slide; **AppLanguage = 16 ngôn ngữ** (rawValue = lproj: hi, pt-BR, es, en, fr, id, ko, ja, de, pt-PT, ar, bn, ru, tr, zh-Hans, zh-Hant) + `englishName` + `flagAsset` + `chatCode`.
+- [x] 2.5 **Dịch 16 ngôn ngữ**: 26 key onboarding/nav dịch đủ 16; key placeholder khác fallback English (màn placeholder sẽ thay ở Phase sau).
+
+**Done khi:** Splash→Language→Intro→Home đúng design, chạy thật end-to-end. → **Đạt & verify từng màn trên simulator.** (Ảnh phòng intro/chip là mock trong design; đã dùng đúng ảnh Figma.)
 
 ---
 

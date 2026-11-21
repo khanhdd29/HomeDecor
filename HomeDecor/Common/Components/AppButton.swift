@@ -86,6 +86,7 @@ struct CircleIconButton: View {
                 .foregroundStyle(tint)
                 .frame(width: size, height: size)
                 .glassCard(cornerRadius: AppRadius.pill)
+                .contentShape(Circle())
         }
         .buttonStyle(PressableStyle())
     }
@@ -105,6 +106,7 @@ struct CoralCircleButton: View {
                 .frame(width: size, height: size)
                 .background(AppColor.coral, in: Circle())
                 .shadow(color: AppColor.coral.opacity(0.4), radius: 12, x: 0, y: 6)
+                .contentShape(Circle())
         }
         .buttonStyle(PressableStyle())
     }

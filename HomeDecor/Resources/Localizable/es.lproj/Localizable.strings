@@ -3,9 +3,8 @@
 "save" = "Guardar";
 "skip" = "Omitir";
 "next" = "Siguiente";
-"get_started" = "Empezar";
+"get_started" = "Comenzar";
 "back" = "Atrás";
-
 /* Tabs */
 "home" = "Inicio";
 "search" = "Buscar";
@@ -15,8 +14,7 @@
 /* Language picker */
 "choose_your_language" = "Elige tu idioma";
 "change_language_later" = "Puedes cambiarlo más tarde en Ajustes.";
-"please_select_language" = "Por favor, selecciona tu idioma";
-
+"please_select_language" = "Selecciona un idioma para continuar";
 /* Settings */
 "general" = "General";
 "language" = "Idioma";
@@ -40,13 +38,12 @@
 "nothing_saved_yet" = "Aún no hay nada guardado";
 
 /* Onboarding intro */
-"intro_title_1" = "Todo en un solo lugar";
-"intro_message_1" = "Un punto de partida limpio con navegación, pestañas e introducción ya configurados.";
-"intro_title_2" = "Crea más rápido";
-"intro_message_2" = "Los módulos reutilizables te permiten centrarte en las funciones en lugar de la infraestructura.";
-"intro_title_3" = "Listo para publicar";
-"intro_message_3" = "Valores predeterminados sensatos y un núcleo de navegación probado, listo para usar.";
-
+"intro_title_1" = "Renovación con IA";
+"intro_message_1" = "Rediseña cualquier habitación o espacio exterior con ideas de IA.";
+"intro_title_2" = "Consejos de diseño IA";
+"intro_message_2" = "Recibe consejos de diseño interior e ideas de la IA.";
+"intro_title_3" = "Explora estilos";
+"intro_message_3" = "Descubre distintos estilos y encuentra el look perfecto para tu espacio.";
 /* Settings actions */
 "rate" = "Califícanos";
 "share" = "Compartir app";
@@ -54,7 +51,6 @@
 
 /* Splash */
 "loading" = "Cargando";
-
 /* Coral Glass — tabs & common */
 "create" = "Crear";
 "inspiration" = "Inspiración";
@@ -64,3 +60,9 @@
 "after" = "Después";
 "try_now" = "Probar ahora";
 "pro" = "Pro";
+
+/* Onboarding (Coral Glass) */
+"splash_tagline" = "Diseña el espacio de tus sueños con IA";
+"intro_title_4" = "Descubre inspiración";
+"intro_message_4" = "Explora interiores e ideas inspiradoras para cada habitación y estilo.";
+"start" = "Empezar";

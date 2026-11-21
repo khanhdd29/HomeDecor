@@ -24,7 +24,7 @@ struct SettingsScreen: View {
                         HStack {
                             Label("language".localized, systemImage: "globe")
                             Spacer()
-                            Text("\(coordinator.language.flag) \(coordinator.language.displayName)")
+                            Text(coordinator.language.displayName)
                                 .foregroundStyle(.secondary)
                             Image(systemName: "chevron.right")
                                 .font(.footnote.weight(.semibold))

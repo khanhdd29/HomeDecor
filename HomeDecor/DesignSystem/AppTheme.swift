@@ -32,6 +32,13 @@ enum AppGradient {
         startPoint: .top,
         endPoint: .bottom
     )
+
+    /// Coral brand gradient (logo, "Start" button, badges).
+    static let coral = LinearGradient(
+        colors: [AppColor.coralGradTop, AppColor.coralGradBot],
+        startPoint: .topLeading,
+        endPoint: .bottomTrailing
+    )
 }
 
 // MARK: - Type helpers

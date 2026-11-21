@@ -5,7 +5,6 @@
 "next" = "次へ";
 "get_started" = "はじめる";
 "back" = "戻る";
-
 /* Tabs */
 "home" = "ホーム";
 "search" = "検索";
@@ -15,8 +14,7 @@
 /* Language picker */
 "choose_your_language" = "言語を選択";
 "change_language_later" = "後で設定から変更できます。";
-"please_select_language" = "言語を選択してください";
-
+"please_select_language" = "続けるには言語を選択してください";
 /* Settings */
 "general" = "一般";
 "language" = "言語";
@@ -40,13 +38,12 @@
 "nothing_saved_yet" = "まだ保存されていません";
 
 /* Onboarding intro */
-"intro_title_1" = "すべてをひとつに";
-"intro_message_1" = "ナビゲーション、タブ、オンボーディングがあらかじめ組み込まれた、すっきりした出発点です。";
-"intro_title_2" = "より速く開発";
-"intro_message_2" = "再利用可能なモジュールにより、配線ではなく機能に集中できます。";
-"intro_title_3" = "リリース準備完了";
-"intro_message_3" = "実用的なデフォルトとテスト済みのナビゲーション基盤を、すぐに使えます。";
-
+"intro_title_1" = "AIで模様替え";
+"intro_message_1" = "AIの提案で、どんな部屋や屋外空間もデザインし直せます。";
+"intro_title_2" = "AIデザイン提案";
+"intro_message_2" = "AIからインテリアデザインのアドバイスとアイデアを受け取れます。";
+"intro_title_3" = "スタイルを探す";
+"intro_message_3" = "さまざまなスタイルから、あなたの空間にぴったりの雰囲気を見つけましょう。";
 /* Settings actions */
 "rate" = "評価する";
 "share" = "アプリを共有";
@@ -54,7 +51,6 @@
 
 /* Splash */
 "loading" = "読み込み中";
-
 /* Coral Glass — tabs & common */
 "create" = "作成";
 "inspiration" = "インスピレーション";
@@ -64,3 +60,9 @@
 "after" = "アフター";
 "try_now" = "試す";
 "pro" = "Pro";
+
+/* Onboarding (Coral Glass) */
+"splash_tagline" = "AIで理想の空間をデザイン";
+"intro_title_4" = "インスピレーション";
+"intro_message_4" = "あらゆる部屋とスタイルのインテリアやアイデアを発見できます。";
+"start" = "始める";

@@ -5,7 +5,6 @@
 "next" = "Next";
 "get_started" = "Get Started";
 "back" = "Back";
-
 /* Tabs */
 "home" = "Home";
 "search" = "Search";
@@ -15,8 +14,7 @@
 /* Language picker */
 "choose_your_language" = "Choose your language";
 "change_language_later" = "You can change this later in Settings.";
-"please_select_language" = "Please select your language";
-
+"please_select_language" = "Please select language to continue";
 /* Settings */
 "general" = "General";
 "language" = "Language";
@@ -40,13 +38,12 @@
 "nothing_saved_yet" = "Nothing saved yet";
 
 /* Onboarding intro */
-"intro_title_1" = "Everything in one place";
-"intro_message_1" = "A clean starting point with navigation, tabs and onboarding already wired up.";
-"intro_title_2" = "Build faster";
-"intro_message_2" = "Reusable modules let you focus on features instead of plumbing.";
-"intro_title_3" = "Ready to ship";
-"intro_message_3" = "Sensible defaults and a tested navigation core, straight out of the box.";
-
+"intro_title_1" = "AI Room Makeover";
+"intro_message_1" = "Redesign any room or outdoor space with AI-powered interior ideas.";
+"intro_title_2" = "AI Design Advice";
+"intro_message_2" = "Get personalized interior design advice and room ideas from AI.";
+"intro_title_3" = "Explore Interior Styles";
+"intro_message_3" = "Discover different styles and find the perfect look for your space.";
 /* Settings actions */
 "rate" = "Rate us";
 "share" = "Share app";
@@ -54,7 +51,6 @@
 
 /* Splash */
 "loading" = "Loading";
-
 /* Coral Glass — tabs & common */
 "create" = "Create";
 "inspiration" = "Inspiration";
@@ -64,3 +60,9 @@
 "after" = "After";
 "try_now" = "Try Now";
 "pro" = "Pro";
+
+/* Onboarding (Coral Glass) */
+"splash_tagline" = "Design your dream space with AI";
+"intro_title_4" = "Discover Inspiration";
+"intro_message_4" = "Explore inspiring interiors and ideas for every room and style.";
+"start" = "Start";

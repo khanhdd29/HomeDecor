@@ -3,9 +3,8 @@
 "save" = "Speichern";
 "skip" = "Überspringen";
 "next" = "Weiter";
-"get_started" = "Los geht’s";
+"get_started" = "Loslegen";
 "back" = "Zurück";
-
 /* Tabs */
 "home" = "Start";
 "search" = "Suchen";
@@ -15,8 +14,7 @@
 /* Language picker */
 "choose_your_language" = "Wähle deine Sprache";
 "change_language_later" = "Du kannst dies später in den Einstellungen ändern.";
-"please_select_language" = "Bitte wähle deine Sprache";
-
+"please_select_language" = "Wähle eine Sprache, um fortzufahren";
 /* Settings */
 "general" = "Allgemein";
 "language" = "Sprache";
@@ -40,21 +38,19 @@
 "nothing_saved_yet" = "Noch nichts gespeichert";
 
 /* Onboarding intro */
-"intro_title_1" = "Alles an einem Ort";
-"intro_message_1" = "Ein sauberer Ausgangspunkt mit bereits eingerichteter Navigation, Tabs und Einführung.";
-"intro_title_2" = "Schneller entwickeln";
-"intro_message_2" = "Wiederverwendbare Module lassen dich auf Funktionen statt auf Infrastruktur konzentrieren.";
-"intro_title_3" = "Bereit zur Veröffentlichung";
-"intro_message_3" = "Sinnvolle Voreinstellungen und ein getesteter Navigationskern, sofort einsatzbereit.";
-
+"intro_title_1" = "KI-Raumgestaltung";
+"intro_message_1" = "Gestalte jeden Raum oder Außenbereich mit KI-gestützten Ideen neu.";
+"intro_title_2" = "KI-Designberatung";
+"intro_message_2" = "Erhalte persönliche Einrichtungsberatung und Ideen von der KI.";
+"intro_title_3" = "Stile entdecken";
+"intro_message_3" = "Entdecke verschiedene Stile und finde den perfekten Look für deinen Raum.";
 /* Settings actions */
 "rate" = "Bewerte uns";
 "share" = "App teilen";
 "privacy_policy" = "Datenschutz";
 
 /* Splash */
-"loading" = "Laden";
-
+"loading" = "Lädt";
 /* Coral Glass — tabs & common */
 "create" = "Erstellen";
 "inspiration" = "Inspiration";
@@ -64,3 +60,9 @@
 "after" = "Nachher";
 "try_now" = "Jetzt testen";
 "pro" = "Pro";
+
+/* Onboarding (Coral Glass) */
+"splash_tagline" = "Gestalte deinen Traumraum mit KI";
+"intro_title_4" = "Inspiration finden";
+"intro_message_4" = "Entdecke inspirierende Interieurs und Ideen für jeden Raum und Stil.";
+"start" = "Starten";

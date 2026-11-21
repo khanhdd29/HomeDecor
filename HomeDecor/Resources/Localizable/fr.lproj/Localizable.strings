@@ -5,7 +5,6 @@
 "next" = "Suivant";
 "get_started" = "Commencer";
 "back" = "Retour";
-
 /* Tabs */
 "home" = "Accueil";
 "search" = "Rechercher";
@@ -15,8 +14,7 @@
 /* Language picker */
 "choose_your_language" = "Choisissez votre langue";
 "change_language_later" = "Vous pourrez le modifier plus tard dans les Réglages.";
-"please_select_language" = "Veuillez sélectionner votre langue";
-
+"please_select_language" = "Sélectionnez une langue pour continuer";
 /* Settings */
 "general" = "Général";
 "language" = "Langue";
@@ -40,13 +38,12 @@
 "nothing_saved_yet" = "Rien d’enregistré pour l’instant";
 
 /* Onboarding intro */
-"intro_title_1" = "Tout au même endroit";
-"intro_message_1" = "Un point de départ épuré avec la navigation, les onglets et l’introduction déjà en place.";
-"intro_title_2" = "Développez plus vite";
-"intro_message_2" = "Des modules réutilisables vous permettent de vous concentrer sur les fonctionnalités plutôt que sur la tuyauterie.";
-"intro_title_3" = "Prêt à publier";
-"intro_message_3" = "Des réglages par défaut judicieux et un cœur de navigation testé, prêts à l’emploi.";
-
+"intro_title_1" = "Relooking par IA";
+"intro_message_1" = "Redessinez n'importe quelle pièce ou extérieur grâce à l'IA.";
+"intro_title_2" = "Conseils déco par IA";
+"intro_message_2" = "Obtenez des conseils déco et des idées personnalisés par l'IA.";
+"intro_title_3" = "Explorez les styles";
+"intro_message_3" = "Découvrez différents styles et trouvez le look parfait pour votre espace.";
 /* Settings actions */
 "rate" = "Évaluez-nous";
 "share" = "Partager l'app";
@@ -54,7 +51,6 @@
 
 /* Splash */
 "loading" = "Chargement";
-
 /* Coral Glass — tabs & common */
 "create" = "Créer";
 "inspiration" = "Inspiration";
@@ -64,3 +60,9 @@
 "after" = "Après";
 "try_now" = "Essayer";
 "pro" = "Pro";
+
+/* Onboarding (Coral Glass) */
+"splash_tagline" = "Concevez l'espace de vos rêves avec l'IA";
+"intro_title_4" = "Trouvez l'inspiration";
+"intro_message_4" = "Explorez des intérieurs et des idées inspirants pour chaque pièce et style.";
+"start" = "Commencer";
