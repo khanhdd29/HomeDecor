@@ -19,8 +19,9 @@ struct UploadPhotoScreen: View {
 
     @State private var showAddPhoto = false
     @State private var pickerItem: PhotosPickerItem?
-    @State private var showCamera = false
     @State private var wantCamera = false
+    @State private var showCameraAccess = false
+    @State private var showCameraOff = false
     @State private var showChangeStyle = false
     @State private var tempStyle: CreateStyle?
     @State private var showPhotoQuality = false
@@ -65,18 +66,52 @@ struct UploadPhotoScreen: View {
             }
         }
         .animation(.easeInOut(duration: 0.2), value: showPhotoQuality)
+        .overlay { cameraPopups }
+        .animation(.easeInOut(duration: 0.2), value: showCameraAccess)
+        .animation(.easeInOut(duration: 0.2), value: showCameraOff)
         .sheet(isPresented: $showAddPhoto) { addPhotoSheet }
         .sheet(isPresented: $showChangeStyle) { changeStyleSheet }
-        .fullScreenCover(isPresented: $showCamera) {
-            SystemCameraPicker { session.sourcePhoto = $0 }
-                .ignoresSafeArea()
-        }
         .onChange(of: pickerItem) { load($0) }
         .onChange(of: showAddPhoto) { open in
             if !open && wantCamera {
                 wantCamera = false
-                if SystemCameraPicker.isAvailable { showCamera = true }
+                handleCameraEntry()
             }
+        }
+    }
+
+    // MARK: Camera entry + permission
+
+    private func handleCameraEntry() {
+        switch PhotoTools.cameraAccess {
+        case .granted:      app.navi.push(.camera)
+        case .undetermined: showCameraAccess = true
+        case .denied:       showCameraOff = true
+        }
+    }
+
+    @ViewBuilder
+    private var cameraPopups: some View {
+        if showCameraAccess {
+            CoralPopup(
+                icon: "camera.fill", badge: "checkmark",
+                title: "camera_access_title".localized, message: "camera_access_message".localized,
+                primaryTitle: "continue".localized,
+                primaryAction: {
+                    showCameraAccess = false
+                    Task {
+                        let ok = await PhotoTools.requestCamera()
+                        await MainActor.run { ok ? app.navi.push(.camera) : (showCameraOff = true) }
+                    }
+                },
+                secondaryTitle: "not_now".localized, secondaryAction: { showCameraAccess = false })
+        } else if showCameraOff {
+            CoralPopup(
+                icon: "camera.fill", badge: "xmark",
+                title: "camera_off_title".localized, message: "camera_off_message".localized,
+                primaryTitle: "open_settings".localized,
+                primaryAction: { showCameraOff = false; PhotoTools.openSettings() },
+                secondaryTitle: "not_now".localized, secondaryAction: { showCameraOff = false })
         }
     }
 

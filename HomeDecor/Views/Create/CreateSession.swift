@@ -32,6 +32,8 @@ final class CreateSession: ObservableObject {
     @Published var roomType: String = ""
     /// The room photo the user captured or picked (already `PhotoTools.normalized`).
     @Published var sourcePhoto: UIImage?
+    /// A freshly captured/picked photo awaiting crop on the Adjust screen.
+    @Published var captured: UIImage?
     /// The finished AI render.
     @Published var result: UIImage?
 

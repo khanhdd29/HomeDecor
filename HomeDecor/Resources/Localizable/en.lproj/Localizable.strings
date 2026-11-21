@@ -150,3 +150,9 @@
 "camera_off_message" = "Enable camera access in Settings to take a photo.";
 "open_settings" = "Open Settings";
 "not_now" = "Not now";
+"take_a_photo" = "Take a photo";
+"camera_hint" = "Fit the whole room in the frame";
+"adjust_photo" = "Adjust photo";
+"ratio_original" = "Original";
+"reset" = "Reset";
+"done" = "Done";
