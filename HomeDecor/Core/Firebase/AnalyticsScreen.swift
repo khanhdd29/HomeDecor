@@ -11,10 +11,10 @@ enum AnalyticsScreen: String {
     case intro
 
     // Main tabs
-    case home
-    case search
-    case favorites
-    case settings
+    case create                                    // Home / Create tab
+    case inspiration
+    case mylook = "my_look"
+    case setting
 
     // Detail / nested
     case homeDetail = "home_detail"

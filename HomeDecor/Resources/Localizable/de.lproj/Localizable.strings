@@ -54,3 +54,13 @@
 
 /* Splash */
 "loading" = "Laden";
+
+/* Coral Glass — tabs & common */
+"create" = "Erstellen";
+"inspiration" = "Inspiration";
+"my_look" = "Meine Looks";
+"setting" = "Einstellungen";
+"before" = "Vorher";
+"after" = "Nachher";
+"try_now" = "Jetzt testen";
+"pro" = "Pro";

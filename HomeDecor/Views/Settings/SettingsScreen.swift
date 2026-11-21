@@ -54,7 +54,7 @@ struct SettingsScreen: View {
                 }
             }
         }
-        .trackScreen(.settings)
+        .trackScreen(.setting)
     }
 
     /// A tappable settings row: leading icon + title, trailing chevron.

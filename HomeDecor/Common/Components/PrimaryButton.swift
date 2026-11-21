@@ -17,14 +17,9 @@ struct PrimaryButton: View {
     }
 
     var body: some View {
-        Button(action: action) {
-            Text(title.localized)
-                .font(.headline)
-                .frame(maxWidth: .infinity)
-                .padding()
-                .background(Color.accentColor, in: RoundedRectangle(cornerRadius: 14))
-                .foregroundStyle(.white)
-        }
+        // Coral Glass primary CTA. `title` is a localization key (kept for
+        // backwards-compatibility with existing call-sites).
+        CoralPillButton(title: title.localized, action: action)
     }
 }
 

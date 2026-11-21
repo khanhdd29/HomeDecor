@@ -1,34 +1,44 @@
 //
 //  HomeTab.swift
-//  SwiftBase
+//  HomeDecor
 //
-//  Created by VanTuan on 18/6/26.
+//  The four main tabs (Coral Glass): Create · Inspiration · My look · Setting.
 //
 
 import Foundation
 
 enum HomeTab: Hashable, CaseIterable {
-    case home
-    case search
-    case favorites
-    case settings
+    case create       // Home: hero + style catalog + Create FAB
+    case inspiration  // Browse catalog of styles / categories
+    case mylook       // Saved generated designs
+    case setting      // Settings
 
     var title: String {
         switch self {
-        case .home:      return "home".localized
-        case .search:    return "search".localized
-        case .favorites: return "favorites".localized
-        case .settings:  return "settings".localized
+        case .create:      return "create".localized
+        case .inspiration: return "inspiration".localized
+        case .mylook:      return "my_look".localized
+        case .setting:     return "setting".localized
         }
     }
 
-    /// SF Symbol name for the tab bar item.
+    /// SF Symbol for the tab bar item (outline = inactive).
     var icon: String {
         switch self {
-        case .home:      return "house.fill"
-        case .search:    return "magnifyingglass"
-        case .favorites: return "heart.fill"
-        case .settings:  return "gearshape.fill"
+        case .create:      return "house"
+        case .inspiration: return "square.grid.2x2"
+        case .mylook:      return "photo.on.rectangle"
+        case .setting:     return "gearshape"
+        }
+    }
+
+    /// Filled variant for the active tab.
+    var iconSelected: String {
+        switch self {
+        case .create:      return "house.fill"
+        case .inspiration: return "square.grid.2x2.fill"
+        case .mylook:      return "photo.fill.on.rectangle.fill"
+        case .setting:     return "gearshape.fill"
         }
     }
 }

@@ -54,3 +54,13 @@
 
 /* Splash */
 "loading" = "Đang tải";
+
+/* Coral Glass — tabs & common */
+"create" = "Tạo";
+"inspiration" = "Cảm hứng";
+"my_look" = "Thiết kế";
+"setting" = "Cài đặt";
+"before" = "Trước";
+"after" = "Sau";
+"try_now" = "Thử ngay";
+"pro" = "Pro";

@@ -29,7 +29,7 @@ struct HomeScreen: View {
             }
             .listStyle(.plain)
         }
-        .trackScreen(.home)
+        .trackScreen(.create)
     }
 }
 

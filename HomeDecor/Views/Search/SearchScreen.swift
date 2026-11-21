@@ -17,6 +17,6 @@ struct SearchScreen: View {
             BasicHeaderView("search".localized)
             Spacer()
         }
-        .trackScreen(.search)
+        .trackScreen(.inspiration)
     }
 }

@@ -56,7 +56,7 @@
 				3A1F00010000000000000060 /* Exceptions for "SwiftBase" folder in "SwiftBase" target */,
 				3A1F00010000000000000061 /* Exceptions for "SwiftBase" folder in "SwiftBase-dev" target */,
 			);
-			path = SwiftBase;
+			path = HomeDecor;
 			sourceTree = "<group>";
 		};
 /* End PBXFileSystemSynchronizedRootGroup section */
@@ -269,7 +269,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "UPLOAD_SYMBOLS_SCRIPT=\"${BUILD_DIR%/Build/*}/SourcePackages/checkouts/firebase-ios-sdk/Crashlytics/run\"\n\nGOOGLE_PLIST=\"${PROJECT_DIR}/SwiftBase/Resources/GoogleService-Info.plist\"\n\necho \"📍 upload-symbols script: $UPLOAD_SYMBOLS_SCRIPT\"\necho \"📍 GoogleService-Info.plist: $GOOGLE_PLIST\"\n\n\"$UPLOAD_SYMBOLS_SCRIPT\" \\\n  -gsp \"$GOOGLE_PLIST\"\n\necho \"✅ [Crashlytics] Finished uploading dSYM\"\n";
+			shellScript = "UPLOAD_SYMBOLS_SCRIPT=\"${BUILD_DIR%/Build/*}/SourcePackages/checkouts/firebase-ios-sdk/Crashlytics/run\"\n\nGOOGLE_PLIST=\"${PROJECT_DIR}/HomeDecor/Resources/GoogleService-Info.plist\"\n\necho \"📍 upload-symbols script: $UPLOAD_SYMBOLS_SCRIPT\"\necho \"📍 GoogleService-Info.plist: $GOOGLE_PLIST\"\n\n\"$UPLOAD_SYMBOLS_SCRIPT\" \\\n  -gsp \"$GOOGLE_PLIST\"\n\necho \"✅ [Crashlytics] Finished uploading dSYM\"\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -419,7 +419,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = SwiftBase/Resources/Info.plist;
+				INFOPLIST_FILE = HomeDecor/Resources/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
@@ -445,7 +445,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = SwiftBase/Resources/Info.plist;
+				INFOPLIST_FILE = HomeDecor/Resources/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
@@ -471,7 +471,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = SwiftBase/Resources/Info.plist;
+				INFOPLIST_FILE = HomeDecor/Resources/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "SwiftBase Dev";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
@@ -499,7 +499,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = SwiftBase/Resources/Info.plist;
+				INFOPLIST_FILE = HomeDecor/Resources/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "SwiftBase Dev";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;

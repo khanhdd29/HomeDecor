@@ -54,3 +54,13 @@
 
 /* Splash */
 "loading" = "読み込み中";
+
+/* Coral Glass — tabs & common */
+"create" = "作成";
+"inspiration" = "インスピレーション";
+"my_look" = "マイルック";
+"setting" = "設定";
+"before" = "ビフォー";
+"after" = "アフター";
+"try_now" = "試す";
+"pro" = "Pro";

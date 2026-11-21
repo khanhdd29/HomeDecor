@@ -17,7 +17,7 @@
                BlueprintIdentifier = "3A1F00010000000000000008"
                BuildableName = "SwiftBase.app"
                BlueprintName = "SwiftBase"
-               ReferencedContainer = "container:SwiftBase.xcodeproj">
+               ReferencedContainer = "container:HomeDecor.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -47,7 +47,7 @@
             BlueprintIdentifier = "3A1F00010000000000000008"
             BuildableName = "SwiftBase.app"
             BlueprintName = "SwiftBase"
-            ReferencedContainer = "container:SwiftBase.xcodeproj">
+            ReferencedContainer = "container:HomeDecor.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </LaunchAction>
@@ -64,7 +64,7 @@
             BlueprintIdentifier = "3A1F00010000000000000008"
             BuildableName = "SwiftBase.app"
             BlueprintName = "SwiftBase"
-            ReferencedContainer = "container:SwiftBase.xcodeproj">
+            ReferencedContainer = "container:HomeDecor.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

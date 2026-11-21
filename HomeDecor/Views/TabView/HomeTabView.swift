@@ -1,18 +1,21 @@
 //
 //  HomeTabView.swift
-//  SwiftBase
+//  HomeDecor
 //
-//  Created by VanTuan on 18/6/26.
+//  Four-tab shell: Create · Inspiration · My look · Setting.
+//  NOTE: uses the native TabView for now; the custom Coral Glass tab bar
+//  (`CoralTabBar` + `CreateFAB`) is wired in Phase 3 together with the Home
+//  screen so the FAB can launch the Create flow.
 //
 
 import SwiftUI
 import Factory
 
 struct HomeTabView: View {
-    @InjectedObject(\.homeNavi) private var homeNavi: Navigation
-    @InjectedObject(\.searchNavi) private var searchNavi: Navigation
-    @InjectedObject(\.favoritesNavi) private var favoritesNavi: Navigation
-    @InjectedObject(\.settingsNavi) private var settingsNavi: Navigation
+    @InjectedObject(\.createNavi) private var createNavi: Navigation
+    @InjectedObject(\.inspirationNavi) private var inspirationNavi: Navigation
+    @InjectedObject(\.mylookNavi) private var mylookNavi: Navigation
+    @InjectedObject(\.settingNavi) private var settingNavi: Navigation
     @InjectedObject(\.app) private var app: AppManager
     @EnvironmentObject private var coordinator: AppFlowCoordinator
 
@@ -23,26 +26,27 @@ struct HomeTabView: View {
         // changes at runtime (e.g. from the Settings language sheet).
         let _ = coordinator.language
         return TabView(selection: $app.activeTab) {
-            NavigationRoot(destination: .home, navigation: homeNavi)
-                .tabItem { Label(HomeTab.home.title, systemImage: HomeTab.home.icon) }
-                .tag(HomeTab.home)
+            NavigationRoot(destination: .create, navigation: createNavi)
+                .tabItem { Label(HomeTab.create.title, systemImage: HomeTab.create.icon) }
+                .tag(HomeTab.create)
 
-            NavigationRoot(destination: .search, navigation: searchNavi)
-                .tabItem { Label(HomeTab.search.title, systemImage: HomeTab.search.icon) }
-                .tag(HomeTab.search)
+            NavigationRoot(destination: .inspiration, navigation: inspirationNavi)
+                .tabItem { Label(HomeTab.inspiration.title, systemImage: HomeTab.inspiration.icon) }
+                .tag(HomeTab.inspiration)
 
-            NavigationRoot(destination: .favorites, navigation: favoritesNavi)
-                .tabItem { Label(HomeTab.favorites.title, systemImage: HomeTab.favorites.icon) }
-                .tag(HomeTab.favorites)
+            NavigationRoot(destination: .mylook, navigation: mylookNavi)
+                .tabItem { Label(HomeTab.mylook.title, systemImage: HomeTab.mylook.icon) }
+                .tag(HomeTab.mylook)
 
-            NavigationRoot(destination: .settings, navigation: settingsNavi)
-                .tabItem { Label(HomeTab.settings.title, systemImage: HomeTab.settings.icon) }
-                .tag(HomeTab.settings)
+            NavigationRoot(destination: .setting, navigation: settingNavi)
+                .tabItem { Label(HomeTab.setting.title, systemImage: HomeTab.setting.icon) }
+                .tag(HomeTab.setting)
         }
+        .tint(AppColor.coral)
         .onAppear {
             guard !isFirstAppear else { return }
             isFirstAppear = true
-            app.navi = homeNavi
+            app.navi = createNavi
         }
         .onChange(of: app.activeTab) { tab in
             didSelectTab(tab)
@@ -52,10 +56,10 @@ struct HomeTabView: View {
     /// Keep `app.navi` pointing at the active tab's navigation tree.
     private func didSelectTab(_ tab: HomeTab) {
         switch tab {
-        case .home:      app.navi = homeNavi
-        case .search:    app.navi = searchNavi
-        case .favorites: app.navi = favoritesNavi
-        case .settings:  app.navi = settingsNavi
+        case .create:      app.navi = createNavi
+        case .inspiration: app.navi = inspirationNavi
+        case .mylook:      app.navi = mylookNavi
+        case .setting:     app.navi = settingNavi
         }
     }
 }

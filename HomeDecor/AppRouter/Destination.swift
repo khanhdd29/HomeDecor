@@ -12,10 +12,10 @@ enum Destination: Equatable {
         String(describing: lhs) == String(describing: rhs)
     }
 
-    case home
-    case search
-    case favorites
-    case settings
+    case create
+    case inspiration
+    case mylook
+    case setting
     case homeDetail(id: Int)
     case language
 }
@@ -23,10 +23,10 @@ enum Destination: Equatable {
 extension Destination {
     var identifier: String {
         switch self {
-        case .home:               return "home"
-        case .search:             return "search"
-        case .favorites:          return "favorites"
-        case .settings:           return "settings"
+        case .create:             return "create"
+        case .inspiration:        return "inspiration"
+        case .mylook:             return "mylook"
+        case .setting:            return "setting"
         case .homeDetail(let id): return "homeDetail-\(id)"
         case .language:           return "language"
         }
@@ -37,13 +37,13 @@ extension Navigation {
     @ViewBuilder
     internal func screen(for destinationWrapper: DestinationWrapper) -> some View {
         switch destinationWrapper.destination {
-        case .home:
+        case .create:
             HomeScreen()
-        case .search:
+        case .inspiration:
             SearchScreen()
-        case .favorites:
+        case .mylook:
             FavoritesScreen()
-        case .settings:
+        case .setting:
             SettingsScreen()
         case .homeDetail(let id):
             HomeDetailScreen(id: id)

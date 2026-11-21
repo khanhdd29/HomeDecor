@@ -17,6 +17,6 @@ struct FavoritesScreen: View {
             BasicHeaderView("favorites".localized)
             Spacer()
         }
-        .trackScreen(.favorites)
+        .trackScreen(.mylook)
     }
 }
