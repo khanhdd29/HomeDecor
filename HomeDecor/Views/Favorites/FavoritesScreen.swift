@@ -10,7 +10,7 @@ import SwiftUI
 import Factory
 
 struct FavoritesScreen: View {
-    @Injected(\.app) private var app
+    @InjectedObject(\.app) private var app
     @State private var looks: [LookStore.Look] = []
 
     private let columns = [GridItem(.flexible(), spacing: 12), GridItem(.flexible(), spacing: 12)]
@@ -28,6 +28,9 @@ struct FavoritesScreen: View {
             header
         }
         .onAppear { looks = LookStore.shared.all() }
+        .onChange(of: app.activeTab) { tab in
+            if tab == .mylook { looks = LookStore.shared.all() }
+        }
         .trackScreen(.mylook)
     }
 

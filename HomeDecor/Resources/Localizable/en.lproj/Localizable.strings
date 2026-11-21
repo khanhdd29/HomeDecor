@@ -107,5 +107,15 @@
 "photo_library_sub" = "Pick from gallery";
 "cancel" = "Cancel";
 "choose_style" = "Choose Style";
-"choose_style_soon" = "Room types, the style grid and Generate come next.";
 "generate" = "Generate";
+"room_type" = "Room type";
+"style" = "Style";
+"generating" = "Generating";
+"generating_title" = "Designing your room…";
+"generating_subtitle" = "This usually takes a few seconds";
+"step_analyzing" = "Analyzing your room";
+"step_applying" = "Applying %@ style";
+"step_rendering" = "Rendering final details";
+"your_design" = "Your Design";
+"save_to_my_look" = "Save to My look";
+"view_in_my_look" = "View in My look";

@@ -34,7 +34,7 @@ struct HomeTabView: View {
                 ZStack(alignment: .topTrailing) {
                     CoralTabBar(selection: $app.activeTab)
                     AIChatFAB(action: { /* Phase 7: open AI chat */ })
-                        .offset(x: 2, y: -58)
+                        .offset(x: 2, y: -76)
                 }
                 .padding(.horizontal, 20)
                 .padding(.bottom, 6)

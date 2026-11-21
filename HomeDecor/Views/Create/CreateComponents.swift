@@ -8,6 +8,15 @@
 import SwiftUI
 import UIKit
 
+/// Wraps `UIActivityViewController` for sharing images/text from SwiftUI.
+struct ActivityView: UIViewControllerRepresentable {
+    let items: [Any]
+    func makeUIViewController(context: Context) -> UIActivityViewController {
+        UIActivityViewController(activityItems: items, applicationActivities: nil)
+    }
+    func updateUIViewController(_ controller: UIActivityViewController, context: Context) {}
+}
+
 /// A photo that fills its width at a fixed height WITHOUT overflowing its
 /// container. Using `scaledToFill()` directly with `.frame(maxWidth: .infinity)`
 /// lets the image report an oversized width and stretches the whole screen

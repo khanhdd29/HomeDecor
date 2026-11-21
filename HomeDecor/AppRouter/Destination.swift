@@ -22,6 +22,8 @@ enum Destination: Equatable {
     case styleDetail
     case uploadPhoto
     case chooseStyle
+    case generating
+    case result
 }
 
 extension Destination {
@@ -36,6 +38,8 @@ extension Destination {
         case .styleDetail:        return "styleDetail"
         case .uploadPhoto:        return "uploadPhoto"
         case .chooseStyle:        return "chooseStyle"
+        case .generating:         return "generating"
+        case .result:             return "result"
         }
     }
 }
@@ -62,6 +66,10 @@ extension Navigation {
             UploadPhotoScreen()
         case .chooseStyle:
             ChooseStyleScreen()
+        case .generating:
+            GeneratingScreen()
+        case .result:
+            ResultScreen()
         }
     }
 }
