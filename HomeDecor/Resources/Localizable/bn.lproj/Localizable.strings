@@ -49,3 +49,20 @@
 "try_now" = "এখন চেষ্টা করুন";
 "pro" = "Pro";
 "splash_tagline" = "AI দিয়ে আপনার স্বপ্নের জায়গা ডিজাইন করুন";
+
+/* Home */
+"show_all" = "Show all";
+"ai_concepts" = "AI concepts in seconds";
+"reimagine_any_room" = "Reimagine\nany room";
+"try_style" = "Try style";
+
+/* Category */
+"category" = "Category";
+"outside" = "Outside";
+"inside" = "Inside";
+
+/* My look */
+"gallery" = "Gallery";
+"empty_title" = "It's seem to be empty";
+"empty_subtitle" = "Upload your photo to start trying on house style";
+"start_transform" = "Start to transform";

@@ -93,15 +93,19 @@
 
 ---
 
-## PHASE 3 — Tab **Create** (Home)
-- [ ] 3.1 Header: ☰ menu · "Home Decor" wordmark · ✦Pro (ẩn/comment v1).
-- [ ] 3.2 **Hero carousel**: Before/After "Reimagine any room" + "Try Now" (paging dots).
-- [ ] 3.3 **Section catalog theo category** (vd "Modern Outside"): card ngang + "Show all" → See All.
-- [ ] 3.4 Nạp dữ liệu từ `artMagic.sections()` (+ trạng thái loading/empty/error).
-- [ ] 3.5 **FAB Create** (nút coral nổi) → mở luồng Create (Phase 4).
-- [ ] 3.6 Tab bar custom Coral Glass hoạt động giữa 4 tab.
+## PHASE 3 — Tab **Create** (Home) + shell — ✅ Home XONG, bám Figma (2026-11-21)
+*Dựng từ `get_design_context` node 10:2386 + tải 29 ảnh Figma (hero + catalog).*
+- [x] 3.1 Header `AppHeader`: ☰ menu kính · "Home Decor" · ✦Pro (ẩn qua `AppFeatures.showPro`).
+- [x] 3.2 **Hero** Before/After (ảnh thật, chip Before/After, handle ‹›, "✦ AI concepts in seconds", "Reimagine any room", "Try Now ↗") + 3 dots.
+- [x] 3.3 **Section catalog**: card lớn (156×200) + card "Try style" (250, kính) xen kẽ, header + "Show all", scroll ngang. 9 section mẫu (Modern Outside, Living room, Bedroom, Bathroom, Kitchen, Fantasy, Anime, Cyberpunk, Isometric).
+- [~] 3.4 Dữ liệu: hiện **mẫu tĩnh từ ảnh Figma**; wire `artMagic.sections()` khi có credentials Code12.
+- [x] 3.5 **FAB** = nút **AI Chat** (avatar coral + glow + online) nổi góc phải — đây là **entry point AI Chat** (giải đáp ❓). Action mở Chat ở Phase 7.
+- [x] 3.6 **Tab bar custom Coral Glass** (pill kính 4 tab, Create active) wire vào `HomeTabView` (thay native TabView; content cuộn sau bar).
 
-**Done khi:** Home hiển thị catalog thật, bấm card/FAB mở được bước tiếp.
+> Gotcha: `Image.resizable().scaledToFill()` chỉ fix height sẽ tràn ngang → dùng `GeometryReader` ép `.frame(width:w).clipped()`.
+
+**Done khi:** Home hiển thị catalog, tab bar + FAB chạy. → **Đạt (verify simulator).** Bấm card/See All + wire API = Phase sau.
+**Còn lại trong batch này (các tab root khác):** Category (Inspiration), Gallery + Gallery Empty (My look), Setting — dựng tiếp.
 
 ---
 

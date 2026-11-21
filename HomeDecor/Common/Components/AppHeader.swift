@@ -2,7 +2,7 @@
 //  AppHeader.swift
 //  HomeDecor
 //
-//  The Home / Create top bar: ☰ menu · "Home Decor" wordmark · ✦ Pro.
+//  Home top bar (Figma 10:2393): glass ☰ menu · "Home Decor" · glass ✦ Pro.
 //  The Pro entry is hidden for v1 (no IAP) via `AppFeatures.showPro`.
 //
 
@@ -13,38 +13,53 @@ struct AppHeader: View {
     var onPro: (() -> Void)? = nil
 
     var body: some View {
-        ZStack {
-            // Wordmark (brand — not localized)
+        HStack {
+            Button { onMenu?() } label: {
+                VStack(spacing: 4) {
+                    bar(16); bar(10); bar(16)
+                }
+                .frame(width: 44, height: 44)
+                .glassButton()
+            }
+            .buttonStyle(PressableStyle())
+
+            Spacer()
+
             Text("Home Decor")
-                .font(.system(size: 18, weight: .bold, design: .rounded))
+                .font(.system(size: 17, weight: .semibold))
                 .foregroundStyle(AppColor.ink)
 
-            HStack {
-                if let onMenu {
-                    CircleIconButton(systemName: "line.3.horizontal", action: onMenu)
-                } else {
-                    Color.clear.frame(width: 44, height: 44)
-                }
+            Spacer()
 
-                Spacer()
-
-                // Pro (✦) — hidden while IAP is off (v1). Keep for later release.
-                if AppFeatures.showPro {
-                    Button(action: { onPro?() }) {
-                        Image(systemName: "sparkles")
-                            .font(.system(size: 17, weight: .bold))
-                            .foregroundStyle(AppColor.coral)
-                            .frame(width: 44, height: 44)
-                            .glassCard(cornerRadius: AppRadius.pill)
-                    }
-                    .buttonStyle(PressableStyle())
-                } else {
-                    Color.clear.frame(width: 44, height: 44)
+            if AppFeatures.showPro {
+                Button { onPro?() } label: {
+                    Text("✦")
+                        .font(.system(size: 18, weight: .semibold))
+                        .foregroundStyle(AppColor.coral)
+                        .frame(width: 44, height: 44)
+                        .glassButton()
                 }
+                .buttonStyle(PressableStyle())
+            } else {
+                Color.clear.frame(width: 44, height: 44)
             }
         }
         .frame(height: 44)
-        .padding(.horizontal, AppSpacing.lg)
+        .padding(.horizontal, 20)
+    }
+
+    private func bar(_ w: CGFloat) -> some View {
+        Capsule().fill(AppColor.ink).frame(width: w, height: 2)
+    }
+}
+
+extension View {
+    /// 44pt frosted square button used in headers.
+    func glassButton() -> some View {
+        self
+            .background(.ultraThinMaterial, in: RoundedRectangle(cornerRadius: 22, style: .continuous))
+            .overlay(RoundedRectangle(cornerRadius: 22, style: .continuous).strokeBorder(.white.opacity(0.75), lineWidth: 1))
+            .shadow(color: .black.opacity(0.06), radius: 12, x: 0, y: 8)
     }
 }
 
@@ -52,8 +67,7 @@ struct AppHeader: View {
 #Preview {
     ZStack(alignment: .top) {
         BlobBackground()
-        AppHeader(onMenu: {}, onPro: {})
-            .padding(.top, 8)
+        AppHeader(onMenu: {}, onPro: {}).padding(.top, 8)
     }
 }
 #endif

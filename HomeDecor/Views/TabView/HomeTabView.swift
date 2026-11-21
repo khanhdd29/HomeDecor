@@ -2,10 +2,8 @@
 //  HomeTabView.swift
 //  HomeDecor
 //
-//  Four-tab shell: Create · Inspiration · My look · Setting.
-//  NOTE: uses the native TabView for now; the custom Coral Glass tab bar
-//  (`CoralTabBar` + `CreateFAB`) is wired in Phase 3 together with the Home
-//  screen so the FAB can launch the Create flow.
+//  Four-tab shell with the floating Coral Glass tab bar + AI Chat FAB
+//  (Figma 10:2386). Content scrolls behind the floating bar.
 //
 
 import SwiftUI
@@ -22,27 +20,24 @@ struct HomeTabView: View {
     @State private var isFirstAppear = false
 
     var body: some View {
-        // Observe the language so the tab titles re-read `.localized` when it
-        // changes at runtime (e.g. from the Settings language sheet).
+        // Observe the language so tab titles re-read `.localized` at runtime.
         let _ = coordinator.language
-        return TabView(selection: $app.activeTab) {
-            NavigationRoot(destination: .create, navigation: createNavi)
-                .tabItem { Label(HomeTab.create.title, systemImage: HomeTab.create.icon) }
-                .tag(HomeTab.create)
+        return ZStack(alignment: .bottom) {
+            ZStack {
+                tab(.create, destination: .create, navigation: createNavi)
+                tab(.inspiration, destination: .inspiration, navigation: inspirationNavi)
+                tab(.mylook, destination: .mylook, navigation: mylookNavi)
+                tab(.setting, destination: .setting, navigation: settingNavi)
+            }
 
-            NavigationRoot(destination: .inspiration, navigation: inspirationNavi)
-                .tabItem { Label(HomeTab.inspiration.title, systemImage: HomeTab.inspiration.icon) }
-                .tag(HomeTab.inspiration)
-
-            NavigationRoot(destination: .mylook, navigation: mylookNavi)
-                .tabItem { Label(HomeTab.mylook.title, systemImage: HomeTab.mylook.icon) }
-                .tag(HomeTab.mylook)
-
-            NavigationRoot(destination: .setting, navigation: settingNavi)
-                .tabItem { Label(HomeTab.setting.title, systemImage: HomeTab.setting.icon) }
-                .tag(HomeTab.setting)
+            ZStack(alignment: .topTrailing) {
+                CoralTabBar(selection: $app.activeTab)
+                AIChatFAB(action: { /* Phase 7: open AI chat */ })
+                    .offset(x: 2, y: -58)
+            }
+            .padding(.horizontal, 20)
+            .padding(.bottom, 6)
         }
-        .tint(AppColor.coral)
         .onAppear {
             guard !isFirstAppear else { return }
             isFirstAppear = true
@@ -53,7 +48,15 @@ struct HomeTabView: View {
         }
     }
 
-    /// Keep `app.navi` pointing at the active tab's navigation tree.
+    @ViewBuilder
+    private func tab(_ tab: HomeTab, destination: Destination, navigation: Navigation) -> some View {
+        let active = app.activeTab == tab
+        NavigationRoot(destination: destination, navigation: navigation)
+            .opacity(active ? 1 : 0)
+            .allowsHitTesting(active)
+            .zIndex(active ? 1 : 0)
+    }
+
     private func didSelectTab(_ tab: HomeTab) {
         switch tab {
         case .create:      app.navi = createNavi
@@ -66,7 +69,6 @@ struct HomeTabView: View {
 
 #if DEBUG
 #Preview {
-    HomeTabView()
-        .environmentObject(AppFlowCoordinator())
+    HomeTabView().environmentObject(AppFlowCoordinator())
 }
 #endif
