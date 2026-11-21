@@ -81,6 +81,20 @@ private let sampleSections: [CatalogSection] = [
 
 struct HomeScreen: View {
     @InjectedObject(\.appFlow) private var appFlow: AppFlowCoordinator
+    @Injected(\.app) private var app
+    @InjectedObject(\.createSession) private var session: CreateSession
+
+    private func open(_ item: StyleCard, in section: CatalogSection) {
+        let styles = section.items.map { CreateStyle(image: $0.image, name: $0.title, category: $0.category) }
+        let chosen = CreateStyle(image: item.image, name: item.title, category: item.category)
+        session.start(chosen, in: styles)
+        app.navi.push(.styleDetail)
+    }
+
+    private func openFeatured() {
+        guard let section = sampleSections.first, let first = section.items.first else { return }
+        open(first, in: section)
+    }
 
     var body: some View {
         ZStack(alignment: .top) {
@@ -88,7 +102,7 @@ struct HomeScreen: View {
 
             ScrollView(showsIndicators: false) {
                 VStack(spacing: 28) {
-                    hero
+                    hero(onTryNow: openFeatured)
                         .padding(.horizontal, 20)
                         .padding(.top, 8)
 
@@ -109,9 +123,9 @@ struct HomeScreen: View {
 
     // MARK: Hero
 
-    private var hero: some View {
+    private func hero(onTryNow: @escaping () -> Void) -> some View {
         VStack(spacing: 12) {
-            HeroCard()
+            HeroCard(onTryNow: onTryNow)
             HStack(spacing: 5) {
                 Capsule().fill(AppColor.coral).frame(width: 18, height: 6)
                 Circle().fill(AppColor.ink.opacity(0.2)).frame(width: 6, height: 6)
@@ -140,8 +154,8 @@ struct HomeScreen: View {
                 HStack(spacing: 12) {
                     ForEach(section.items) { item in
                         switch section.layout {
-                        case .big:   StyleBigCard(item: item)
-                        case .trend: TrendCard(item: item)
+                        case .big:   StyleBigCard(item: item) { open(item, in: section) }
+                        case .trend: TrendCard(item: item) { open(item, in: section) }
                         }
                     }
                 }
@@ -155,6 +169,7 @@ struct HomeScreen: View {
 // MARK: - Hero card
 
 private struct HeroCard: View {
+    var onTryNow: () -> Void = {}
     var body: some View {
         GeometryReader { geo in
             content(width: geo.size.width)
@@ -202,7 +217,8 @@ private struct HeroCard: View {
                         .foregroundStyle(.white)
                         .fixedSize(horizontal: false, vertical: true)
                     Spacer()
-                    tryNowButton
+                    Button(action: onTryNow) { tryNowButton }
+                        .buttonStyle(PressableStyle())
                 }
             }
             .padding(20)
@@ -232,24 +248,30 @@ private struct HeroCard: View {
 
 private struct StyleBigCard: View {
     let item: StyleCard
+    var onTap: () -> Void = {}
     var body: some View {
-        ZStack(alignment: .bottomLeading) {
-            Image(item.image).resizable().scaledToFill()
-                .frame(width: 156, height: 200)
-            LinearGradient(colors: [.clear, Color(hex: 0x140F0D).opacity(0.55)],
-                           startPoint: .center, endPoint: .bottom)
-            Text(item.title)
-                .font(.system(size: 15, weight: .semibold)).foregroundStyle(.white)
-                .padding(14)
+        Button(action: onTap) {
+            ZStack(alignment: .bottomLeading) {
+                Image(item.image).resizable().scaledToFill()
+                    .frame(width: 156, height: 200)
+                LinearGradient(colors: [.clear, Color(hex: 0x140F0D).opacity(0.55)],
+                               startPoint: .center, endPoint: .bottom)
+                Text(item.title)
+                    .font(.system(size: 15, weight: .semibold)).foregroundStyle(.white)
+                    .padding(14)
+            }
+            .frame(width: 156, height: 200)
+            .clipShape(RoundedRectangle(cornerRadius: 24, style: .continuous))
         }
-        .frame(width: 156, height: 200)
-        .clipShape(RoundedRectangle(cornerRadius: 24, style: .continuous))
+        .buttonStyle(PressableStyle())
     }
 }
 
 private struct TrendCard: View {
     let item: StyleCard
+    var onTap: () -> Void = {}
     var body: some View {
+        Button(action: onTap) {
         HStack(spacing: 12) {
             Image(item.image).resizable().scaledToFill()
                 .frame(width: 84, height: 84)
@@ -269,5 +291,7 @@ private struct TrendCard: View {
         .frame(width: 250)
         .background(Color.white.opacity(0.92), in: RoundedRectangle(cornerRadius: 24, style: .continuous))
         .shadow(color: Color(hex: 0x4D3326).opacity(0.06), radius: 8, x: 0, y: 6)
+        }
+        .buttonStyle(PressableStyle())
     }
 }

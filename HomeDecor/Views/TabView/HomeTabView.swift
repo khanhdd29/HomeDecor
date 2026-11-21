@@ -30,14 +30,18 @@ struct HomeTabView: View {
                 tab(.setting, destination: .setting, navigation: settingNavi)
             }
 
-            ZStack(alignment: .topTrailing) {
-                CoralTabBar(selection: $app.activeTab)
-                AIChatFAB(action: { /* Phase 7: open AI chat */ })
-                    .offset(x: 2, y: -58)
+            if activeNavigation.isAtRoot {
+                ZStack(alignment: .topTrailing) {
+                    CoralTabBar(selection: $app.activeTab)
+                    AIChatFAB(action: { /* Phase 7: open AI chat */ })
+                        .offset(x: 2, y: -58)
+                }
+                .padding(.horizontal, 20)
+                .padding(.bottom, 6)
+                .transition(.move(edge: .bottom).combined(with: .opacity))
             }
-            .padding(.horizontal, 20)
-            .padding(.bottom, 6)
         }
+        .animation(.easeInOut(duration: 0.2), value: activeNavigation.isAtRoot)
         .onAppear {
             guard !isFirstAppear else { return }
             isFirstAppear = true
@@ -55,6 +59,15 @@ struct HomeTabView: View {
             .opacity(active ? 1 : 0)
             .allowsHitTesting(active)
             .zIndex(active ? 1 : 0)
+    }
+
+    private var activeNavigation: Navigation {
+        switch app.activeTab {
+        case .create:      return createNavi
+        case .inspiration: return inspirationNavi
+        case .mylook:      return mylookNavi
+        case .setting:     return settingNavi
+        }
     }
 
     private func didSelectTab(_ tab: HomeTab) {

@@ -83,3 +83,29 @@
 "empty_title" = "It's seem to be empty";
 "empty_subtitle" = "Upload your photo to start trying on house style";
 "start_transform" = "Start to transform";
+
+/* Create flow — Phase 4 */
+"try_this_style" = "Try this style";
+"more_in" = "More in %@";
+"upload_photo" = "Upload Photo";
+"selected_style" = "Selected style";
+"change" = "Change";
+"change_photo" = "Change photo";
+"no_style_title" = "No style selected";
+"no_style_sub" = "Pick a style to try";
+"upload_room_title" = "Upload a photo of your room";
+"upload_room_subtitle" = "Tap to take a photo or choose from your library";
+"tips_title" = "Tips for best results";
+"tip_lighting" = "Shoot in good, even lighting";
+"tip_whole_room" = "Capture the whole room from a corner";
+"tip_no_people" = "Keep people and pets out of frame";
+"add_photo" = "Add a photo";
+"add_photo_subtitle" = "Choose where your room photo comes from";
+"take_photo" = "Take photo";
+"take_photo_sub" = "Use your camera";
+"photo_library" = "Photo library";
+"photo_library_sub" = "Pick from gallery";
+"cancel" = "Cancel";
+"choose_style" = "Choose Style";
+"choose_style_soon" = "Room types, the style grid and Generate come next.";
+"generate" = "Generate";

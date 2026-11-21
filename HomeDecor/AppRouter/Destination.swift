@@ -18,6 +18,10 @@ enum Destination: Equatable {
     case setting
     case homeDetail(id: Int)
     case language
+    // Create / Generate flow (Phase 4)
+    case styleDetail
+    case uploadPhoto
+    case chooseStyle
 }
 
 extension Destination {
@@ -29,6 +33,9 @@ extension Destination {
         case .setting:            return "setting"
         case .homeDetail(let id): return "homeDetail-\(id)"
         case .language:           return "language"
+        case .styleDetail:        return "styleDetail"
+        case .uploadPhoto:        return "uploadPhoto"
+        case .chooseStyle:        return "chooseStyle"
         }
     }
 }
@@ -49,6 +56,12 @@ extension Navigation {
             HomeDetailScreen(id: id)
         case .language:
             LanguageView(mode: .settings)
+        case .styleDetail:
+            StyleDetailScreen()
+        case .uploadPhoto:
+            UploadPhotoScreen()
+        case .chooseStyle:
+            ChooseStyleScreen()
         }
     }
 }
