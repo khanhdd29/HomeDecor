@@ -17,16 +17,40 @@ struct ChatHistorySheet: View {
     @State private var selected: Set<String> = []
     @State private var showDelete = false
     @State private var query = ""
+    /// Debounced copy of `query` that actually drives filtering (~250ms), so a
+    /// burst of keystrokes recomputes the list once, not on every character.
+    @State private var debounced = ""
+    /// Precomputed lowercased haystack per conversation id, built once when the
+    /// screen appears. Lets each keystroke do a plain `contains` instead of
+    /// re-lowercasing every message. In-memory only — storage format unchanged.
+    @State private var searchIndex: [String: String] = [:]
 
-    /// Full-text match across each conversation's title and every message.
+    /// One lowercased blob per conversation: title + every message's text and
+    /// photo caption, joined. Built once; scanned on each keystroke.
+    private static func haystack(for convo: ChatConversation) -> String {
+        var parts: [String] = [convo.title]
+        for m in convo.messages {
+            if let t = m.text { parts.append(t) }
+            if let c = m.caption { parts.append(c) }
+        }
+        return parts.joined(separator: "\n").lowercased()
+    }
+
+    private func buildSearchIndex() {
+        var idx: [String: String] = [:]
+        idx.reserveCapacity(store.conversations.count)
+        for convo in store.conversations { idx[convo.id] = Self.haystack(for: convo) }
+        searchIndex = idx
+    }
+
+    /// Full-text match across each conversation's title and every message,
+    /// using the cached lowercased haystack (falls back to building one if a
+    /// conversation isn't indexed yet).
     private var filtered: [ChatConversation] {
-        let q = query.trimmingCharacters(in: .whitespacesAndNewlines).lowercased()
+        let q = debounced.trimmingCharacters(in: .whitespacesAndNewlines).lowercased()
         guard !q.isEmpty else { return store.conversations }
         return store.conversations.filter { convo in
-            convo.title.lowercased().contains(q) ||
-            convo.messages.contains {
-                ($0.text ?? "").lowercased().contains(q) || ($0.caption ?? "").lowercased().contains(q)
-            }
+            (searchIndex[convo.id] ?? Self.haystack(for: convo)).contains(q)
         }
     }
 
@@ -36,7 +60,7 @@ struct ChatHistorySheet: View {
             header
             if !store.conversations.isEmpty { searchBar }
             if items.isEmpty {
-                emptyState(query.isEmpty ? "no_history" : "no_results")
+                emptyState(store.conversations.isEmpty ? "no_history" : "no_results")
             } else {
                 ScrollView(showsIndicators: false) {
                     LazyVStack(spacing: 12) {
@@ -60,6 +84,12 @@ struct ChatHistorySheet: View {
             Text("delete_chats_message".localized)
         }
         .animation(.easeInOut(duration: 0.2), value: selected.isEmpty)
+        .onAppear { buildSearchIndex() }
+        .task(id: query) {
+            if query.isEmpty { debounced = ""; return }       // clear instantly
+            try? await Task.sleep(nanoseconds: 250_000_000)    // debounce typing
+            if !Task.isCancelled { debounced = query }
+        }
     }
 
     // MARK: Header
