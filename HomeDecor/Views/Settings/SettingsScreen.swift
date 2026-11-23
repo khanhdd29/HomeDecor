@@ -61,15 +61,10 @@ struct SettingsScreen: View {
             Text("setting".localized)
                 .font(.system(size: 17, weight: .semibold))
                 .foregroundStyle(AppColor.ink)
+            // Setting is a tab root (never pushed), so there is nothing to pop —
+            // no back button here; leave side spacers to keep the title centered.
             HStack {
-                Button { app.navi.pop() } label: {
-                    Image(systemName: "chevron.left")
-                        .font(.system(size: 18, weight: .semibold))
-                        .foregroundStyle(AppColor.ink)
-                        .frame(width: 44, height: 44)
-                        .glassButton()
-                }
-                .buttonStyle(PressableStyle())
+                Color.clear.frame(width: 44, height: 44)
                 Spacer()
                 Color.clear.frame(width: 44, height: 44)
             }

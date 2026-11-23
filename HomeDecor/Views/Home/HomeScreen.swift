@@ -123,7 +123,7 @@ struct HomeScreen: View {
                 .padding(.bottom, 130)   // clear the floating tab bar
             }
 
-            AppHeader(onMenu: {}, onPro: {})
+            AppHeader(onMenu: { app.activeTab = .setting })
                 .padding(.top, 8)
                 .background(.clear)
         }
