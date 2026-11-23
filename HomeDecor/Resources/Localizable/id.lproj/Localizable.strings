@@ -7,27 +7,27 @@
 "start" = "Mulai";
 "get_started" = "Mulai";
 "back" = "Kembali";
-"home" = "Home";
-"search" = "Search";
-"favorites" = "Favorites";
+"home" = "Beranda";
+"search" = "Cari";
+"favorites" = "Favorit";
 "settings" = "Pengaturan";
-"choose_your_language" = "Choose your language";
-"change_language_later" = "You can change this later in Settings.";
+"choose_your_language" = "Pilih bahasa Anda";
+"change_language_later" = "Anda dapat mengubahnya nanti di Pengaturan.";
 "please_select_language" = "Pilih bahasa untuk melanjutkan";
-"general" = "General";
+"general" = "Umum";
 "language" = "Bahasa";
-"about" = "About";
-"app" = "App";
-"version" = "Version";
-"developer" = "Developer";
-"replay_onboarding" = "Replay onboarding";
+"about" = "Tentang";
+"app" = "Aplikasi";
+"version" = "Versi";
+"developer" = "Pengembang";
+"replay_onboarding" = "Putar ulang pengenalan";
 "item_number" = "Item %d";
-"open_next" = "Open next";
-"back_to_top" = "Back to top";
-"search_placeholder" = "Search…";
-"start_typing" = "Start typing";
-"no_results_for" = "No results for “%@”";
-"nothing_saved_yet" = "Nothing saved yet";
+"open_next" = "Buka berikutnya";
+"back_to_top" = "Kembali ke atas";
+"search_placeholder" = "Cari…";
+"start_typing" = "Mulai mengetik";
+"no_results_for" = "Tidak ada hasil untuk “%@”";
+"nothing_saved_yet" = "Belum ada yang disimpan";
 "intro_title_1" = "Perombakan Ruang AI";
 "intro_message_1" = "Desain ulang ruangan atau area luar mana pun dengan ide interior dari AI.";
 "intro_title_2" = "Saran Desain AI";
@@ -51,21 +51,21 @@
 "splash_tagline" = "Rancang ruang impianmu dengan AI";
 
 /* Home */
-"show_all" = "Show all";
-"ai_concepts" = "AI concepts in seconds";
-"reimagine_any_room" = "Reimagine\nany room";
-"try_style" = "Try style";
+"show_all" = "Tampilkan semua";
+"ai_concepts" = "Konsep AI dalam hitungan detik";
+"reimagine_any_room" = "Bayangkan ulang\nruangan apa pun";
+"try_style" = "Coba gaya";
 
 /* Category */
-"category" = "Category";
-"outside" = "Outside";
-"inside" = "Inside";
+"category" = "Kategori";
+"outside" = "Luar";
+"inside" = "Dalam";
 
 /* My look */
-"gallery" = "Gallery";
-"empty_title" = "It's seem to be empty";
-"empty_subtitle" = "Upload your photo to start trying on house style";
-"start_transform" = "Start to transform";
+"gallery" = "Galeri";
+"empty_title" = "Sepertinya masih kosong";
+"empty_subtitle" = "Unggah foto Anda untuk mulai mencoba gaya rumah";
+"start_transform" = "Mulai transformasi";
 
 /* Setting — Phase 8 */
 "policy_updated" = "Terakhir diperbarui: November 2026";

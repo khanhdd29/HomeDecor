@@ -7,27 +7,27 @@
 "start" = "Начать";
 "get_started" = "Начать";
 "back" = "Назад";
-"home" = "Home";
-"search" = "Search";
-"favorites" = "Favorites";
+"home" = "Главная";
+"search" = "Поиск";
+"favorites" = "Избранное";
 "settings" = "Настройки";
-"choose_your_language" = "Choose your language";
-"change_language_later" = "You can change this later in Settings.";
+"choose_your_language" = "Выберите язык";
+"change_language_later" = "Вы можете изменить это позже в настройках.";
 "please_select_language" = "Выберите язык, чтобы продолжить";
-"general" = "General";
+"general" = "Основные";
 "language" = "Язык";
-"about" = "About";
-"app" = "App";
-"version" = "Version";
-"developer" = "Developer";
-"replay_onboarding" = "Replay onboarding";
-"item_number" = "Item %d";
-"open_next" = "Open next";
-"back_to_top" = "Back to top";
-"search_placeholder" = "Search…";
-"start_typing" = "Start typing";
-"no_results_for" = "No results for “%@”";
-"nothing_saved_yet" = "Nothing saved yet";
+"about" = "О приложении";
+"app" = "Приложение";
+"version" = "Версия";
+"developer" = "Разработчик";
+"replay_onboarding" = "Повторить знакомство";
+"item_number" = "Элемент %d";
+"open_next" = "Открыть следующий";
+"back_to_top" = "Наверх";
+"search_placeholder" = "Поиск…";
+"start_typing" = "Начните вводить";
+"no_results_for" = "Нет результатов для “%@”";
+"nothing_saved_yet" = "Пока ничего не сохранено";
 "intro_title_1" = "Преображение комнаты с ИИ";
 "intro_message_1" = "Переделайте любую комнату или открытое пространство с идеями ИИ.";
 "intro_title_2" = "Советы по дизайну от ИИ";
@@ -51,21 +51,21 @@
 "splash_tagline" = "Создайте пространство мечты с ИИ";
 
 /* Home */
-"show_all" = "Show all";
-"ai_concepts" = "AI concepts in seconds";
-"reimagine_any_room" = "Reimagine\nany room";
-"try_style" = "Try style";
+"show_all" = "Показать все";
+"ai_concepts" = "AI-концепты за секунды";
+"reimagine_any_room" = "Преобразите\nлюбую комнату";
+"try_style" = "Попробовать стиль";
 
 /* Category */
-"category" = "Category";
-"outside" = "Outside";
-"inside" = "Inside";
+"category" = "Категория";
+"outside" = "Снаружи";
+"inside" = "Внутри";
 
 /* My look */
-"gallery" = "Gallery";
-"empty_title" = "It's seem to be empty";
-"empty_subtitle" = "Upload your photo to start trying on house style";
-"start_transform" = "Start to transform";
+"gallery" = "Галерея";
+"empty_title" = "Похоже, здесь пусто";
+"empty_subtitle" = "Загрузите фото, чтобы примерить стиль для дома";
+"start_transform" = "Начать преображение";
 
 /* Setting — Phase 8 */
 "policy_updated" = "Последнее обновление: November 2026";

@@ -68,21 +68,21 @@
 "start" = "始める";
 
 /* Home */
-"show_all" = "Show all";
-"ai_concepts" = "AI concepts in seconds";
-"reimagine_any_room" = "Reimagine\nany room";
-"try_style" = "Try style";
+"show_all" = "すべて表示";
+"ai_concepts" = "数秒でAIデザイン";
+"reimagine_any_room" = "どんな部屋も\n生まれ変わる";
+"try_style" = "スタイルを試す";
 
 /* Category */
-"category" = "Category";
-"outside" = "Outside";
-"inside" = "Inside";
+"category" = "カテゴリ";
+"outside" = "屋外";
+"inside" = "屋内";
 
 /* My look */
-"gallery" = "Gallery";
-"empty_title" = "It's seem to be empty";
-"empty_subtitle" = "Upload your photo to start trying on house style";
-"start_transform" = "Start to transform";
+"gallery" = "ギャラリー";
+"empty_title" = "まだ何もないようです";
+"empty_subtitle" = "写真をアップロードしてお部屋のスタイルを試しましょう";
+"start_transform" = "変身を始める";
 
 /* Setting — Phase 8 */
 "policy_updated" = "最終更新: November 2026";

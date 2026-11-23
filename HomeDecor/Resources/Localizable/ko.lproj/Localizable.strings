@@ -7,27 +7,27 @@
 "start" = "시작";
 "get_started" = "시작하기";
 "back" = "뒤로";
-"home" = "Home";
-"search" = "Search";
-"favorites" = "Favorites";
+"home" = "홈";
+"search" = "검색";
+"favorites" = "즐겨찾기";
 "settings" = "설정";
-"choose_your_language" = "Choose your language";
-"change_language_later" = "You can change this later in Settings.";
+"choose_your_language" = "언어를 선택하세요";
+"change_language_later" = "나중에 설정에서 변경할 수 있습니다.";
 "please_select_language" = "계속하려면 언어를 선택하세요";
-"general" = "General";
+"general" = "일반";
 "language" = "언어";
-"about" = "About";
-"app" = "App";
-"version" = "Version";
-"developer" = "Developer";
-"replay_onboarding" = "Replay onboarding";
-"item_number" = "Item %d";
-"open_next" = "Open next";
-"back_to_top" = "Back to top";
-"search_placeholder" = "Search…";
-"start_typing" = "Start typing";
-"no_results_for" = "No results for “%@”";
-"nothing_saved_yet" = "Nothing saved yet";
+"about" = "정보";
+"app" = "앱";
+"version" = "버전";
+"developer" = "개발자";
+"replay_onboarding" = "온보딩 다시 보기";
+"item_number" = "항목 %d";
+"open_next" = "다음 열기";
+"back_to_top" = "맨 위로";
+"search_placeholder" = "검색…";
+"start_typing" = "입력을 시작하세요";
+"no_results_for" = "“%@”에 대한 결과 없음";
+"nothing_saved_yet" = "아직 저장된 항목이 없습니다";
 "intro_title_1" = "AI 룸 메이크오버";
 "intro_message_1" = "AI 인테리어 아이디어로 어떤 공간이든 새롭게 디자인하세요.";
 "intro_title_2" = "AI 디자인 조언";
@@ -51,21 +51,21 @@
 "splash_tagline" = "AI로 꿈꾸던 공간을 디자인하세요";
 
 /* Home */
-"show_all" = "Show all";
-"ai_concepts" = "AI concepts in seconds";
-"reimagine_any_room" = "Reimagine\nany room";
-"try_style" = "Try style";
+"show_all" = "모두 보기";
+"ai_concepts" = "몇 초 만에 AI 디자인";
+"reimagine_any_room" = "어떤 공간이든\n새롭게 상상하기";
+"try_style" = "스타일 체험";
 
 /* Category */
-"category" = "Category";
-"outside" = "Outside";
-"inside" = "Inside";
+"category" = "카테고리";
+"outside" = "실외";
+"inside" = "실내";
 
 /* My look */
-"gallery" = "Gallery";
-"empty_title" = "It's seem to be empty";
-"empty_subtitle" = "Upload your photo to start trying on house style";
-"start_transform" = "Start to transform";
+"gallery" = "갤러리";
+"empty_title" = "비어 있는 것 같아요";
+"empty_subtitle" = "사진을 업로드해 집 스타일을 체험해 보세요";
+"start_transform" = "변신 시작하기";
 
 /* Setting — Phase 8 */
 "policy_updated" = "마지막 업데이트: November 2026";

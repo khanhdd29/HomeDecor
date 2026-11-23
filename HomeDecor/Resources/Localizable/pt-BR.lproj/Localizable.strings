@@ -7,27 +7,27 @@
 "start" = "Começar";
 "get_started" = "Começar";
 "back" = "Voltar";
-"home" = "Home";
-"search" = "Search";
-"favorites" = "Favorites";
+"home" = "Início";
+"search" = "Buscar";
+"favorites" = "Favoritos";
 "settings" = "Configurações";
-"choose_your_language" = "Choose your language";
-"change_language_later" = "You can change this later in Settings.";
+"choose_your_language" = "Escolha seu idioma";
+"change_language_later" = "Você pode alterar isso depois nos Ajustes.";
 "please_select_language" = "Selecione um idioma para continuar";
-"general" = "General";
+"general" = "Geral";
 "language" = "Idioma";
-"about" = "About";
+"about" = "Sobre";
 "app" = "App";
-"version" = "Version";
-"developer" = "Developer";
-"replay_onboarding" = "Replay onboarding";
+"version" = "Versão";
+"developer" = "Desenvolvedor";
+"replay_onboarding" = "Repetir introdução";
 "item_number" = "Item %d";
-"open_next" = "Open next";
-"back_to_top" = "Back to top";
-"search_placeholder" = "Search…";
-"start_typing" = "Start typing";
-"no_results_for" = "No results for “%@”";
-"nothing_saved_yet" = "Nothing saved yet";
+"open_next" = "Abrir próximo";
+"back_to_top" = "Voltar ao topo";
+"search_placeholder" = "Buscar…";
+"start_typing" = "Comece a digitar";
+"no_results_for" = "Nenhum resultado para “%@”";
+"nothing_saved_yet" = "Nada salvo ainda";
 "intro_title_1" = "Transformação com IA";
 "intro_message_1" = "Redesenhe qualquer ambiente ou espaço externo com ideias de IA.";
 "intro_title_2" = "Dicas de design por IA";
@@ -51,21 +51,21 @@
 "splash_tagline" = "Projete o espaço dos seus sonhos com IA";
 
 /* Home */
-"show_all" = "Show all";
-"ai_concepts" = "AI concepts in seconds";
-"reimagine_any_room" = "Reimagine\nany room";
-"try_style" = "Try style";
+"show_all" = "Mostrar tudo";
+"ai_concepts" = "Conceitos com IA em segundos";
+"reimagine_any_room" = "Reimagine\nqualquer ambiente";
+"try_style" = "Testar estilo";
 
 /* Category */
-"category" = "Category";
-"outside" = "Outside";
-"inside" = "Inside";
+"category" = "Categoria";
+"outside" = "Externo";
+"inside" = "Interno";
 
 /* My look */
-"gallery" = "Gallery";
-"empty_title" = "It's seem to be empty";
-"empty_subtitle" = "Upload your photo to start trying on house style";
-"start_transform" = "Start to transform";
+"gallery" = "Galeria";
+"empty_title" = "Parece estar vazio";
+"empty_subtitle" = "Envie sua foto para começar a testar estilos de casa";
+"start_transform" = "Começar a transformar";
 
 /* Setting — Phase 8 */
 "policy_updated" = "Última atualização: November 2026";

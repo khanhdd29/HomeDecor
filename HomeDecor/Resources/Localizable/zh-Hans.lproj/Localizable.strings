@@ -7,27 +7,27 @@
 "start" = "开始";
 "get_started" = "开始";
 "back" = "返回";
-"home" = "Home";
-"search" = "Search";
-"favorites" = "Favorites";
+"home" = "首页";
+"search" = "搜索";
+"favorites" = "收藏";
 "settings" = "设置";
-"choose_your_language" = "Choose your language";
-"change_language_later" = "You can change this later in Settings.";
+"choose_your_language" = "选择您的语言";
+"change_language_later" = "您可以稍后在设置中更改。";
 "please_select_language" = "请选择语言以继续";
-"general" = "General";
+"general" = "通用";
 "language" = "语言";
-"about" = "About";
-"app" = "App";
-"version" = "Version";
-"developer" = "Developer";
-"replay_onboarding" = "Replay onboarding";
-"item_number" = "Item %d";
-"open_next" = "Open next";
-"back_to_top" = "Back to top";
-"search_placeholder" = "Search…";
-"start_typing" = "Start typing";
-"no_results_for" = "No results for “%@”";
-"nothing_saved_yet" = "Nothing saved yet";
+"about" = "关于";
+"app" = "应用";
+"version" = "版本";
+"developer" = "开发者";
+"replay_onboarding" = "重播引导";
+"item_number" = "第 %d 项";
+"open_next" = "打开下一个";
+"back_to_top" = "回到顶部";
+"search_placeholder" = "搜索…";
+"start_typing" = "开始输入";
+"no_results_for" = "未找到“%@”的结果";
+"nothing_saved_yet" = "尚无保存内容";
 "intro_title_1" = "AI 房间焕新";
 "intro_message_1" = "用 AI 驱动的室内创意，重新设计任何房间或户外空间。";
 "intro_title_2" = "AI 设计建议";
@@ -51,21 +51,21 @@
 "splash_tagline" = "用 AI 设计你的梦想空间";
 
 /* Home */
-"show_all" = "Show all";
-"ai_concepts" = "AI concepts in seconds";
-"reimagine_any_room" = "Reimagine\nany room";
-"try_style" = "Try style";
+"show_all" = "查看全部";
+"ai_concepts" = "几秒生成 AI 设计";
+"reimagine_any_room" = "重新构想\n任意房间";
+"try_style" = "试用风格";
 
 /* Category */
-"category" = "Category";
-"outside" = "Outside";
-"inside" = "Inside";
+"category" = "分类";
+"outside" = "室外";
+"inside" = "室内";
 
 /* My look */
-"gallery" = "Gallery";
-"empty_title" = "It's seem to be empty";
-"empty_subtitle" = "Upload your photo to start trying on house style";
-"start_transform" = "Start to transform";
+"gallery" = "图库";
+"empty_title" = "这里好像是空的";
+"empty_subtitle" = "上传照片，开始尝试家居风格";
+"start_transform" = "开始改造";
 
 /* Setting — Phase 8 */
 "policy_updated" = "最后更新：November 2026";

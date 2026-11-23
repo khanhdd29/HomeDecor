@@ -7,27 +7,27 @@
 "start" = "ابدأ";
 "get_started" = "ابدأ الآن";
 "back" = "رجوع";
-"home" = "Home";
-"search" = "Search";
-"favorites" = "Favorites";
+"home" = "الرئيسية";
+"search" = "بحث";
+"favorites" = "المفضلة";
 "settings" = "الإعدادات";
-"choose_your_language" = "Choose your language";
-"change_language_later" = "You can change this later in Settings.";
+"choose_your_language" = "اختر لغتك";
+"change_language_later" = "يمكنك تغيير ذلك لاحقًا في الإعدادات.";
 "please_select_language" = "اختر لغة للمتابعة";
-"general" = "General";
+"general" = "عام";
 "language" = "اللغة";
-"about" = "About";
-"app" = "App";
-"version" = "Version";
-"developer" = "Developer";
-"replay_onboarding" = "Replay onboarding";
-"item_number" = "Item %d";
-"open_next" = "Open next";
-"back_to_top" = "Back to top";
-"search_placeholder" = "Search…";
-"start_typing" = "Start typing";
-"no_results_for" = "No results for “%@”";
-"nothing_saved_yet" = "Nothing saved yet";
+"about" = "حول";
+"app" = "التطبيق";
+"version" = "الإصدار";
+"developer" = "المطوّر";
+"replay_onboarding" = "إعادة الشرح التمهيدي";
+"item_number" = "عنصر %d";
+"open_next" = "فتح التالي";
+"back_to_top" = "العودة إلى الأعلى";
+"search_placeholder" = "بحث…";
+"start_typing" = "ابدأ الكتابة";
+"no_results_for" = "لا نتائج لـ “%@”";
+"nothing_saved_yet" = "لا شيء محفوظ بعد";
 "intro_title_1" = "تجديد الغرفة بالذكاء الاصطناعي";
 "intro_message_1" = "أعد تصميم أي غرفة أو مساحة خارجية بأفكار داخلية مدعومة بالذكاء الاصطناعي.";
 "intro_title_2" = "نصائح تصميم بالذكاء الاصطناعي";
@@ -51,21 +51,21 @@
 "splash_tagline" = "صمّم مساحة أحلامك بالذكاء الاصطناعي";
 
 /* Home */
-"show_all" = "Show all";
-"ai_concepts" = "AI concepts in seconds";
-"reimagine_any_room" = "Reimagine\nany room";
-"try_style" = "Try style";
+"show_all" = "عرض الكل";
+"ai_concepts" = "تصاميم بالذكاء الاصطناعي في ثوانٍ";
+"reimagine_any_room" = "أعد تصوّر\nأي غرفة";
+"try_style" = "جرّب النمط";
 
 /* Category */
-"category" = "Category";
-"outside" = "Outside";
-"inside" = "Inside";
+"category" = "الفئة";
+"outside" = "خارجي";
+"inside" = "داخلي";
 
 /* My look */
-"gallery" = "Gallery";
-"empty_title" = "It's seem to be empty";
-"empty_subtitle" = "Upload your photo to start trying on house style";
-"start_transform" = "Start to transform";
+"gallery" = "المعرض";
+"empty_title" = "يبدو أنه فارغ";
+"empty_subtitle" = "ارفع صورتك لبدء تجربة أنماط المنزل";
+"start_transform" = "ابدأ التحويل";
 
 /* Setting — Phase 8 */
 "policy_updated" = "آخر تحديث: November 2026";

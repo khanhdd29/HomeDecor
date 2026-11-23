@@ -7,27 +7,27 @@
 "start" = "শুরু করুন";
 "get_started" = "শুরু করুন";
 "back" = "পিছনে";
-"home" = "Home";
-"search" = "Search";
-"favorites" = "Favorites";
+"home" = "হোম";
+"search" = "অনুসন্ধান";
+"favorites" = "প্রিয়";
 "settings" = "সেটিংস";
-"choose_your_language" = "Choose your language";
-"change_language_later" = "You can change this later in Settings.";
+"choose_your_language" = "আপনার ভাষা বেছে নিন";
+"change_language_later" = "আপনি এটি পরে সেটিংসে পরিবর্তন করতে পারেন।";
 "please_select_language" = "চালিয়ে যেতে একটি ভাষা নির্বাচন করুন";
-"general" = "General";
+"general" = "সাধারণ";
 "language" = "ভাষা";
-"about" = "About";
-"app" = "App";
-"version" = "Version";
-"developer" = "Developer";
-"replay_onboarding" = "Replay onboarding";
-"item_number" = "Item %d";
-"open_next" = "Open next";
-"back_to_top" = "Back to top";
-"search_placeholder" = "Search…";
-"start_typing" = "Start typing";
-"no_results_for" = "No results for “%@”";
-"nothing_saved_yet" = "Nothing saved yet";
+"about" = "সম্পর্কে";
+"app" = "অ্যাপ";
+"version" = "সংস্করণ";
+"developer" = "ডেভেলপার";
+"replay_onboarding" = "অনবোর্ডিং আবার দেখুন";
+"item_number" = "আইটেম %d";
+"open_next" = "পরেরটি খুলুন";
+"back_to_top" = "উপরে ফিরে যান";
+"search_placeholder" = "অনুসন্ধান…";
+"start_typing" = "টাইপ করা শুরু করুন";
+"no_results_for" = "“%@” এর জন্য কোনো ফলাফল নেই";
+"nothing_saved_yet" = "এখনও কিছু সংরক্ষিত নেই";
 "intro_title_1" = "AI রুম মেকওভার";
 "intro_message_1" = "AI-চালিত ইন্টেরিয়র আইডিয়া দিয়ে যেকোনো ঘর বা বাইরের জায়গা নতুন করে সাজান।";
 "intro_title_2" = "AI ডিজাইন পরামর্শ";
@@ -51,21 +51,21 @@
 "splash_tagline" = "AI দিয়ে আপনার স্বপ্নের জায়গা ডিজাইন করুন";
 
 /* Home */
-"show_all" = "Show all";
-"ai_concepts" = "AI concepts in seconds";
-"reimagine_any_room" = "Reimagine\nany room";
-"try_style" = "Try style";
+"show_all" = "সব দেখুন";
+"ai_concepts" = "সেকেন্ডে AI ডিজাইন";
+"reimagine_any_room" = "যেকোনো ঘর\nনতুনভাবে কল্পনা করুন";
+"try_style" = "স্টাইল চেষ্টা করুন";
 
 /* Category */
-"category" = "Category";
-"outside" = "Outside";
-"inside" = "Inside";
+"category" = "বিভাগ";
+"outside" = "বাইরে";
+"inside" = "ভিতরে";
 
 /* My look */
-"gallery" = "Gallery";
-"empty_title" = "It's seem to be empty";
-"empty_subtitle" = "Upload your photo to start trying on house style";
-"start_transform" = "Start to transform";
+"gallery" = "গ্যালারি";
+"empty_title" = "মনে হচ্ছে এটি খালি";
+"empty_subtitle" = "ঘরের স্টাইল চেষ্টা শুরু করতে আপনার ছবি আপলোড করুন";
+"start_transform" = "রূপান্তর শুরু করুন";
 
 /* Setting — Phase 8 */
 "policy_updated" = "সর্বশেষ আপডেট: November 2026";

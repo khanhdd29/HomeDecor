@@ -7,27 +7,27 @@
 "start" = "開始";
 "get_started" = "開始";
 "back" = "返回";
-"home" = "Home";
-"search" = "Search";
-"favorites" = "Favorites";
+"home" = "首頁";
+"search" = "搜尋";
+"favorites" = "收藏";
 "settings" = "設定";
-"choose_your_language" = "Choose your language";
-"change_language_later" = "You can change this later in Settings.";
+"choose_your_language" = "選擇您的語言";
+"change_language_later" = "您可以稍後在設定中更改。";
 "please_select_language" = "請選擇語言以繼續";
-"general" = "General";
+"general" = "一般";
 "language" = "語言";
-"about" = "About";
-"app" = "App";
-"version" = "Version";
-"developer" = "Developer";
-"replay_onboarding" = "Replay onboarding";
-"item_number" = "Item %d";
-"open_next" = "Open next";
-"back_to_top" = "Back to top";
-"search_placeholder" = "Search…";
-"start_typing" = "Start typing";
-"no_results_for" = "No results for “%@”";
-"nothing_saved_yet" = "Nothing saved yet";
+"about" = "關於";
+"app" = "應用程式";
+"version" = "版本";
+"developer" = "開發者";
+"replay_onboarding" = "重播導覽";
+"item_number" = "第 %d 項";
+"open_next" = "開啟下一個";
+"back_to_top" = "回到頂部";
+"search_placeholder" = "搜尋…";
+"start_typing" = "開始輸入";
+"no_results_for" = "找不到「%@」的結果";
+"nothing_saved_yet" = "尚未儲存任何內容";
 "intro_title_1" = "AI 房間煥新";
 "intro_message_1" = "用 AI 驅動的室內創意，重新設計任何房間或戶外空間。";
 "intro_title_2" = "AI 設計建議";
@@ -51,21 +51,21 @@
 "splash_tagline" = "用 AI 設計你的夢想空間";
 
 /* Home */
-"show_all" = "Show all";
-"ai_concepts" = "AI concepts in seconds";
-"reimagine_any_room" = "Reimagine\nany room";
-"try_style" = "Try style";
+"show_all" = "查看全部";
+"ai_concepts" = "幾秒生成 AI 設計";
+"reimagine_any_room" = "重新構想\n任何房間";
+"try_style" = "試用風格";
 
 /* Category */
-"category" = "Category";
-"outside" = "Outside";
-"inside" = "Inside";
+"category" = "分類";
+"outside" = "室外";
+"inside" = "室內";
 
 /* My look */
-"gallery" = "Gallery";
-"empty_title" = "It's seem to be empty";
-"empty_subtitle" = "Upload your photo to start trying on house style";
-"start_transform" = "Start to transform";
+"gallery" = "圖庫";
+"empty_title" = "這裡好像是空的";
+"empty_subtitle" = "上傳照片，開始嘗試居家風格";
+"start_transform" = "開始改造";
 
 /* Setting — Phase 8 */
 "policy_updated" = "最後更新：November 2026";

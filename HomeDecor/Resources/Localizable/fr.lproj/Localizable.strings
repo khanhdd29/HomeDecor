@@ -68,21 +68,21 @@
 "start" = "Commencer";
 
 /* Home */
-"show_all" = "Show all";
-"ai_concepts" = "AI concepts in seconds";
-"reimagine_any_room" = "Reimagine\nany room";
-"try_style" = "Try style";
+"show_all" = "Tout afficher";
+"ai_concepts" = "Des concepts IA en quelques secondes";
+"reimagine_any_room" = "Réinventez\nn'importe quelle pièce";
+"try_style" = "Essayer le style";
 
 /* Category */
-"category" = "Category";
-"outside" = "Outside";
-"inside" = "Inside";
+"category" = "Catégorie";
+"outside" = "Extérieur";
+"inside" = "Intérieur";
 
 /* My look */
-"gallery" = "Gallery";
-"empty_title" = "It's seem to be empty";
-"empty_subtitle" = "Upload your photo to start trying on house style";
-"start_transform" = "Start to transform";
+"gallery" = "Galerie";
+"empty_title" = "On dirait que c'est vide";
+"empty_subtitle" = "Importez votre photo pour essayer des styles de maison";
+"start_transform" = "Commencer la transformation";
 
 /* Setting — Phase 8 */
 "policy_updated" = "Dernière mise à jour : November 2026";

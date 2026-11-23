@@ -7,27 +7,27 @@
 "start" = "Başla";
 "get_started" = "Başla";
 "back" = "Geri";
-"home" = "Home";
-"search" = "Search";
-"favorites" = "Favorites";
+"home" = "Ana Sayfa";
+"search" = "Ara";
+"favorites" = "Favoriler";
 "settings" = "Ayarlar";
-"choose_your_language" = "Choose your language";
-"change_language_later" = "You can change this later in Settings.";
+"choose_your_language" = "Dilinizi seçin";
+"change_language_later" = "Bunu daha sonra Ayarlar'dan değiştirebilirsiniz.";
 "please_select_language" = "Devam etmek için bir dil seçin";
-"general" = "General";
+"general" = "Genel";
 "language" = "Dil";
-"about" = "About";
-"app" = "App";
-"version" = "Version";
-"developer" = "Developer";
-"replay_onboarding" = "Replay onboarding";
-"item_number" = "Item %d";
-"open_next" = "Open next";
-"back_to_top" = "Back to top";
-"search_placeholder" = "Search…";
-"start_typing" = "Start typing";
-"no_results_for" = "No results for “%@”";
-"nothing_saved_yet" = "Nothing saved yet";
+"about" = "Hakkında";
+"app" = "Uygulama";
+"version" = "Sürüm";
+"developer" = "Geliştirici";
+"replay_onboarding" = "Tanıtımı tekrar oynat";
+"item_number" = "Öğe %d";
+"open_next" = "Sonrakini aç";
+"back_to_top" = "Başa dön";
+"search_placeholder" = "Ara…";
+"start_typing" = "Yazmaya başlayın";
+"no_results_for" = "“%@” için sonuç yok";
+"nothing_saved_yet" = "Henüz hiçbir şey kaydedilmedi";
 "intro_title_1" = "Yapay Zekâ ile Oda Yenileme";
 "intro_message_1" = "Yapay zekâ destekli iç mekân fikirleriyle her odayı veya dış alanı yeniden tasarla.";
 "intro_title_2" = "Yapay Zekâ Tasarım Önerileri";
@@ -51,21 +51,21 @@
 "splash_tagline" = "Hayalindeki mekânı yapay zekâ ile tasarla";
 
 /* Home */
-"show_all" = "Show all";
-"ai_concepts" = "AI concepts in seconds";
-"reimagine_any_room" = "Reimagine\nany room";
-"try_style" = "Try style";
+"show_all" = "Tümünü göster";
+"ai_concepts" = "Saniyeler içinde AI tasarımları";
+"reimagine_any_room" = "Her mekânı\nyeniden tasarla";
+"try_style" = "Stili dene";
 
 /* Category */
-"category" = "Category";
-"outside" = "Outside";
-"inside" = "Inside";
+"category" = "Kategori";
+"outside" = "Dış mekan";
+"inside" = "İç mekan";
 
 /* My look */
-"gallery" = "Gallery";
-"empty_title" = "It's seem to be empty";
-"empty_subtitle" = "Upload your photo to start trying on house style";
-"start_transform" = "Start to transform";
+"gallery" = "Galeri";
+"empty_title" = "Burası boş görünüyor";
+"empty_subtitle" = "Ev stillerini denemeye başlamak için fotoğrafını yükle";
+"start_transform" = "Dönüşümü başlat";
 
 /* Setting — Phase 8 */
 "policy_updated" = "Son güncelleme: November 2026";

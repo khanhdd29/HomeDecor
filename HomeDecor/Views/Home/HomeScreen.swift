@@ -83,6 +83,7 @@ struct HomeScreen: View {
     @InjectedObject(\.appFlow) private var appFlow: AppFlowCoordinator
     @Injected(\.app) private var app
     @InjectedObject(\.createSession) private var session: CreateSession
+    @Injected(\.inspiration) private var inspiration: InspirationStore
 
     private func open(_ item: StyleCard, in section: CatalogSection) {
         let styles = section.items.map { CreateStyle(image: $0.image, name: $0.title, category: $0.category) }
@@ -94,6 +95,14 @@ struct HomeScreen: View {
     private func openFeatured() {
         guard let section = sampleSections.first, let first = section.items.first else { return }
         open(first, in: section)
+    }
+
+    private func showAll(_ section: CatalogSection) {
+        inspiration.browseStyles = section.items.map {
+            CreateStyle(image: $0.image, name: $0.title, category: $0.category)
+        }
+        inspiration.browseTitle = section.title
+        app.navi.push(.categorySeeAll)
     }
 
     var body: some View {
@@ -144,9 +153,15 @@ struct HomeScreen: View {
                     .font(.system(size: 20, weight: .semibold)).tracking(-0.4)
                     .foregroundStyle(AppColor.ink)
                 Spacer()
-                Text("show_all".localized)
-                    .font(.system(size: 14))
-                    .foregroundStyle(AppColor.inkSecondary)
+                Button { showAll(section) } label: {
+                    Text("show_all".localized)
+                        .font(.system(size: 14))
+                        .foregroundStyle(AppColor.inkSecondary)
+                        .padding(.vertical, 8)
+                        .padding(.leading, 12)
+                        .contentShape(Rectangle())
+                }
+                .buttonStyle(.plain)
             }
             .padding(.horizontal, 20)
 
@@ -198,8 +213,8 @@ private struct HeroCard: View {
                 .overlay(RoundedRectangle(cornerRadius: 20).strokeBorder(.white.opacity(0.75), lineWidth: 1))
                 .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .center)
 
-            chip("Before", bg: Color.white.opacity(0.28)).padding(14)
-            chip("After", bg: AppColor.coral)
+            chip("before".localized, bg: Color.white.opacity(0.28)).padding(14)
+            chip("after".localized, bg: AppColor.coral)
                 .frame(maxWidth: .infinity, alignment: .trailing).padding(14)
 
             VStack(alignment: .leading, spacing: 10) {
