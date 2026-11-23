@@ -104,10 +104,11 @@ struct UploadPhotoScreen: View {
                         await MainActor.run { ok ? app.navi.push(.camera) : (showCameraOff = true) }
                     }
                 },
-                secondaryTitle: "not_now".localized, secondaryAction: { showCameraAccess = false })
+                secondaryTitle: "not_now".localized, secondaryAction: { showCameraAccess = false },
+                horizontal: true)
         } else if showCameraOff {
             CoralPopup(
-                icon: "camera.fill", badge: "xmark",
+                icon: "camera.fill", badge: "lock.fill",
                 title: "camera_off_title".localized, message: "camera_off_message".localized,
                 primaryTitle: "open_settings".localized,
                 primaryAction: { showCameraOff = false; PhotoTools.openSettings() },

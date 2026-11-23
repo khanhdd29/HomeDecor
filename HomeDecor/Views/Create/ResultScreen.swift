@@ -61,11 +61,12 @@ struct ResultScreen: View {
                 secondaryAction: { showDiscard = false; app.navi.pop() })
         } else if showRegen {
             CoralPopup(
-                icon: "sparkles", badge: "arrow.clockwise",
+                icon: "arrow.triangle.2.circlepath", badge: "sparkles",
                 title: "regenerate_title".localized, message: "regenerate_message".localized,
                 primaryTitle: "regenerate".localized,
                 primaryAction: { showRegen = false; app.navi.pop(onComplete: { app.navi.push(.generating) }) },
-                secondaryTitle: "cancel".localized, secondaryAction: { showRegen = false })
+                secondaryTitle: "cancel".localized, secondaryAction: { showRegen = false },
+                horizontal: true)
         }
     }
 

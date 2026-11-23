@@ -79,7 +79,8 @@ struct GeneratingScreen: View {
                 primaryTitle: "try_again".localized,
                 primaryAction: { self.failure = nil; progress = 0; work?.cancel(); work = Task { await run() } },
                 secondaryTitle: "cancel".localized,
-                secondaryAction: { self.failure = nil; app.navi.pop() })
+                secondaryAction: { self.failure = nil; app.navi.pop() },
+                horizontal: true)
         }
     }
 
