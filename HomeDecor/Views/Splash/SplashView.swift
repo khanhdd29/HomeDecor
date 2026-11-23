@@ -8,9 +8,6 @@
 //
 
 import SwiftUI
-import ads_swift
-import GoogleMobileAds
-import AppTrackingTransparency
 
 private enum SplashStep: Equatable {
     case idle, fetchingConfig, initializingAds, requestingConsent, showingInter, completed
@@ -95,7 +92,7 @@ struct SplashView: View {
         .task {
             guard !didStart else { return }
             didStart = true
-            await configAds()
+            await runLaunch()
         }
         .trackScreen(.splash)
     }
@@ -140,73 +137,13 @@ struct SplashView: View {
     }
 }
 
-// MARK: - Ad initialization sequence (ORDER is load-bearing — unchanged)
+// MARK: - Launch sequence (v1: no ads, no analytics, no consent)
 
 private extension SplashView {
 
-    func configAds() async {
-        // v1 ships without ads: skip the ad-SDK init, the ATT tracking prompt
-        // and the UMP consent flow entirely. Just play the splash progress and
-        // continue. Flip `AppFeatures.adsEnabled` to re-enable the full flow.
-        guard AppFeatures.adsEnabled else {
-            await runAdlessSplash()
-            return
-        }
-
-        step = .fetchingConfig
-        await withCheckedContinuation { (cont: CheckedContinuation<Void, Never>) in
-            RemoteConfigManager.shared.fetchAndActivate { cont.resume() }
-        }
-
-        step = .initializingAds
-        AdsManager.shared.initialize(
-            intervalShowInter: RemoteConfigManager.shared.adConfig.intervalShowInter,
-            nativeAdColorConfig: Self.nativeAdColorConfig(for: colorScheme)
-        )
-
-        AdjustManager.shared.initialize()
-        #if DEBUG
-        setTestDeviceIdentifiers()
-        #endif
-
-        let useInterSplash = RemoteConfigManager.shared.adConfig.useInterSplash
-        let openSplashConfig = AdUtil.config.openOnResumeSplash
-        if !useInterSplash && openSplashConfig.isEnable {
-            AdsManager.shared.initAppOpenAd(
-                appOpenAdUnitId: openSplashConfig.id,
-                opacity: openSplashConfig.opacity,
-                autoEnable: false
-            )
-        }
-
-        step = .requestingConsent
-        await requestConsent()
-
-        step = .showingInter
-        if useInterSplash {
-            await showInterSplash()
-        } else {
-            await showOpenSplash(config: openSplashConfig)
-        }
-
-        let appOpen = AdUtil.config.appopenResume
-        if appOpen.isEnable {
-            AdsManager.shared.initAppOpenAd(
-                appOpenAdUnitId: appOpen.id,
-                opacity: appOpen.opacity,
-                autoEnable: false
-            )
-        }
-
-        step = .completed
-        AdsManager.shared.appLifecycleReactor?.setShouldShow(true)
-        InterHomeUtil.instance.preload()
-        coordinator.splashDidFinish()
-    }
-
-    /// Ad-free launch for v1: animate the splash progress bar to 100% over a
-    /// short, intentional beat, then hand off. No ad SDK, no ATT, no consent.
-    func runAdlessSplash() async {
+    /// Animate the splash progress bar to 100% over a short, intentional beat,
+    /// then hand off to the app. No ad SDK, no ATT, no consent.
+    func runLaunch() async {
         for beat in [SplashStep.fetchingConfig, .initializingAds, .requestingConsent, .showingInter] {
             step = beat
             try? await Task.sleep(nanoseconds: 280_000_000)
@@ -214,44 +151,6 @@ private extension SplashView {
         step = .completed
         try? await Task.sleep(nanoseconds: 200_000_000)
         coordinator.splashDidFinish()
-    }
-
-    func requestConsent() async {
-        AdsManager.shared.appLifecycleReactor?.setIsExcludeScreen(true)
-        await withCheckedContinuation { (cont: CheckedContinuation<Void, Never>) in
-            ATTrackingManager.requestTrackingAuthorization { _ in cont.resume() }
-        }
-        await UMPManager.shared.requestConsentIfNeeded()
-        AdsManager.shared.appLifecycleReactor?.setIsExcludeScreen(false)
-    }
-
-    func showInterSplash() async {
-        await withCheckedContinuation { (cont: CheckedContinuation<Void, Never>) in
-            AdUtil.showInter(config: AdUtil.config.interSplash) { cont.resume() }
-        }
-    }
-
-    func showOpenSplash(config: AdUnitConfig) async {
-        await withCheckedContinuation { cont in
-            AdUtil.showOpen(config: config) { cont.resume() }
-        }
-    }
-
-    func setTestDeviceIdentifiers() {
-        MobileAds.shared.requestConfiguration.testDeviceIdentifiers = []
-    }
-
-    static func nativeAdColorConfig(for scheme: ColorScheme) -> NativeAdColorConfig {
-        let adBadge: UIColor = scheme == .dark ? .tertiaryLabel : .secondaryLabel
-        return NativeAdColorConfig(
-            headlineColor: Color(uiColor: .label),
-            bodyColor: Color(uiColor: .secondaryLabel),
-            adColor: Color(uiColor: adBadge),
-            adBackgroundColor: Color(uiColor: .secondarySystemGroupedBackground),
-            callToActionBackgroundColor: .accentColor,
-            callToActionTextColor: .white,
-            backgroundColor: Color(uiColor: .systemBackground)
-        )
     }
 }
 

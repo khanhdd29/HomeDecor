@@ -9,7 +9,6 @@
 //
 
 import SwiftUI
-import ads_swift
 
 struct IntroView: View {
     @EnvironmentObject private var coordinator: AppFlowCoordinator
@@ -23,8 +22,6 @@ struct IntroView: View {
         return version == "1.0.0"
     }
 
-    @State private var nativeIntro1VM: NativeAdViewModel?
-    @State private var nativeIntro3VM: NativeAdViewModel?
 
     var body: some View {
         ZStack {
@@ -57,7 +54,6 @@ struct IntroView: View {
             }
             .animation(.easeInOut(duration: 0.25), value: index)
         }
-        .onAppear { loadAds() }
         .trackScreen(.intro)
     }
 
@@ -277,18 +273,6 @@ struct IntroView: View {
             .frame(width: size, height: size)
     }
 
-    // MARK: - Ads (inert in v1)
-
-    private func loadAds() {
-        let c1 = AdUtil.config.nativeIntro1
-        if c1.isEnable, nativeIntro1VM == nil {
-            let vm = NativeAdViewModel(adUnitID: c1.id); vm.refreshAd(); nativeIntro1VM = vm
-        }
-        let c3 = AdUtil.config.nativeIntro3
-        if c3.isEnable, nativeIntro3VM == nil {
-            let vm = NativeAdViewModel(adUnitID: c3.id); vm.refreshAd(); nativeIntro3VM = vm
-        }
-    }
 }
 
 #if DEBUG

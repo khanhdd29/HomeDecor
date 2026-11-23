@@ -8,7 +8,6 @@
 //
 
 import SwiftUI
-import ads_swift
 import Factory
 
 struct LanguageView: View {
@@ -24,21 +23,12 @@ struct LanguageView: View {
     @State private var originalLanguage: AppLanguage = .deviceDefault
     @Namespace private var guideNS
 
-    @State private var nativeLanguageVM: NativeAdViewModel?
-    @State private var nativeLanguageSelectVM: NativeAdViewModel?
-    @State private var nativeAllVM: NativeAdViewModel?
-
     init(mode: Mode = .onboarding) { self.mode = mode }
 
     private let guideLanguage: AppLanguage = .english
     private var isGuiding: Bool { mode == .onboarding }
     private var showRowGuide: Bool { isGuiding && !hasChosen }
     private var canConfirm: Bool { hasChosen }
-
-    private var currentAdVM: NativeAdViewModel? {
-        if mode == .settings { return nativeAllVM }
-        return hasChosen ? nativeLanguageSelectVM : nativeLanguageVM
-    }
 
     var body: some View {
         ZStack {
@@ -62,17 +52,11 @@ struct LanguageView: View {
                     .padding(.bottom, 12)
                 }
 
-                if let vm = currentAdVM {
-                    NativeContentView(nativeViewModel: vm, style: .nativeNormalMediaCtaTop)
-                        .padding(.horizontal)
-                        .padding(.bottom, 8)
-                }
             }
         }
         .onAppear {
             originalLanguage = coordinator.language
             if mode == .settings { hasChosen = true }
-            loadAds()
         }
         .trackScreen(mode == .onboarding ? .language : .settingsLanguage)
     }
@@ -175,26 +159,6 @@ struct LanguageView: View {
             if on {
                 Circle().fill(AppColor.coral).frame(width: 12, height: 12)
             }
-        }
-    }
-
-    // MARK: - Ads (inert in v1)
-
-    private func loadAds() {
-        if mode == .settings {
-            let all = AdUtil.config.nativeAll
-            if all.isEnable, nativeAllVM == nil {
-                let vm = NativeAdViewModel(adUnitID: all.id); vm.refreshAd(); nativeAllVM = vm
-            }
-            return
-        }
-        let initial = AdUtil.config.nativeLanguage
-        if initial.isEnable, nativeLanguageVM == nil {
-            let vm = NativeAdViewModel(adUnitID: initial.id); vm.refreshAd(); nativeLanguageVM = vm
-        }
-        let postSelect = AdUtil.config.nativeLanguageSelect
-        if postSelect.isEnable, nativeLanguageSelectVM == nil {
-            let vm = NativeAdViewModel(adUnitID: postSelect.id); vm.refreshAd(); nativeLanguageSelectVM = vm
         }
     }
 
