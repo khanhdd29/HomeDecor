@@ -191,5 +191,7 @@
 /* AI Chat history */
 "chat_history" = "채팅 기록";
 "no_history" = "아직 채팅이 없습니다";
+"search_chats" = "채팅 검색";
+"no_results" = "결과 없음";
 "delete_chats_title" = "채팅 %d개를 삭제할까요?";
 "delete_chats_message" = "선택한 채팅이 영구적으로 삭제됩니다. 실행을 취소할 수 없습니다.";

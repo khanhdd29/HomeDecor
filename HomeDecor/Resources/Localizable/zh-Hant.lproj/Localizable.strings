@@ -191,5 +191,7 @@
 /* AI Chat history */
 "chat_history" = "聊天記錄";
 "no_history" = "還沒有聊天";
+"search_chats" = "搜尋對話";
+"no_results" = "無結果";
 "delete_chats_title" = "刪除 %d 個聊天？";
 "delete_chats_message" = "所選聊天將被永久刪除。此操作無法復原。";

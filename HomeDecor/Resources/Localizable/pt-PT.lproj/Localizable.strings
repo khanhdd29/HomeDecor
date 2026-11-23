@@ -191,5 +191,7 @@
 /* AI Chat history */
 "chat_history" = "Histórico de chat";
 "no_history" = "Ainda sem conversas";
+"search_chats" = "Procurar conversas";
+"no_results" = "Sem resultados";
 "delete_chats_title" = "Eliminar %d conversas?";
 "delete_chats_message" = "As conversas selecionadas serão eliminadas permanentemente. Isto não pode ser anulado.";

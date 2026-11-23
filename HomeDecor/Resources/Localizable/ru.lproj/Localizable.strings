@@ -191,5 +191,7 @@
 /* AI Chat history */
 "chat_history" = "История чата";
 "no_history" = "Чатов пока нет";
+"search_chats" = "Поиск чатов";
+"no_results" = "Ничего не найдено";
 "delete_chats_title" = "Удалить %d чатов?";
 "delete_chats_message" = "Выбранные чаты будут удалены навсегда. Это действие нельзя отменить.";

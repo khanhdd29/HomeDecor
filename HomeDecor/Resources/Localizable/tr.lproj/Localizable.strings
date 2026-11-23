@@ -191,5 +191,7 @@
 /* AI Chat history */
 "chat_history" = "Sohbet geçmişi";
 "no_history" = "Henüz sohbet yok";
+"search_chats" = "Sohbetlerde ara";
+"no_results" = "Sonuç yok";
 "delete_chats_title" = "%d sohbet silinsin mi?";
 "delete_chats_message" = "Seçili sohbetler kalıcı olarak silinecek. Bu geri alınamaz.";

@@ -208,5 +208,7 @@
 /* AI Chat history */
 "chat_history" = "Chatverlauf";
 "no_history" = "Noch keine Chats";
+"search_chats" = "Chats suchen";
+"no_results" = "Keine Ergebnisse";
 "delete_chats_title" = "%d Chats löschen?";
 "delete_chats_message" = "Die ausgewählten Chats werden dauerhaft gelöscht. Dies kann nicht rückgängig gemacht werden.";

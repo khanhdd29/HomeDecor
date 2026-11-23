@@ -191,5 +191,7 @@
 /* AI Chat history */
 "chat_history" = "চ্যাট ইতিহাস";
 "no_history" = "এখনও কোনো চ্যাট নেই";
+"search_chats" = "চ্যাট খুঁজুন";
+"no_results" = "কোনো ফলাফল নেই";
 "delete_chats_title" = "%d চ্যাট মুছবেন?";
 "delete_chats_message" = "নির্বাচিত চ্যাটগুলি স্থায়ীভাবে মুছে ফেলা হবে। এটি পূর্বাবস্থায় ফেরানো যাবে না।";

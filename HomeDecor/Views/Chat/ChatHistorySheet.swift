@@ -16,16 +16,31 @@ struct ChatHistorySheet: View {
     @State private var selectMode = false
     @State private var selected: Set<String> = []
     @State private var showDelete = false
+    @State private var query = ""
+
+    /// Full-text match across each conversation's title and every message.
+    private var filtered: [ChatConversation] {
+        let q = query.trimmingCharacters(in: .whitespacesAndNewlines).lowercased()
+        guard !q.isEmpty else { return store.conversations }
+        return store.conversations.filter { convo in
+            convo.title.lowercased().contains(q) ||
+            convo.messages.contains {
+                ($0.text ?? "").lowercased().contains(q) || ($0.caption ?? "").lowercased().contains(q)
+            }
+        }
+    }
 
     var body: some View {
-        VStack(spacing: 0) {
+        let items = filtered
+        return VStack(spacing: 0) {
             header
-            if store.conversations.isEmpty {
-                emptyState
+            if !store.conversations.isEmpty { searchBar }
+            if items.isEmpty {
+                emptyState(query.isEmpty ? "no_history" : "no_results")
             } else {
                 ScrollView(showsIndicators: false) {
                     LazyVStack(spacing: 12) {
-                        ForEach(store.conversations) { row($0) }
+                        ForEach(items) { row($0) }
                     }
                     .padding(.horizontal, 20).padding(.top, 8).padding(.bottom, 20)
                 }
@@ -89,6 +104,29 @@ struct ChatHistorySheet: View {
         .frame(height: 44).padding(.horizontal, 24).padding(.top, 12).padding(.bottom, 10)
     }
 
+    // MARK: Search
+
+    private var searchBar: some View {
+        HStack(spacing: 10) {
+            Image(systemName: "magnifyingglass")
+                .font(.system(size: 15, weight: .semibold)).foregroundStyle(AppColor.inkTertiary)
+            TextField("search_chats".localized, text: $query)
+                .font(.system(size: 15)).foregroundStyle(AppColor.ink)
+                .textInputAutocapitalization(.never).autocorrectionDisabled()
+                .submitLabel(.search)
+            if !query.isEmpty {
+                Button { query = "" } label: {
+                    Image(systemName: "xmark.circle.fill")
+                        .font(.system(size: 16)).foregroundStyle(AppColor.inkTertiary)
+                }
+                .buttonStyle(PressableStyle())
+            }
+        }
+        .padding(.horizontal, 14).frame(height: 44)
+        .glassPanel(22)
+        .padding(.horizontal, 20).padding(.bottom, 8)
+    }
+
     // MARK: Row
 
     private func row(_ convo: ChatConversation) -> some View {
@@ -123,11 +161,14 @@ struct ChatHistorySheet: View {
 
     // MARK: Empty
 
-    private var emptyState: some View {
+    private func emptyState(_ key: String) -> some View {
         VStack(spacing: 10) {
             Spacer()
-            AIAvatar(size: 96).opacity(0.9)
-            Text("no_history".localized)
+            Image(systemName: key == "no_results" ? "magnifyingglass" : "clock.arrow.circlepath")
+                .font(.system(size: 42, weight: .light)).foregroundStyle(AppColor.inkTertiary)
+                .opacity(key == "no_results" ? 1 : 0)
+            if key != "no_results" { AIAvatar(size: 96).opacity(0.9) }
+            Text(key.localized)
                 .font(.system(size: 16, weight: .semibold)).foregroundStyle(AppColor.ink)
                 .padding(.top, 6)
             Spacer(); Spacer()

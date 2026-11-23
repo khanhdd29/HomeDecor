@@ -191,5 +191,7 @@
 /* AI Chat history */
 "chat_history" = "Riwayat obrolan";
 "no_history" = "Belum ada obrolan";
+"search_chats" = "Cari obrolan";
+"no_results" = "Tidak ada hasil";
 "delete_chats_title" = "Hapus %d obrolan?";
 "delete_chats_message" = "Obrolan yang dipilih akan dihapus permanen. Ini tidak dapat dibatalkan.";

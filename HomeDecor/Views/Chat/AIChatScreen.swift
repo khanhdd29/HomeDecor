@@ -18,8 +18,6 @@ struct AIChatScreen: View {
 
     @State private var input = ""
     @State private var showAttach = false
-    @State private var showOptions = false
-    @State private var showClear = false
     @State private var showHistory = false
     @State private var showCamera = false
     @State private var pickerItem: PhotosPickerItem?
@@ -48,22 +46,8 @@ struct AIChatScreen: View {
             withAnimation(.easeOut(duration: 0.2)) { keyboardHeight = 0 }
         }
         .toolbar(.hidden, for: .navigationBar)
-        .overlay {
-            if showClear {
-                CoralPopup(
-                    icon: "trash.fill",
-                    title: "clear_chat_title".localized, message: "clear_chat_message".localized,
-                    primaryTitle: "cancel".localized, primaryAction: { showClear = false },
-                    secondaryTitle: "clear".localized, secondaryAction: {
-                        showClear = false; store.clearCurrent()
-                    },
-                    horizontal: true)
-            }
-        }
-        .animation(.easeInOut(duration: 0.2), value: showClear)
         .sheet(isPresented: $showAttach) { attachSheet }
-        .sheet(isPresented: $showOptions) { optionsSheet }
-        .sheet(isPresented: $showHistory) {
+        .fullScreenCover(isPresented: $showHistory) {
             ChatHistorySheet(onClose: { showHistory = false })
         }
         .fullScreenCover(isPresented: $showCamera) {
@@ -95,11 +79,18 @@ struct AIChatScreen: View {
                 }
                 .buttonStyle(PressableStyle())
                 Spacer()
-                Button { showOptions = true } label: {
-                    Image(systemName: "ellipsis").font(.system(size: 18, weight: .semibold))
-                        .foregroundStyle(AppColor.ink).frame(width: 44, height: 44).glassButton()
+                HStack(spacing: 8) {
+                    Button { showHistory = true } label: {
+                        Image(systemName: "clock.arrow.circlepath").font(.system(size: 17, weight: .semibold))
+                            .foregroundStyle(AppColor.ink).frame(width: 44, height: 44).glassButton()
+                    }
+                    .buttonStyle(PressableStyle())
+                    Button { store.newConversation() } label: {
+                        Image(systemName: "square.and.pencil").font(.system(size: 17, weight: .semibold))
+                            .foregroundStyle(AppColor.ink).frame(width: 44, height: 44).glassButton()
+                    }
+                    .buttonStyle(PressableStyle())
                 }
-                .buttonStyle(PressableStyle())
             }
         }
         .frame(height: 44).padding(.horizontal, 24).padding(.top, 8).padding(.bottom, 10)
@@ -287,52 +278,6 @@ struct AIChatScreen: View {
         .frame(maxWidth: .infinity, alignment: .leading)
         .padding(.horizontal, 16).padding(.vertical, 18)
         .glassPanel(28)
-    }
-
-    // MARK: Chat Options sheet (Figma 10:29098)
-
-    private var optionsSheet: some View {
-        VStack(spacing: 16) {
-            VStack(spacing: 0) {
-                optionRow("clock.arrow.circlepath", "chat_history".localized, tint: AppColor.ink) {
-                    showOptions = false
-                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.35) { showHistory = true }
-                }
-                Divider().overlay(AppColor.ink.opacity(0.08))
-                optionRow("square.and.pencil", "new_chat".localized, tint: AppColor.ink) {
-                    showOptions = false; store.newConversation()
-                }
-                Divider().overlay(AppColor.ink.opacity(0.08))
-                optionRow("trash", "clear_chat".localized, tint: Color(hex: 0xFF8A80)) {
-                    showOptions = false
-                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.35) { showClear = true }
-                }
-            }
-            .glassPanel(28)
-            Button { showOptions = false } label: {
-                Text("cancel".localized).font(.system(size: 15, weight: .medium)).foregroundStyle(AppColor.ink)
-                    .frame(maxWidth: .infinity).frame(height: 48)
-                    .background(AppColor.ink.opacity(0.06), in: RoundedRectangle(cornerRadius: 24, style: .continuous))
-            }
-            .buttonStyle(PressableStyle())
-        }
-        .padding(.horizontal, 20).padding(.top, 12).padding(.bottom, 20)
-        .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
-        .background(BlobBackground())
-        .presentationDetents([.height(300)])
-        .presentationDragIndicator(.visible)
-    }
-
-    private func optionRow(_ icon: String, _ title: String, tint: Color, action: @escaping () -> Void) -> some View {
-        Button(action: action) {
-            HStack(spacing: 14) {
-                Image(systemName: icon).font(.system(size: 18)).foregroundStyle(tint).frame(width: 22)
-                Text(title).font(.system(size: 16, weight: .medium)).foregroundStyle(tint)
-                Spacer()
-            }
-            .padding(.horizontal, 16).frame(height: 56).contentShape(Rectangle())
-        }
-        .buttonStyle(.plain)
     }
 
     private func loadPicked(_ item: PhotosPickerItem?) {

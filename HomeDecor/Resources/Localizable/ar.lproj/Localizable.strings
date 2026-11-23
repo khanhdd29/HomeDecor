@@ -191,5 +191,7 @@
 /* AI Chat history */
 "chat_history" = "سجل المحادثات";
 "no_history" = "لا محادثات بعد";
+"search_chats" = "البحث في المحادثات";
+"no_results" = "لا توجد نتائج";
 "delete_chats_title" = "حذف %d محادثة؟";
 "delete_chats_message" = "سيتم حذف المحادثات المحددة نهائيًا. لا يمكن التراجع عن ذلك.";
