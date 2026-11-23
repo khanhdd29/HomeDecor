@@ -14,6 +14,6 @@ struct AppConstants {
     /// Privacy-policy URL. The Settings "Privacy Policy" row opens an in-app
     /// web view that loads this page (content is hosted on the web, see
     /// AppStore/PRIVACY_POLICY.md). TODO: replace with the real hosted URL.
-    static let policyLink = "https://abodi.app/privacy"
+    static let policyLink = "https://nguyenthingocanhhh.netlify.app/policy"
     static let appLi = "https://apps.apple.com/app/id\(appId)"
 }

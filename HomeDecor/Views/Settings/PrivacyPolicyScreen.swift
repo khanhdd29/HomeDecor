@@ -38,6 +38,12 @@ struct PrivacyPolicyScreen: View {
                 }
             }
             .frame(maxWidth: .infinity, maxHeight: .infinity)
+            // Figma 10:29947 — content sits in a padded, rounded card.
+            .background(Color(hex: 0xF6F3F1))
+            .clipShape(RoundedRectangle(cornerRadius: 28, style: .continuous))
+            .padding(.horizontal, 20)
+            .padding(.top, 8)
+            .padding(.bottom, 20)
         }
         .background(BlobBackground().ignoresSafeArea())
         .toolbar(.hidden, for: .navigationBar)
