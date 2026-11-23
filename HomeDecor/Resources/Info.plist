@@ -27,8 +27,6 @@
 	<string>a6badfa7c71e45c55352353671039509</string>
 	<key>GADApplicationIdentifier</key>
 	<string>ca-app-pub-5965765613398032~6880278315</string>
-	<key>NSUserTrackingUsageDescription</key>
-	<string>We use your data to show you more relevant ads. Your choice is respected and you can change it anytime in Settings.</string>
 	<key>SKAdNetworkItems</key>
 	<array>
 		<dict>

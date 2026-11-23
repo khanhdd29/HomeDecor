@@ -145,6 +145,14 @@ struct SplashView: View {
 private extension SplashView {
 
     func configAds() async {
+        // v1 ships without ads: skip the ad-SDK init, the ATT tracking prompt
+        // and the UMP consent flow entirely. Just play the splash progress and
+        // continue. Flip `AppFeatures.adsEnabled` to re-enable the full flow.
+        guard AppFeatures.adsEnabled else {
+            await runAdlessSplash()
+            return
+        }
+
         step = .fetchingConfig
         await withCheckedContinuation { (cont: CheckedContinuation<Void, Never>) in
             RemoteConfigManager.shared.fetchAndActivate { cont.resume() }
@@ -193,6 +201,18 @@ private extension SplashView {
         step = .completed
         AdsManager.shared.appLifecycleReactor?.setShouldShow(true)
         InterHomeUtil.instance.preload()
+        coordinator.splashDidFinish()
+    }
+
+    /// Ad-free launch for v1: animate the splash progress bar to 100% over a
+    /// short, intentional beat, then hand off. No ad SDK, no ATT, no consent.
+    func runAdlessSplash() async {
+        for beat in [SplashStep.fetchingConfig, .initializingAds, .requestingConsent, .showingInter] {
+            step = beat
+            try? await Task.sleep(nanoseconds: 280_000_000)
+        }
+        step = .completed
+        try? await Task.sleep(nanoseconds: 200_000_000)
         coordinator.splashDidFinish()
     }
 
