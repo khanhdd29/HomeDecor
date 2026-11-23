@@ -4,6 +4,8 @@ Trang store **viết tiếng Anh** (English U.S.) — App Store dùng bản ti�
 
 Nội dung viết **riêng cho Abodi Home** (app AI thiết kế lại nội thất: chụp/chọn ảnh phòng → chọn style → AI dựng lại → lưu "My look", kèm trợ lý AI tư vấn). Chỉ nêu tính năng **đã ✅ xong**; **không** nhắc tính năng còn mock/chưa wire để tránh **Guideline 2.3.1** (mô tả sai). Đếm ký tự bằng `python3 AppStore/count_metadata.py` sau mỗi lần sửa.
 
+> 📄 Bản đóng gói để dán nhanh vào App Store Connect: **`AppStore/Abodi_ASO_Metadata_iOS.xlsx`** (sheet Notes + EN iOS + VI iOS, kèm cột đếm ký tự & trạng thái). File `.md` này là bản chi tiết/giải thích; sửa chữ xong chạy lại `python3 scripts/store/make_aso_xlsx.py` để cập nhật xlsx. Bản VI trong Excel là **dự phòng** nếu sau này thêm trang tiếng Việt — trang store mặc định chỉ English.
+
 Điểm khác biệt nhấn ASO (tránh **4.3** — trùng app AI decor khác): **before/after kéo so sánh**, **nhiều style theo từng loại phòng**, **trợ lý AI tư vấn trang trí (chat + gửi ảnh)**, **16 ngôn ngữ**, **không tài khoản, không quảng cáo**.
 
 > ⚠️ **CỰC KỲ QUAN TRỌNG trước khi submit:** phần **AI generate** và **AI Chat** hiện đang chạy **mock** (`ChatStore.useMock = true`, flow generate dùng dữ liệu mẫu) vì **chưa có credentials Code12/ArtMagic** (appId/secretKey/agentId/template). Store metadata dưới đây mô tả app **như khi AI đã chạy thật**. **KHÔNG được submit khi AI còn mock** — reviewer sẽ thấy app không tạo được thiết kế thật → reject **2.3.1** (mô tả không đúng) hoặc **2.1** (app không hoạt động). Phải wire backend thật + test end-to-end trước (xem mục 6).
