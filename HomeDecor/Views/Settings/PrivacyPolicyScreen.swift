@@ -2,8 +2,9 @@
 //  PrivacyPolicyScreen.swift
 //  HomeDecor
 //
-//  Setting — Privacy Policy (Figma 10:29947). Header + a frosted card with
-//  four coral-headed sections.
+//  Setting — Privacy Policy (Figma 10:29947). Header + an in-app web view that
+//  loads the hosted policy page from `AppConstants.policyLink` (the real policy
+//  content lives on the web, not hardcoded in the app).
 //
 
 import SwiftUI
@@ -11,43 +12,48 @@ import Factory
 
 struct PrivacyPolicyScreen: View {
     @Injected(\.app) private var app
+    @StateObject private var model = WebViewModel()
 
-    private let sections: [(String, String)] = [
-        ("policy_1_title", "policy_1_body"),
-        ("policy_2_title", "policy_2_body"),
-        ("policy_3_title", "policy_3_body"),
-        ("policy_4_title", "policy_4_body"),
-    ]
+    private var policyURL: URL? {
+        AppConstants.policyLink.isEmpty ? nil : URL(string: AppConstants.policyLink)
+    }
 
     var body: some View {
         VStack(spacing: 0) {
             header
-            ScrollView(showsIndicators: false) {
-                VStack(alignment: .leading, spacing: 16) {
-                    Text("policy_updated".localized)
-                        .font(.system(size: 13)).foregroundStyle(AppColor.inkSecondary)
 
-                    VStack(alignment: .leading, spacing: 18) {
-                        ForEach(sections, id: \.0) { title, body in
-                            VStack(alignment: .leading, spacing: 6) {
-                                Text(title.localized)
-                                    .font(.system(size: 15, weight: .semibold)).foregroundStyle(AppColor.coral)
-                                Text(body.localized)
-                                    .font(.system(size: 14)).foregroundStyle(AppColor.ink.opacity(0.8))
-                                    .lineSpacing(3)
-                                    .fixedSize(horizontal: false, vertical: true)
-                            }
-                            .frame(maxWidth: .infinity, alignment: .leading)
-                        }
+            ZStack {
+                if let url = policyURL {
+                    InAppWebView(url: url, model: model)
+                        .opacity(model.failed ? 0 : 1)
+                    if model.isLoading {
+                        ProgressView().tint(AppColor.coral)
                     }
-                    .padding(.horizontal, 18).padding(.vertical, 20)
-                    .glassPanel(28)
+                    if model.failed {
+                        placeholder("offline_title", "offline_message")
+                    }
+                } else {
+                    // policyLink not set yet.
+                    placeholder("privacy_policy", "policy_updated")
                 }
-                .padding(.horizontal, 20).padding(.top, 8).padding(.bottom, 32)
             }
+            .frame(maxWidth: .infinity, maxHeight: .infinity)
         }
         .background(BlobBackground().ignoresSafeArea())
         .toolbar(.hidden, for: .navigationBar)
+    }
+
+    private func placeholder(_ titleKey: String, _ bodyKey: String) -> some View {
+        VStack(spacing: 10) {
+            Image(systemName: "doc.text")
+                .font(.system(size: 34, weight: .regular)).foregroundStyle(AppColor.coral)
+            Text(titleKey.localized)
+                .font(.system(size: 17, weight: .semibold)).foregroundStyle(AppColor.ink)
+            Text(bodyKey.localized)
+                .font(.system(size: 14)).foregroundStyle(AppColor.inkSecondary)
+                .multilineTextAlignment(.center).frame(width: 260)
+        }
+        .padding(24)
     }
 
     private var header: some View {
