@@ -208,3 +208,9 @@
 "reload" = "Reload";
 "share_copy_link" = "Copy link";
 "share_more" = "More";
+
+/* AI Chat history */
+"chat_history" = "Chat history";
+"no_history" = "No chats yet";
+"delete_chats_title" = "Delete %d chats?";
+"delete_chats_message" = "The selected chats will be permanently deleted. This can't be undone.";

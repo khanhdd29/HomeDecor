@@ -187,3 +187,9 @@
 "clear_chat_title" = "Limpar esta conversa?";
 "clear_chat_message" = "Todas as mensagens desta conversa serão excluídas.";
 "clear" = "Limpar";
+
+/* AI Chat history */
+"chat_history" = "Histórico de chat";
+"no_history" = "Nenhum chat ainda";
+"delete_chats_title" = "Excluir %d chats?";
+"delete_chats_message" = "Os chats selecionados serão excluídos permanentemente. Isso não pode ser desfeito.";

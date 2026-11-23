@@ -187,3 +187,9 @@
 "clear_chat_title" = "Bu sohbet temizlensin mi?";
 "clear_chat_message" = "Bu konuşmadaki tüm mesajlar silinecek.";
 "clear" = "Temizle";
+
+/* AI Chat history */
+"chat_history" = "Sohbet geçmişi";
+"no_history" = "Henüz sohbet yok";
+"delete_chats_title" = "%d sohbet silinsin mi?";
+"delete_chats_message" = "Seçili sohbetler kalıcı olarak silinecek. Bu geri alınamaz.";

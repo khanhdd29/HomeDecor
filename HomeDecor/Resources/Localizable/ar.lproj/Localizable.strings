@@ -187,3 +187,9 @@
 "clear_chat_title" = "مسح هذه المحادثة؟";
 "clear_chat_message" = "سيتم حذف جميع الرسائل في هذه المحادثة.";
 "clear" = "مسح";
+
+/* AI Chat history */
+"chat_history" = "سجل المحادثات";
+"no_history" = "لا محادثات بعد";
+"delete_chats_title" = "حذف %d محادثة؟";
+"delete_chats_message" = "سيتم حذف المحادثات المحددة نهائيًا. لا يمكن التراجع عن ذلك.";

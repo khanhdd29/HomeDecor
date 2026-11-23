@@ -204,3 +204,9 @@
 "clear_chat_title" = "Effacer cette discussion ?";
 "clear_chat_message" = "Tous les messages de cette conversation seront supprimés.";
 "clear" = "Effacer";
+
+/* AI Chat history */
+"chat_history" = "Historique du chat";
+"no_history" = "Aucune conversation";
+"delete_chats_title" = "Supprimer %d conversations ?";
+"delete_chats_message" = "Les conversations sélectionnées seront définitivement supprimées. Action irréversible.";

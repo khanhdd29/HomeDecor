@@ -187,3 +187,9 @@
 "clear_chat_title" = "Hapus obrolan ini?";
 "clear_chat_message" = "Semua pesan dalam percakapan ini akan dihapus.";
 "clear" = "Hapus";
+
+/* AI Chat history */
+"chat_history" = "Riwayat obrolan";
+"no_history" = "Belum ada obrolan";
+"delete_chats_title" = "Hapus %d obrolan?";
+"delete_chats_message" = "Obrolan yang dipilih akan dihapus permanen. Ini tidak dapat dibatalkan.";

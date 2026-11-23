@@ -204,3 +204,9 @@
 "clear_chat_title" = "このチャットを消去しますか？";
 "clear_chat_message" = "この会話のすべてのメッセージが削除されます。";
 "clear" = "消去";
+
+/* AI Chat history */
+"chat_history" = "チャット履歴";
+"no_history" = "チャットはまだありません";
+"delete_chats_title" = "%d件のチャットを削除しますか？";
+"delete_chats_message" = "選択したチャットは完全に削除されます。元に戻せません。";

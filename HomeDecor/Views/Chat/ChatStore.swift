@@ -68,6 +68,11 @@ final class ChatStore: ObservableObject {
     @Published var messages: [ChatMessage] = []
     @Published var pending: Pending? = nil
 
+    /// Saved conversations (newest first), loaded from local storage.
+    @Published var conversations: [ChatConversation] = []
+    /// Identifies the conversation currently on screen (for upsert into history).
+    private(set) var conversationId = UUID().uuidString
+
     /// Server-side conversation key. One per install; renewed on New/Clear chat.
     private(set) var userId: String
 
@@ -82,9 +87,59 @@ final class ChatStore: ObservableObject {
     init() {
         userId = UserDefaults.standard.string(forKey: userIdKey) ?? UUID().uuidString
         UserDefaults.standard.set(userId, forKey: userIdKey)
+        conversations = ChatHistoryStorage.load()
     }
 
     var isEmpty: Bool { messages.isEmpty && pending == nil }
+
+    // MARK: History
+
+    /// Upsert the on-screen conversation into the saved list (newest first).
+    private func persist() {
+        guard let firstUser = messages.first(where: { $0.role == .user }) else { return }
+        let title = (firstUser.text ?? firstUser.caption ?? "chat".localized)
+            .trimmingCharacters(in: .whitespacesAndNewlines)
+        let convo = ChatConversation(
+            id: conversationId, userId: userId,
+            title: String(title.prefix(60)), updatedAt: Date(),
+            messages: messages.map { $0.stored() })
+        conversations.removeAll { $0.id == conversationId }
+        conversations.insert(convo, at: 0)
+        ChatHistoryStorage.save(conversations)
+    }
+
+    /// Start a fresh conversation (the previous one stays in history).
+    func newConversation() {
+        conversationId = UUID().uuidString
+        messages.removeAll()
+        pending = nil
+        renewUserId()
+    }
+
+    /// Remove the current conversation from history, then start fresh.
+    func clearCurrent() {
+        delete([conversationId])
+        newConversation()
+    }
+
+    /// Load a saved conversation back onto the screen.
+    func open(_ conversation: ChatConversation) {
+        conversationId = conversation.id
+        userId = conversation.userId
+        UserDefaults.standard.set(userId, forKey: userIdKey)
+        pending = nil
+        messages = conversation.messages.map { $0.message() }
+    }
+
+    func delete(_ ids: Set<String>) {
+        for id in ids {
+            if let c = conversations.first(where: { $0.id == id }) {
+                ChatHistoryStorage.deleteImages(for: c)
+            }
+        }
+        conversations.removeAll { ids.contains($0.id) }
+        ChatHistoryStorage.save(conversations)
+    }
 
     // MARK: Sending
 
@@ -92,6 +147,7 @@ final class ChatStore: ObservableObject {
         let text = raw.trimmingCharacters(in: .whitespacesAndNewlines)
         guard !text.isEmpty else { return }
         messages.append(.user(text))
+        persist()
         answer(to: text)
     }
 
@@ -99,6 +155,7 @@ final class ChatStore: ObservableObject {
         var m = ChatMessage(id: UUID().uuidString, role: .user, image: image)
         m.caption = (caption?.trimmingCharacters(in: .whitespacesAndNewlines)).flatMap { $0.isEmpty ? nil : $0 }
         messages.append(m)
+        persist()
         analyzePhoto()
     }
 
@@ -106,12 +163,6 @@ final class ChatStore: ObservableObject {
         guard let idx = messages.firstIndex(where: { $0.id == message.id }) else { return }
         messages[idx].failed = false
         if let text = messages[idx].text { answer(to: text) }
-    }
-
-    func clear() {
-        messages.removeAll()
-        pending = nil
-        renewUserId()
     }
 
     func renewUserId() {
@@ -129,6 +180,7 @@ final class ChatStore: ObservableObject {
                 await MainActor.run {
                     pending = nil
                     messages.append(Self.mockReply(for: text))
+                    persist()
                 }
             } else {
                 // GO LIVE: swap the mock above for the real server call.
@@ -147,6 +199,7 @@ final class ChatStore: ObservableObject {
             await MainActor.run {
                 pending = nil
                 messages.append(Self.mockPhotoAdvice())
+                persist()
             }
         }
     }

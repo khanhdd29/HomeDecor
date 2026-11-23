@@ -20,6 +20,7 @@ struct AIChatScreen: View {
     @State private var showAttach = false
     @State private var showOptions = false
     @State private var showClear = false
+    @State private var showHistory = false
     @State private var showCamera = false
     @State private var pickerItem: PhotosPickerItem?
     @State private var keyboardHeight: CGFloat = 0
@@ -54,7 +55,7 @@ struct AIChatScreen: View {
                     title: "clear_chat_title".localized, message: "clear_chat_message".localized,
                     primaryTitle: "cancel".localized, primaryAction: { showClear = false },
                     secondaryTitle: "clear".localized, secondaryAction: {
-                        showClear = false; store.clear()
+                        showClear = false; store.clearCurrent()
                     },
                     horizontal: true)
             }
@@ -62,6 +63,9 @@ struct AIChatScreen: View {
         .animation(.easeInOut(duration: 0.2), value: showClear)
         .sheet(isPresented: $showAttach) { attachSheet }
         .sheet(isPresented: $showOptions) { optionsSheet }
+        .sheet(isPresented: $showHistory) {
+            ChatHistorySheet(onClose: { showHistory = false })
+        }
         .fullScreenCover(isPresented: $showCamera) {
             CameraPicker { img in if let img { store.sendPhoto(img, caption: nil) } }
                 .ignoresSafeArea()
@@ -290,8 +294,13 @@ struct AIChatScreen: View {
     private var optionsSheet: some View {
         VStack(spacing: 16) {
             VStack(spacing: 0) {
+                optionRow("clock.arrow.circlepath", "chat_history".localized, tint: AppColor.ink) {
+                    showOptions = false
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.35) { showHistory = true }
+                }
+                Divider().overlay(AppColor.ink.opacity(0.08))
                 optionRow("square.and.pencil", "new_chat".localized, tint: AppColor.ink) {
-                    showOptions = false; store.clear()
+                    showOptions = false; store.newConversation()
                 }
                 Divider().overlay(AppColor.ink.opacity(0.08))
                 optionRow("trash", "clear_chat".localized, tint: Color(hex: 0xFF8A80)) {
@@ -310,7 +319,7 @@ struct AIChatScreen: View {
         .padding(.horizontal, 20).padding(.top, 12).padding(.bottom, 20)
         .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
         .background(BlobBackground())
-        .presentationDetents([.height(230)])
+        .presentationDetents([.height(300)])
         .presentationDragIndicator(.visible)
     }
 

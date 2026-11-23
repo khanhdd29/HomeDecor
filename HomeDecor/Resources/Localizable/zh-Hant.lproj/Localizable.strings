@@ -187,3 +187,9 @@
 "clear_chat_title" = "清除此對話？";
 "clear_chat_message" = "此對話中的所有訊息都將被刪除。";
 "clear" = "清除";
+
+/* AI Chat history */
+"chat_history" = "聊天記錄";
+"no_history" = "還沒有聊天";
+"delete_chats_title" = "刪除 %d 個聊天？";
+"delete_chats_message" = "所選聊天將被永久刪除。此操作無法復原。";
