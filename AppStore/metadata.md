@@ -118,17 +118,11 @@ First release of Abodi.
 ## 3. Icon và ảnh chụp màn hình
 
 - Icon app: `AppStore/AppIcon-1024.png`, 1024×1024, không nền trong suốt, không bo góc (Apple tự bo). App Store lấy icon từ bản build nên **không cần tải file này lên** — để lưu trữ/gửi designer.
-- Ảnh chụp: ✅ **đã có bộ đầu** — 6 ảnh **1206×2622** ở `AppStore/screenshots/en/` (chụp từ app thật, English), nộp lên ô "iPhone with Dynamic Island (medium display)" được luôn.
-- **Size đẩy lên store:** ô "iPhone with Dynamic Island (medium display)" nhận **1206×2622** hoặc **1179×2556**; ô "iPhone 6.9" Display" nhận **1290×2796**.
-- 6 ảnh (theo thứ tự upload):
-  1. **01_makeover** — AI Room Makeover (before/after + "Reimagine any room")
-  2. **02_advice** — AI Design Advice (trợ lý AI)
-  3. **03_styles** — Explore Interior Styles
-  4. **04_inspiration** — Discover Inspiration
-  5. **05_home** — Home/Create thật (catalog style)
-  6. **06_chat** — AI Designer welcome thật
+- Ảnh chụp: ✅ **ảnh MARKETING** (nền Coral-Glass + headline 2 màu + mockup điện thoại chứa UI thật) — 5 ảnh **1206×2622** ở `AppStore/screenshots/en/` (+ bản 1290×2796 ở `src-1290x2796/`). Tạo bằng `python3 scripts/store/make_screenshots.py` (xem `screenshots/README.md`).
+- **Size:** ô "iPhone with Dynamic Island (medium display)" nhận **1206×2622**; ô "iPhone 6.9" Display" nhận **1290×2796**.
+- 5 ảnh (thứ tự upload): `01_reimagine` (Reimagine any room), `02_aidesigner` (Your own AI Designer), `03_styles` (A look for every space), `04_tryit` (Try any style in seconds), `05_languages` (Private — 16 languages).
 - App **chỉ iPhone** (`TARGETED_DEVICE_FAMILY = "1"`) → không cần ảnh iPad. Tối đa 10 ảnh/slot.
-- ⚠️ Khi AI wire thật, nên chụp lại 1 ảnh **kết quả generate thật** (before/after result) để không lệch app.
+- ⚠️ Khi AI wire thật, chụp lại màn **kết quả generate thật** rồi thêm 1 frame.
 
 ## 4. Ghi chú cho người duyệt (App Review Information › Notes)
 
