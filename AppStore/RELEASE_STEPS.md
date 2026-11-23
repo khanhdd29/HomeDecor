@@ -37,9 +37,11 @@ Bản hiện tại chạy **mock** cho AI generate + AI Chat (chưa có credenti
 
 - [ ] Xcode › Settings › Accounts: đăng nhập Apple ID của tài khoản Developer.
 - [ ] Icon 1024 đã có: [AppStore/AppIcon-1024.png](AppIcon-1024.png) (đã nhúng trong build, không cần tải lên riêng).
-- [ ] **Ảnh chụp**: dựng + export 6 ảnh marketing vào [AppStore/screenshots/en/](screenshots/en). Xem [screenshots/README.md](screenshots/README.md).
+- [x] **Ảnh chụp**: đã có 6 ảnh 1206×2622 ở [AppStore/screenshots/en/](screenshots/en) (chụp từ app thật). Xem [screenshots/README.md](screenshots/README.md).
 - [x] **`ITSAppUsesNonExemptEncryption = NO`** đã thêm vào `HomeDecor/Resources/Info.plist`.
 - [x] **Thiết bị:** `TARGETED_DEVICE_FAMILY = "1"` (chỉ iPhone).
+- [x] **Privacy manifest** `HomeDecor/PrivacyInfo.xcprivacy` (tracking=false; khai UserDefaults CA92.1 + FileTimestamp C617.1; User Content: Photos + chat).
+- [ ] **Privacy Policy**: host nội dung [PRIVACY_POLICY.md](PRIVACY_POLICY.md) lên 1 URL công khai (điền email + xác nhận chính sách lưu ảnh của Code12 trước).
 - [ ] **Tra "Abodi"** trên App Store (các nước phát hành) để chắc chưa trùng tên/thương hiệu (4.1 / 4.3).
 
 ---
@@ -202,9 +204,10 @@ Muốn cho người khác dùng thử trước: **TestFlight** với chính buil
 - [x] Đã gỡ ATT prompt + `NSUserTrackingUsageDescription`
 - [x] `ITSAppUsesNonExemptEncryption = NO` vào Info.plist
 - [x] `TARGETED_DEVICE_FAMILY = "1"` (chỉ iPhone)
-- [ ] 6 ảnh màn hình trong `AppStore/screenshots/en/`
+- [x] `PrivacyInfo.xcprivacy` (privacy manifest) trong bundle
+- [x] 6 ảnh màn hình trong `AppStore/screenshots/en/`
 - [ ] App Privacy khai **User Content (Photos, Other)** — KHÔNG "Data Not Collected"
-- [ ] Privacy Policy / Support URL do team chỉ định
+- [ ] Privacy Policy (host PRIVACY_POLICY.md) / Support URL do team chỉ định
 - [ ] Tra lại trùng tên "Abodi" trên store
 - [ ] Tài khoản Developer + chọn Team trong Xcode
 
