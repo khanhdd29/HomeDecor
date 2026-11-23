@@ -57,9 +57,9 @@ struct SplashView: View {
 
                 Spacer().frame(height: 22)
 
-                Text("HOME DECOR")
+                Text("ABODI")
                     .font(.system(size: 28, weight: .bold))
-                    .tracking(4)
+                    .tracking(6)
                     .foregroundStyle(AppColor.ink)
 
                 Text("splash_tagline".localized)
