@@ -197,7 +197,7 @@ Muốn cho người khác dùng thử trước: **TestFlight** với chính buil
 ## Checklist trước khi submit
 
 - [ ] 🔴 AI generate + chat **chạy thật** (không mock), test end-to-end
-- [ ] GoogleService-Info.plist thật (bundle id Abodi)
+- [x] Ads/Firebase/analytics đã gỡ sạch (fix 2.3.1a/5.6)
 - [x] Tên + bundle id Abodi (`com.abodi.home.interior.room.design`)
 - [x] Display name "Abodi Home"
 - [x] App icon 1024 (opaque, vuông)

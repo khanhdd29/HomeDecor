@@ -166,8 +166,8 @@ The app has no in-app purchases in this version and shows no ads. There is no us
 
 ## 6. Việc còn phải làm trước khi submit
 
-1. **🔴 WIRE AI THẬT (chặn submit):** lấy credentials Code12/ArtMagic (appId/secretKey/agentId/template), tắt `ChatStore.useMock`, nối flow generate + chat vào server thật, **test end-to-end** ra thiết kế thật. Không làm xong = không submit.
-2. **GoogleService-Info.plist thật** (Firebase/Crashlytics) với bundle id `com.abodi.home.interior.room.design` — hiện là file placeholder.
+1. **🔴 WIRE AI THẬT (chặn submit):** điền credentials Code12/ArtMagic vào `HomeDecor/Services/ArtMagic/ArtMagicCredentials.swift` (appId/secretKey/agentId) + template, tắt `ChatStore.useMock`, nối flow generate + chat vào server thật, **test end-to-end** ra thiết kế thật. Không làm xong = không submit.
+2. ✅ **Ads/Firebase/analytics đã GỠ SẠCH** (commit `b6c84a1`) sau khi bị Apple reject 2.3.1a/5.6. Binary chỉ còn Factory + ArtMagicKit. **KHÔNG thêm lại** bất kỳ SDK ads/Firebase/RemoteConfig nào.
 3. ✅ **`ITSAppUsesNonExemptEncryption = NO`** đã thêm vào `HomeDecor/Resources/Info.plist`.
 4. ✅ **Thiết bị:** `TARGETED_DEVICE_FAMILY = "1"` (chỉ iPhone) — xong.
 5. **Tra "Abodi"** trên App Store (các nước phát hành) để chắc chưa trùng tên/thương hiệu (4.1/4.3).
