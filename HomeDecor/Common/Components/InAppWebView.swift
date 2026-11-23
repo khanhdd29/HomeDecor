@@ -23,7 +23,17 @@ struct InAppWebView: UIViewRepresentable {
     func makeCoordinator() -> Coordinator { Coordinator(model) }
 
     func makeUIView(context: Context) -> WKWebView {
-        let webView = WKWebView()
+        // Inject inner padding so the hosted page's text isn't flush against
+        // the card edges, and keep images within the width.
+        let css = "html,body{margin:0 !important;padding:18px !important;box-sizing:border-box !important;max-width:100% !important;} img{max-width:100% !important;height:auto !important;}"
+        let js = "var s=document.createElement('style');s.innerHTML='\(css)';document.head.appendChild(s);"
+        let script = WKUserScript(source: js, injectionTime: .atDocumentEnd, forMainFrameOnly: true)
+        let controller = WKUserContentController()
+        controller.addUserScript(script)
+        let config = WKWebViewConfiguration()
+        config.userContentController = controller
+
+        let webView = WKWebView(frame: .zero, configuration: config)
         webView.navigationDelegate = context.coordinator
         webView.isOpaque = false
         webView.backgroundColor = .clear
