@@ -9,7 +9,7 @@ Làm tới bước nào thì chép khối nội dung ở bước đó. Các kh�
 | Tên dưới icon | `Abodi Home` |
 | Bundle ID | `com.abodi.home.interior.room.design` |
 | Version / Build | `1.0.0` / `1`. Mỗi lần upload lại phải **tăng số build** |
-| Thiết bị | ⚠️ Hiện **iPhone + iPad** (`TARGETED_DEVICE_FAMILY = "1,2"`). Khuyến nghị đổi về `"1"` (chỉ iPhone) → khỏi ảnh iPad |
+| Thiết bị | ✅ **Chỉ iPhone** (`TARGETED_DEVICE_FAMILY = "1"`) → không cần ảnh iPad |
 | Ngôn ngữ trang store | Chỉ **English (U.S.)** (app vẫn có 16 ngôn ngữ bên trong) |
 | Danh mục | Primary **Graphics & Design** · Secondary **Lifestyle** |
 
@@ -38,8 +38,8 @@ Bản hiện tại chạy **mock** cho AI generate + AI Chat (chưa có credenti
 - [ ] Xcode › Settings › Accounts: đăng nhập Apple ID của tài khoản Developer.
 - [ ] Icon 1024 đã có: [AppStore/AppIcon-1024.png](AppIcon-1024.png) (đã nhúng trong build, không cần tải lên riêng).
 - [ ] **Ảnh chụp**: dựng + export 6 ảnh marketing vào [AppStore/screenshots/en/](screenshots/en). Xem [screenshots/README.md](screenshots/README.md).
-- [ ] **Thêm `ITSAppUsesNonExemptEncryption = NO`** vào `HomeDecor/Resources/Info.plist` → khỏi bị hỏi Export Compliance mỗi lần upload.
-- [ ] **Quyết định thiết bị:** đổi `TARGETED_DEVICE_FAMILY` về `"1"` (chỉ iPhone, khuyến nghị) trong `HomeDecor.xcodeproj` nếu không làm iPad.
+- [x] **`ITSAppUsesNonExemptEncryption = NO`** đã thêm vào `HomeDecor/Resources/Info.plist`.
+- [x] **Thiết bị:** `TARGETED_DEVICE_FAMILY = "1"` (chỉ iPhone).
 - [ ] **Tra "Abodi"** trên App Store (các nước phát hành) để chắc chưa trùng tên/thương hiệu (4.1 / 4.3).
 
 ---
@@ -200,8 +200,8 @@ Muốn cho người khác dùng thử trước: **TestFlight** với chính buil
 - [x] Display name "Abodi Home"
 - [x] App icon 1024 (opaque, vuông)
 - [x] Đã gỡ ATT prompt + `NSUserTrackingUsageDescription`
-- [ ] `ITSAppUsesNonExemptEncryption = NO` vào Info.plist
-- [ ] `TARGETED_DEVICE_FAMILY` chốt (`"1"` khuyến nghị)
+- [x] `ITSAppUsesNonExemptEncryption = NO` vào Info.plist
+- [x] `TARGETED_DEVICE_FAMILY = "1"` (chỉ iPhone)
 - [ ] 6 ảnh màn hình trong `AppStore/screenshots/en/`
 - [ ] App Privacy khai **User Content (Photos, Other)** — KHÔNG "Data Not Collected"
 - [ ] Privacy Policy / Support URL do team chỉ định

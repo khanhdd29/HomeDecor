@@ -16,7 +16,7 @@ Nội dung viết **riêng cho Abodi Home** (app AI thiết kế lại nội th�
 | Bundle ID (dev) | `com.abodi.home.interior.room.design.dev` (build nội bộ, không tạo app store riêng) |
 | Display name (dưới icon) | `Abodi Home` |
 | Primary Language | English (U.S.). Không thêm ngôn ngữ nào khác cho trang store |
-| Thiết bị | ⚠️ Hiện `TARGETED_DEVICE_FAMILY = "1,2"` (iPhone **+ iPad**) → nếu giữ, **phải nộp thêm ảnh iPad**. **Khuyến nghị đổi về `"1"` (chỉ iPhone)** cho v1 để khỏi làm ảnh iPad + QA layout iPad. Một khi phát hành kèm iPad thì không bỏ được nữa |
+| Thiết bị | ✅ `TARGETED_DEVICE_FAMILY = "1"` (chỉ iPhone) → **không cần ảnh iPad**. Giữ nguyên; một khi phát hành kèm iPad thì không bỏ được nữa |
 | Danh mục chính / phụ | **Graphics & Design** / **Lifestyle** |
 | Giá | Free. Bản 1.0 **không** In-App Purchase, **không** ads (nút Pro ✦ ẩn) |
 | Xếp hạng tuổi | Mọi mục nội dung **None**. Unrestricted Web Access: **No**. User-Generated Content: **No** (ảnh người dùng chỉ xử lý để tạo thiết kế, không chia sẻ công khai giữa user). → thường **4+** |
@@ -165,8 +165,8 @@ The app has no in-app purchases in this version and shows no ads. There is no us
 
 1. **🔴 WIRE AI THẬT (chặn submit):** lấy credentials Code12/ArtMagic (appId/secretKey/agentId/template), tắt `ChatStore.useMock`, nối flow generate + chat vào server thật, **test end-to-end** ra thiết kế thật. Không làm xong = không submit.
 2. **GoogleService-Info.plist thật** (Firebase/Crashlytics) với bundle id `com.abodi.home.interior.room.design` — hiện là file placeholder.
-3. **Thêm `ITSAppUsesNonExemptEncryption = NO`** vào `HomeDecor/Resources/Info.plist` → khỏi bị hỏi Export Compliance.
-4. **Quyết định thiết bị:** đổi `TARGETED_DEVICE_FAMILY` về `"1"` (chỉ iPhone, khuyến nghị) hoặc làm thêm ảnh + QA layout iPad.
+3. ✅ **`ITSAppUsesNonExemptEncryption = NO`** đã thêm vào `HomeDecor/Resources/Info.plist`.
+4. ✅ **Thiết bị:** `TARGETED_DEVICE_FAMILY = "1"` (chỉ iPhone) — xong.
 5. **Tra "Abodi"** trên App Store (các nước phát hành) để chắc chưa trùng tên/thương hiệu (4.1/4.3).
 6. **Privacy Policy + Support URL** do team chỉ định; nội dung trang nhắc "ảnh xử lý bởi dịch vụ AI, không bán, thiết kế lưu trên máy".
 7. **Dựng + export 6 ảnh** marketing (mục 3 / screenshots/README.md).
