@@ -157,21 +157,24 @@ struct SearchScreen: View {
                 ForEach(0..<3, id: \.self) { _ in
                     VStack(alignment: .leading, spacing: 14) {
                         HStack {
-                            shimmer.frame(width: 150, height: 20).clipShape(RoundedRectangle(cornerRadius: 8))
+                            shimmer.frame(width: 150, height: 22).clipShape(RoundedRectangle(cornerRadius: 8))
                             Spacer()
                             shimmer.frame(width: 34, height: 34).clipShape(RoundedRectangle(cornerRadius: 17))
                         }
                         .padding(.horizontal, 20)
-                        HStack(spacing: 10) {
-                            ForEach(0..<3, id: \.self) { _ in
-                                shimmer.frame(width: 156, height: 200).clipShape(RoundedRectangle(cornerRadius: 22))
+                        ScrollView(.horizontal, showsIndicators: false) {
+                            HStack(spacing: 14) {
+                                ForEach(0..<3, id: \.self) { _ in
+                                    shimmer.frame(width: 156, height: 200).clipShape(RoundedRectangle(cornerRadius: 22))
+                                }
                             }
+                            .padding(.horizontal, 20)
                         }
-                        .padding(.leading, 20)
                     }
                 }
             }
             .padding(.top, 8)
+            .padding(.bottom, 130)
         }
     }
 

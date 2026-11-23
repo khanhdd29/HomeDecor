@@ -81,28 +81,34 @@ struct CameraScreen: View {
     @State private var pickerItem: PhotosPickerItem?
 
     var body: some View {
-        ZStack {
-            Color.black.ignoresSafeArea()
-            CameraPreview(session: cam.session).ignoresSafeArea()
+        GeometryReader { geo in
+            // Figma 12:34959 — the framing guide is a fixed 333×440 box (not full-screen),
+            // sitting just below the hint. Keep that aspect ratio on every width.
+            let guideW = geo.size.width - 60
+            let guideH = guideW * 440.0 / 333.0
 
-            LinearGradient(stops: [
-                .init(color: .black.opacity(0.55), location: 0),
-                .init(color: .black.opacity(0),    location: 0.20),
-                .init(color: .black.opacity(0),    location: 0.72),
-                .init(color: Color(hex: 0x050812).opacity(0.9), location: 1),
-            ], startPoint: .top, endPoint: .bottom)
-            .ignoresSafeArea()
+            ZStack {
+                Color.black.ignoresSafeArea()
+                CameraPreview(session: cam.session).ignoresSafeArea()
 
-            FramingGuide()
-                .padding(.horizontal, 30)
-                .padding(.top, 60)
-                .padding(.bottom, 180)
+                LinearGradient(stops: [
+                    .init(color: .black.opacity(0.55), location: 0),
+                    .init(color: .black.opacity(0),    location: 0.20),
+                    .init(color: .black.opacity(0),    location: 0.72),
+                    .init(color: Color(hex: 0x050812).opacity(0.9), location: 1),
+                ], startPoint: .top, endPoint: .bottom)
+                .ignoresSafeArea()
 
-            VStack(spacing: 0) {
-                header
-                hint
-                Spacer()
-                cameraBar
+                VStack(spacing: 0) {
+                    header
+                    hint
+                    Spacer().frame(height: 24)
+                    FramingGuide()
+                        .frame(width: guideW, height: guideH)
+                    Spacer()
+                    cameraBar
+                }
+                .frame(maxWidth: .infinity, maxHeight: .infinity)
             }
         }
         .onAppear { cam.configure(); cam.start() }
@@ -197,25 +203,26 @@ struct FramingGuide: View {
     var body: some View {
         GeometryReader { geo in
             let w = geo.size.width, h = geo.size.height
-            let len: CGFloat = 26
+            let len: CGFloat = 24          // Figma: 24pt arms
+            let i: CGFloat = 1.5           // half stroke — keep round caps inside the box
             ZStack {
-                // Thirds grid
+                // Rule-of-thirds grid
                 Path { p in
                     p.move(to: CGPoint(x: w/3, y: 0));   p.addLine(to: CGPoint(x: w/3, y: h))
                     p.move(to: CGPoint(x: 2*w/3, y: 0)); p.addLine(to: CGPoint(x: 2*w/3, y: h))
                     p.move(to: CGPoint(x: 0, y: h/3));   p.addLine(to: CGPoint(x: w, y: h/3))
                     p.move(to: CGPoint(x: 0, y: 2*h/3)); p.addLine(to: CGPoint(x: w, y: 2*h/3))
                 }
-                .stroke(.white.opacity(0.35), lineWidth: 1)
+                .stroke(.white.opacity(0.25), lineWidth: 1)
 
                 // Coral corner brackets
                 Path { p in
-                    p.move(to: CGPoint(x: 0, y: len)); p.addLine(to: CGPoint(x: 0, y: 0)); p.addLine(to: CGPoint(x: len, y: 0))
-                    p.move(to: CGPoint(x: w - len, y: 0)); p.addLine(to: CGPoint(x: w, y: 0)); p.addLine(to: CGPoint(x: w, y: len))
-                    p.move(to: CGPoint(x: 0, y: h - len)); p.addLine(to: CGPoint(x: 0, y: h)); p.addLine(to: CGPoint(x: len, y: h))
-                    p.move(to: CGPoint(x: w - len, y: h)); p.addLine(to: CGPoint(x: w, y: h)); p.addLine(to: CGPoint(x: w, y: h - len))
+                    p.move(to: CGPoint(x: i, y: i + len)); p.addLine(to: CGPoint(x: i, y: i)); p.addLine(to: CGPoint(x: i + len, y: i))
+                    p.move(to: CGPoint(x: w - i - len, y: i)); p.addLine(to: CGPoint(x: w - i, y: i)); p.addLine(to: CGPoint(x: w - i, y: i + len))
+                    p.move(to: CGPoint(x: i, y: h - i - len)); p.addLine(to: CGPoint(x: i, y: h - i)); p.addLine(to: CGPoint(x: i + len, y: h - i))
+                    p.move(to: CGPoint(x: w - i - len, y: h - i)); p.addLine(to: CGPoint(x: w - i, y: h - i)); p.addLine(to: CGPoint(x: w - i, y: h - i - len))
                 }
-                .stroke(AppColor.coral, style: StrokeStyle(lineWidth: 4, lineCap: .round))
+                .stroke(AppColor.coral, style: StrokeStyle(lineWidth: 3, lineCap: .round))
             }
         }
     }
