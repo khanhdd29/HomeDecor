@@ -169,3 +169,24 @@
 "ratio_original" = "Original";
 "reset" = "Reset";
 "done" = "Done";
+
+/* AI Chat — Phase 7 */
+"ai_designer" = "AI Designer";
+"online" = "Online";
+"today" = "Today";
+"ai_welcome_title" = "Hi, I'm your AI Designer";
+"ai_welcome_subtitle" = "Ask me anything about decorating your home — styles, colors, layouts and more.";
+"ai_suggest_1" = "Ideas for a cozy small bedroom";
+"ai_suggest_2" = "Which colors go with a navy sofa?";
+"ai_suggest_3" = "How can my living room feel bigger?";
+"ai_input_placeholder" = "Ask anything about your space…";
+"attach_photo_subtitle" = "Share your room so the AI can give better advice";
+"analyzing_room" = "Analyzing your room…";
+"redesign_room" = "Redesign this room";
+"not_delivered" = "Not delivered";
+"tap_to_retry" = "Tap to retry";
+"new_chat" = "New chat";
+"clear_chat" = "Clear chat";
+"clear_chat_title" = "Clear this chat?";
+"clear_chat_message" = "All messages in this conversation will be deleted.";
+"clear" = "Clear";

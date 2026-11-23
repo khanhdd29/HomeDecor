@@ -18,6 +18,7 @@ struct HomeTabView: View {
     @EnvironmentObject private var coordinator: AppFlowCoordinator
 
     @State private var isFirstAppear = false
+    @State private var showAIChat = false
 
     var body: some View {
         // Observe the language so tab titles re-read `.localized` at runtime.
@@ -33,7 +34,7 @@ struct HomeTabView: View {
             if activeNavigation.isAtRoot && !app.hideShellChrome {
                 ZStack(alignment: .topTrailing) {
                     CoralTabBar(selection: $app.activeTab)
-                    AIChatFAB(action: { /* Phase 7: open AI chat */ })
+                    AIChatFAB(action: { showAIChat = true })
                         .offset(x: 2, y: -76)
                 }
                 .padding(.horizontal, 20)
@@ -43,6 +44,10 @@ struct HomeTabView: View {
         }
         .animation(.easeInOut(duration: 0.2), value: activeNavigation.isAtRoot)
         .animation(.easeInOut(duration: 0.2), value: app.hideShellChrome)
+        .fullScreenCover(isPresented: $showAIChat) {
+            HostedChat(onClose: { showAIChat = false })
+                .ignoresSafeArea()
+        }
         .onAppear {
             guard !isFirstAppear else { return }
             isFirstAppear = true

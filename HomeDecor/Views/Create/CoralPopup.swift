@@ -18,6 +18,9 @@ struct CoralPopup: View {
     var primaryAction: () -> Void
     var secondaryTitle: String? = nil
     var secondaryAction: (() -> Void)? = nil
+    /// Lay the two buttons side by side (secondary left, primary right) instead
+    /// of stacked — Figma 10:29290 (Clear Chat).
+    var horizontal: Bool = false
     /// Backdrop tap; defaults to the secondary (or primary) action.
     var onBackdrop: (() -> Void)? = nil
 
@@ -34,20 +37,17 @@ struct CoralPopup: View {
                     Text(message).font(.system(size: 14)).foregroundStyle(AppColor.inkSecondary)
                         .multilineTextAlignment(.center).frame(width: 250)
                 }
-                VStack(spacing: 10) {
-                    Button(action: primaryAction) {
-                        Text(primaryTitle).font(.system(size: 15, weight: .semibold)).foregroundStyle(.white)
-                            .frame(maxWidth: .infinity).frame(height: 44)
-                            .background(AppColor.ink, in: RoundedRectangle(cornerRadius: 22, style: .continuous))
+                if horizontal, let secondaryTitle, let secondaryAction {
+                    HStack(spacing: 10) {
+                        secondaryButton(secondaryTitle, secondaryAction)
+                        primaryButton
                     }
-                    .buttonStyle(PressableStyle())
-                    if let secondaryTitle, let secondaryAction {
-                        Button(action: secondaryAction) {
-                            Text(secondaryTitle).font(.system(size: 15, weight: .medium)).foregroundStyle(AppColor.ink)
-                                .frame(maxWidth: .infinity).frame(height: 44)
-                                .background(AppColor.ink.opacity(0.06), in: RoundedRectangle(cornerRadius: 22, style: .continuous))
+                } else {
+                    VStack(spacing: 10) {
+                        primaryButton
+                        if let secondaryTitle, let secondaryAction {
+                            secondaryButton(secondaryTitle, secondaryAction)
                         }
-                        .buttonStyle(PressableStyle())
                     }
                 }
             }
@@ -57,6 +57,24 @@ struct CoralPopup: View {
             .overlay(RoundedRectangle(cornerRadius: 32, style: .continuous).strokeBorder(.white.opacity(0.9), lineWidth: 1))
             .shadow(color: Color(hex: 0x4D2E1F).opacity(0.18), radius: 20, x: 0, y: 20)
         }
+    }
+
+    private var primaryButton: some View {
+        Button(action: primaryAction) {
+            Text(primaryTitle).font(.system(size: 15, weight: .semibold)).foregroundStyle(.white)
+                .frame(maxWidth: .infinity).frame(height: 44)
+                .background(AppColor.ink, in: RoundedRectangle(cornerRadius: 22, style: .continuous))
+        }
+        .buttonStyle(PressableStyle())
+    }
+
+    private func secondaryButton(_ title: String, _ action: @escaping () -> Void) -> some View {
+        Button(action: action) {
+            Text(title).font(.system(size: 15, weight: .medium)).foregroundStyle(AppColor.ink)
+                .frame(maxWidth: .infinity).frame(height: 44)
+                .background(AppColor.ink.opacity(0.06), in: RoundedRectangle(cornerRadius: 22, style: .continuous))
+        }
+        .buttonStyle(PressableStyle())
     }
 
     private var popupIcon: some View {

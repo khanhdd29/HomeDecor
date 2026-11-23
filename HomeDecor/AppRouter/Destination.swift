@@ -30,6 +30,8 @@ enum Destination: Equatable {
     case categorySeeAll
     case styleImagePreview
     case galleryDetail
+    // AI Chat (Phase 7)
+    case aiChat
 }
 
 extension Destination {
@@ -52,6 +54,7 @@ extension Destination {
         case .categorySeeAll:     return "categorySeeAll"
         case .styleImagePreview:  return "styleImagePreview"
         case .galleryDetail:      return "galleryDetail"
+        case .aiChat:             return "aiChat"
         }
     }
 }
@@ -94,6 +97,8 @@ extension Navigation {
             StyleImagePreviewScreen()
         case .galleryDetail:
             GalleryDetailScreen()
+        case .aiChat:
+            AIChatScreen()
         }
     }
 }
