@@ -83,3 +83,21 @@
 "empty_title" = "It's seem to be empty";
 "empty_subtitle" = "Upload your photo to start trying on house style";
 "start_transform" = "Start to transform";
+
+/* Setting — Phase 8 */
+"policy_updated" = "最終更新: November 2026";
+"policy_1_title" = "1. 収集する情報";
+"policy_1_body" = "アップロードされた写真は、デザインの生成にのみ使用されます。アプリのパフォーマンス向上のため、基本的なデバイス情報を収集する場合があります。";
+"policy_2_title" = "2. データの使用方法";
+"policy_2_body" = "お客様の画像はAIによる部屋のデザイン作成のために処理され、第三者に販売されることは一切ありません。";
+"policy_3_title" = "3. 保存と削除";
+"policy_3_body" = "デザインはお使いのデバイスのマイルックに保存されます。いつでも削除できます。";
+"policy_4_title" = "4. お問い合わせ";
+"policy_4_body" = "このポリシーについてご質問がある場合は、サポートチームまでお問い合わせください。";
+"offline_title" = "オフラインです";
+"offline_message" = "Wi-Fiまたはモバイルデータを確認して、もう一度お試しください。";
+"server_error_title" = "問題が発生しました";
+"server_error_message" = "このページを読み込めませんでした。しばらくしてからもう一度お試しください。";
+"reload" = "再読み込み";
+"share_copy_link" = "リンクをコピー";
+"share_more" = "その他";

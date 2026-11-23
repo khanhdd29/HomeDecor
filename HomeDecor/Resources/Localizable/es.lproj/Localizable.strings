@@ -83,3 +83,21 @@
 "empty_title" = "It's seem to be empty";
 "empty_subtitle" = "Upload your photo to start trying on house style";
 "start_transform" = "Start to transform";
+
+/* Setting — Phase 8 */
+"policy_updated" = "Última actualización: November 2026";
+"policy_1_title" = "1. Información que recopilamos";
+"policy_1_body" = "Las fotos que subes se usan únicamente para generar tus diseños. Podemos recopilar información básica del dispositivo para mejorar el rendimiento de la app.";
+"policy_2_title" = "2. Cómo usamos tus datos";
+"policy_2_body" = "Tus imágenes se procesan para crear diseños de habitaciones con IA y nunca se venden a terceros.";
+"policy_3_title" = "3. Almacenamiento y eliminación";
+"policy_3_body" = "Los diseños se guardan en tu dispositivo en Mis diseños. Puedes eliminarlos en cualquier momento.";
+"policy_4_title" = "4. Contáctanos";
+"policy_4_body" = "Si tienes alguna pregunta sobre esta política, ponte en contacto con nuestro equipo de soporte.";
+"offline_title" = "Estás sin conexión";
+"offline_message" = "Comprueba tu Wi-Fi o tus datos móviles y vuelve a intentarlo.";
+"server_error_title" = "Algo salió mal";
+"server_error_message" = "No pudimos cargar esta página. Inténtalo de nuevo en un momento.";
+"reload" = "Recargar";
+"share_copy_link" = "Copiar enlace";
+"share_more" = "Más";

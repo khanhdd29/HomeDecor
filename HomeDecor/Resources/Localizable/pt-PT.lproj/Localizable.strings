@@ -10,7 +10,7 @@
 "home" = "Home";
 "search" = "Search";
 "favorites" = "Favorites";
-"settings" = "Settings";
+"settings" = "Definições";
 "choose_your_language" = "Choose your language";
 "change_language_later" = "You can change this later in Settings.";
 "please_select_language" = "Selecione um idioma para continuar";
@@ -36,9 +36,9 @@
 "intro_message_3" = "Descubra diferentes estilos e encontre o visual perfeito para o seu espaço.";
 "intro_title_4" = "Descubra inspiração";
 "intro_message_4" = "Explore interiores e ideias inspiradoras para cada divisão e estilo.";
-"rate" = "Rate us";
-"share" = "Share app";
-"privacy_policy" = "Privacy Policy";
+"rate" = "Avalie-nos";
+"share" = "Partilhar app";
+"privacy_policy" = "Política de Privacidade";
 "loading" = "A carregar";
 "create" = "Criar";
 "inspiration" = "Inspiração";
@@ -66,3 +66,21 @@
 "empty_title" = "It's seem to be empty";
 "empty_subtitle" = "Upload your photo to start trying on house style";
 "start_transform" = "Start to transform";
+
+/* Setting — Phase 8 */
+"policy_updated" = "Última atualização: November 2026";
+"policy_1_title" = "1. Informações que recolhemos";
+"policy_1_body" = "As fotos que carrega são utilizadas apenas para gerar os seus designs. Podemos recolher informações básicas do dispositivo para melhorar o desempenho da aplicação.";
+"policy_2_title" = "2. Como utilizamos os seus dados";
+"policy_2_body" = "As suas imagens são processadas para criar designs de divisões com IA e nunca são vendidas a terceiros.";
+"policy_3_title" = "3. Armazenamento e eliminação";
+"policy_3_body" = "Os designs são guardados no seu dispositivo em Os meus designs. Pode eliminá-los a qualquer momento.";
+"policy_4_title" = "4. Contacte-nos";
+"policy_4_body" = "Se tiver alguma questão sobre esta política, contacte a nossa equipa de apoio.";
+"offline_title" = "Está offline";
+"offline_message" = "Verifique o seu Wi-Fi ou dados móveis e tente novamente.";
+"server_error_title" = "Algo correu mal";
+"server_error_message" = "Não foi possível carregar esta página. Tente novamente dentro de momentos.";
+"reload" = "Recarregar";
+"share_copy_link" = "Copiar ligação";
+"share_more" = "Mais";

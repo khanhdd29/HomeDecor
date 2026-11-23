@@ -10,7 +10,7 @@
 "home" = "Home";
 "search" = "Search";
 "favorites" = "Favorites";
-"settings" = "Settings";
+"settings" = "الإعدادات";
 "choose_your_language" = "Choose your language";
 "change_language_later" = "You can change this later in Settings.";
 "please_select_language" = "اختر لغة للمتابعة";
@@ -36,9 +36,9 @@
 "intro_message_3" = "اكتشف أنماطًا مختلفة واعثر على الإطلالة المثالية لمساحتك.";
 "intro_title_4" = "اكتشف الإلهام";
 "intro_message_4" = "استكشف تصاميم داخلية وأفكارًا ملهمة لكل غرفة ونمط.";
-"rate" = "Rate us";
-"share" = "Share app";
-"privacy_policy" = "Privacy Policy";
+"rate" = "قيّمنا";
+"share" = "مشاركة التطبيق";
+"privacy_policy" = "سياسة الخصوصية";
 "loading" = "جارٍ التحميل";
 "create" = "إنشاء";
 "inspiration" = "إلهام";
@@ -66,3 +66,21 @@
 "empty_title" = "It's seem to be empty";
 "empty_subtitle" = "Upload your photo to start trying on house style";
 "start_transform" = "Start to transform";
+
+/* Setting — Phase 8 */
+"policy_updated" = "آخر تحديث: November 2026";
+"policy_1_title" = "1. المعلومات التي نجمعها";
+"policy_1_body" = "تُستخدم الصور التي ترفعها فقط لإنشاء تصاميمك. وقد نجمع معلومات أساسية عن الجهاز لتحسين أداء التطبيق.";
+"policy_2_title" = "2. كيف نستخدم بياناتك";
+"policy_2_body" = "تتم معالجة صورك لإنشاء تصاميم غرف بالذكاء الاصطناعي ولا تُباع أبدًا لأطراف خارجية.";
+"policy_3_title" = "3. التخزين والحذف";
+"policy_3_body" = "تُحفظ التصاميم على جهازك في تصاميمي. يمكنك حذفها في أي وقت.";
+"policy_4_title" = "4. تواصل معنا";
+"policy_4_body" = "إذا كان لديك أي أسئلة حول هذه السياسة، يرجى التواصل مع فريق الدعم لدينا.";
+"offline_title" = "أنت غير متصل";
+"offline_message" = "تحقق من اتصال Wi-Fi أو بيانات الجوال، ثم حاول مرة أخرى.";
+"server_error_title" = "حدث خطأ ما";
+"server_error_message" = "تعذّر تحميل هذه الصفحة. يرجى المحاولة مرة أخرى بعد قليل.";
+"reload" = "إعادة التحميل";
+"share_copy_link" = "نسخ الرابط";
+"share_more" = "المزيد";

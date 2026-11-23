@@ -10,7 +10,7 @@
 "home" = "Home";
 "search" = "Search";
 "favorites" = "Favorites";
-"settings" = "Settings";
+"settings" = "Pengaturan";
 "choose_your_language" = "Choose your language";
 "change_language_later" = "You can change this later in Settings.";
 "please_select_language" = "Pilih bahasa untuk melanjutkan";
@@ -36,9 +36,9 @@
 "intro_message_3" = "Temukan berbagai gaya dan tampilan yang sempurna untuk ruangmu.";
 "intro_title_4" = "Temukan Inspirasi";
 "intro_message_4" = "Jelajahi interior dan ide inspiratif untuk setiap ruang dan gaya.";
-"rate" = "Rate us";
-"share" = "Share app";
-"privacy_policy" = "Privacy Policy";
+"rate" = "Beri nilai";
+"share" = "Bagikan aplikasi";
+"privacy_policy" = "Kebijakan Privasi";
 "loading" = "Memuat";
 "create" = "Buat";
 "inspiration" = "Inspirasi";
@@ -66,3 +66,21 @@
 "empty_title" = "It's seem to be empty";
 "empty_subtitle" = "Upload your photo to start trying on house style";
 "start_transform" = "Start to transform";
+
+/* Setting — Phase 8 */
+"policy_updated" = "Terakhir diperbarui: November 2026";
+"policy_1_title" = "1. Informasi yang kami kumpulkan";
+"policy_1_body" = "Foto yang Anda unggah hanya digunakan untuk membuat desain Anda. Kami mungkin mengumpulkan informasi dasar perangkat untuk meningkatkan performa aplikasi.";
+"policy_2_title" = "2. Cara kami menggunakan data Anda";
+"policy_2_body" = "Gambar Anda diproses untuk membuat desain ruangan AI dan tidak pernah dijual kepada pihak ketiga.";
+"policy_3_title" = "3. Penyimpanan & penghapusan";
+"policy_3_body" = "Desain disimpan di perangkat Anda di Desain saya. Anda dapat menghapusnya kapan saja.";
+"policy_4_title" = "4. Hubungi kami";
+"policy_4_body" = "Jika Anda memiliki pertanyaan tentang kebijakan ini, silakan hubungi tim dukungan kami.";
+"offline_title" = "Anda sedang offline";
+"offline_message" = "Periksa Wi-Fi atau data seluler Anda, lalu coba lagi.";
+"server_error_title" = "Terjadi kesalahan";
+"server_error_message" = "Kami tidak dapat memuat halaman ini. Silakan coba lagi sebentar lagi.";
+"reload" = "Muat ulang";
+"share_copy_link" = "Salin tautan";
+"share_more" = "Lainnya";

@@ -10,7 +10,7 @@
 "home" = "Home";
 "search" = "Search";
 "favorites" = "Favorites";
-"settings" = "Settings";
+"settings" = "Ayarlar";
 "choose_your_language" = "Choose your language";
 "change_language_later" = "You can change this later in Settings.";
 "please_select_language" = "Devam etmek için bir dil seçin";
@@ -36,9 +36,9 @@
 "intro_message_3" = "Farklı stilleri keşfet ve mekânın için mükemmel görünümü bul.";
 "intro_title_4" = "İlham Keşfet";
 "intro_message_4" = "Her oda ve stil için ilham veren iç mekânları ve fikirleri keşfet.";
-"rate" = "Rate us";
-"share" = "Share app";
-"privacy_policy" = "Privacy Policy";
+"rate" = "Bizi değerlendirin";
+"share" = "Uygulamayı paylaş";
+"privacy_policy" = "Gizlilik Politikası";
 "loading" = "Yükleniyor";
 "create" = "Oluştur";
 "inspiration" = "İlham";
@@ -66,3 +66,21 @@
 "empty_title" = "It's seem to be empty";
 "empty_subtitle" = "Upload your photo to start trying on house style";
 "start_transform" = "Start to transform";
+
+/* Setting — Phase 8 */
+"policy_updated" = "Son güncelleme: November 2026";
+"policy_1_title" = "1. Topladığımız bilgiler";
+"policy_1_body" = "Yüklediğiniz fotoğraflar yalnızca tasarımlarınızı oluşturmak için kullanılır. Uygulama performansını iyileştirmek için temel cihaz bilgilerini toplayabiliriz.";
+"policy_2_title" = "2. Verilerinizi nasıl kullanıyoruz";
+"policy_2_body" = "Görselleriniz yapay zeka oda tasarımları oluşturmak için işlenir ve asla üçüncü taraflara satılmaz.";
+"policy_3_title" = "3. Depolama ve silme";
+"policy_3_body" = "Tasarımlar cihazınızda Tasarımlarım bölümüne kaydedilir. Bunları istediğiniz zaman silebilirsiniz.";
+"policy_4_title" = "4. Bize ulaşın";
+"policy_4_body" = "Bu politikayla ilgili sorularınız varsa lütfen destek ekibimizle iletişime geçin.";
+"offline_title" = "Çevrimdışısınız";
+"offline_message" = "Wi-Fi veya mobil verinizi kontrol edin, ardından tekrar deneyin.";
+"server_error_title" = "Bir şeyler ters gitti";
+"server_error_message" = "Bu sayfayı yükleyemedik. Lütfen birazdan tekrar deneyin.";
+"reload" = "Yeniden yükle";
+"share_copy_link" = "Bağlantıyı kopyala";
+"share_more" = "Daha fazla";

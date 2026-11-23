@@ -10,7 +10,7 @@
 "home" = "Home";
 "search" = "Search";
 "favorites" = "Favorites";
-"settings" = "Settings";
+"settings" = "設定";
 "choose_your_language" = "Choose your language";
 "change_language_later" = "You can change this later in Settings.";
 "please_select_language" = "請選擇語言以繼續";
@@ -36,9 +36,9 @@
 "intro_message_3" = "發現不同風格，為你的空間找到完美的樣子。";
 "intro_title_4" = "發現靈感";
 "intro_message_4" = "探索適合每個房間和風格的靈感室內設計與創意。";
-"rate" = "Rate us";
-"share" = "Share app";
-"privacy_policy" = "Privacy Policy";
+"rate" = "為我們評分";
+"share" = "分享應用程式";
+"privacy_policy" = "隱私權政策";
 "loading" = "載入中";
 "create" = "建立";
 "inspiration" = "靈感";
@@ -66,3 +66,21 @@
 "empty_title" = "It's seem to be empty";
 "empty_subtitle" = "Upload your photo to start trying on house style";
 "start_transform" = "Start to transform";
+
+/* Setting — Phase 8 */
+"policy_updated" = "最後更新：November 2026";
+"policy_1_title" = "1. 我們收集的資訊";
+"policy_1_body" = "您上傳的照片僅用於生成您的設計。我們可能會收集基本的裝置資訊以改善應用程式效能。";
+"policy_2_title" = "2. 我們如何使用您的資料";
+"policy_2_body" = "您的圖片用於建立 AI 房間設計，絕不會出售給第三方。";
+"policy_3_title" = "3. 儲存與刪除";
+"policy_3_body" = "設計會儲存在您裝置的我的設計中。您可以隨時刪除它們。";
+"policy_4_title" = "4. 聯絡我們";
+"policy_4_body" = "如果您對本政策有任何疑問，請聯絡我們的支援團隊。";
+"offline_title" = "您目前離線";
+"offline_message" = "請檢查您的 Wi-Fi 或行動數據，然後再試一次。";
+"server_error_title" = "發生錯誤";
+"server_error_message" = "我們無法載入此頁面。請稍後再試。";
+"reload" = "重新載入";
+"share_copy_link" = "複製連結";
+"share_more" = "更多";

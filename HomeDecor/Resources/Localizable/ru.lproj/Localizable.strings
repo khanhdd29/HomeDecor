@@ -10,7 +10,7 @@
 "home" = "Home";
 "search" = "Search";
 "favorites" = "Favorites";
-"settings" = "Settings";
+"settings" = "Настройки";
 "choose_your_language" = "Choose your language";
 "change_language_later" = "You can change this later in Settings.";
 "please_select_language" = "Выберите язык, чтобы продолжить";
@@ -36,9 +36,9 @@
 "intro_message_3" = "Откройте разные стили и найдите идеальный вид для вашего пространства.";
 "intro_title_4" = "Найдите вдохновение";
 "intro_message_4" = "Исследуйте вдохновляющие интерьеры и идеи для любой комнаты и стиля.";
-"rate" = "Rate us";
-"share" = "Share app";
-"privacy_policy" = "Privacy Policy";
+"rate" = "Оцените нас";
+"share" = "Поделиться приложением";
+"privacy_policy" = "Политика конфиденциальности";
 "loading" = "Загрузка";
 "create" = "Создать";
 "inspiration" = "Вдохновение";
@@ -66,3 +66,21 @@
 "empty_title" = "It's seem to be empty";
 "empty_subtitle" = "Upload your photo to start trying on house style";
 "start_transform" = "Start to transform";
+
+/* Setting — Phase 8 */
+"policy_updated" = "Последнее обновление: November 2026";
+"policy_1_title" = "1. Какие данные мы собираем";
+"policy_1_body" = "Загружаемые вами фотографии используются только для создания ваших дизайнов. Мы можем собирать базовую информацию об устройстве для улучшения работы приложения.";
+"policy_2_title" = "2. Как мы используем ваши данные";
+"policy_2_body" = "Ваши изображения обрабатываются для создания дизайнов комнат с помощью ИИ и никогда не продаются третьим лицам.";
+"policy_3_title" = "3. Хранение и удаление";
+"policy_3_body" = "Дизайны сохраняются на вашем устройстве в разделе Мои дизайны. Вы можете удалить их в любое время.";
+"policy_4_title" = "4. Связаться с нами";
+"policy_4_body" = "Если у вас есть вопросы об этой политике, свяжитесь с нашей службой поддержки.";
+"offline_title" = "Вы не в сети";
+"offline_message" = "Проверьте Wi-Fi или мобильные данные и повторите попытку.";
+"server_error_title" = "Что-то пошло не так";
+"server_error_message" = "Не удалось загрузить эту страницу. Повторите попытку через момент.";
+"reload" = "Обновить";
+"share_copy_link" = "Копировать ссылку";
+"share_more" = "Ещё";

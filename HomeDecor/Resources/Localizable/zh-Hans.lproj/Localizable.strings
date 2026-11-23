@@ -10,7 +10,7 @@
 "home" = "Home";
 "search" = "Search";
 "favorites" = "Favorites";
-"settings" = "Settings";
+"settings" = "设置";
 "choose_your_language" = "Choose your language";
 "change_language_later" = "You can change this later in Settings.";
 "please_select_language" = "请选择语言以继续";
@@ -36,9 +36,9 @@
 "intro_message_3" = "发现不同风格，为你的空间找到完美的样子。";
 "intro_title_4" = "发现灵感";
 "intro_message_4" = "探索适合每个房间和风格的灵感室内设计与创意。";
-"rate" = "Rate us";
-"share" = "Share app";
-"privacy_policy" = "Privacy Policy";
+"rate" = "给我们评分";
+"share" = "分享应用";
+"privacy_policy" = "隐私政策";
 "loading" = "加载中";
 "create" = "创建";
 "inspiration" = "灵感";
@@ -66,3 +66,21 @@
 "empty_title" = "It's seem to be empty";
 "empty_subtitle" = "Upload your photo to start trying on house style";
 "start_transform" = "Start to transform";
+
+/* Setting — Phase 8 */
+"policy_updated" = "最后更新：November 2026";
+"policy_1_title" = "1. 我们收集的信息";
+"policy_1_body" = "您上传的照片仅用于生成您的设计。我们可能会收集基本的设备信息以改善应用性能。";
+"policy_2_title" = "2. 我们如何使用您的数据";
+"policy_2_body" = "您的图片用于创建 AI 房间设计，绝不会出售给第三方。";
+"policy_3_title" = "3. 存储与删除";
+"policy_3_body" = "设计保存在您设备的我的设计中。您可以随时删除它们。";
+"policy_4_title" = "4. 联系我们";
+"policy_4_body" = "如果您对本政策有任何疑问，请联系我们的支持团队。";
+"offline_title" = "您已离线";
+"offline_message" = "请检查您的 Wi-Fi 或移动数据，然后重试。";
+"server_error_title" = "出了点问题";
+"server_error_message" = "我们无法加载此页面。请稍后再试。";
+"reload" = "重新加载";
+"share_copy_link" = "复制链接";
+"share_more" = "更多";

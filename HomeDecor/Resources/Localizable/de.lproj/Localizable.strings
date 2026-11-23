@@ -83,3 +83,21 @@
 "empty_title" = "It's seem to be empty";
 "empty_subtitle" = "Upload your photo to start trying on house style";
 "start_transform" = "Start to transform";
+
+/* Setting — Phase 8 */
+"policy_updated" = "Zuletzt aktualisiert: November 2026";
+"policy_1_title" = "1. Informationen, die wir erfassen";
+"policy_1_body" = "Fotos, die du hochlädst, werden ausschließlich zur Erstellung deiner Designs verwendet. Wir erfassen möglicherweise grundlegende Geräteinformationen, um die App-Leistung zu verbessern.";
+"policy_2_title" = "2. Wie wir deine Daten verwenden";
+"policy_2_body" = "Deine Bilder werden zur Erstellung von KI-Raumdesigns verarbeitet und niemals an Dritte verkauft.";
+"policy_3_title" = "3. Speicherung & Löschung";
+"policy_3_body" = "Designs werden auf deinem Gerät unter Meine Looks gespeichert. Du kannst sie jederzeit löschen.";
+"policy_4_title" = "4. Kontakt";
+"policy_4_body" = "Wenn du Fragen zu dieser Richtlinie hast, wende dich bitte an unser Support-Team.";
+"offline_title" = "Du bist offline";
+"offline_message" = "Überprüfe dein WLAN oder deine mobilen Daten und versuche es erneut.";
+"server_error_title" = "Etwas ist schiefgelaufen";
+"server_error_message" = "Diese Seite konnte nicht geladen werden. Bitte versuche es gleich noch einmal.";
+"reload" = "Neu laden";
+"share_copy_link" = "Link kopieren";
+"share_more" = "Mehr";

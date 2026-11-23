@@ -10,7 +10,7 @@
 "home" = "Home";
 "search" = "Search";
 "favorites" = "Favorites";
-"settings" = "Settings";
+"settings" = "सेटिंग्स";
 "choose_your_language" = "Choose your language";
 "change_language_later" = "You can change this later in Settings.";
 "please_select_language" = "जारी रखने के लिए भाषा चुनें";
@@ -36,9 +36,9 @@
 "intro_message_3" = "अलग-अलग स्टाइल खोजें और अपनी जगह के लिए सही लुक पाएं।";
 "intro_title_4" = "प्रेरणा खोजें";
 "intro_message_4" = "हर कमरे और स्टाइल के लिए प्रेरक इंटीरियर और आइडिया देखें।";
-"rate" = "Rate us";
-"share" = "Share app";
-"privacy_policy" = "Privacy Policy";
+"rate" = "हमें रेट करें";
+"share" = "ऐप शेयर करें";
+"privacy_policy" = "गोपनीयता नीति";
 "loading" = "लोड हो रहा है";
 "create" = "बनाएं";
 "inspiration" = "प्रेरणा";
@@ -66,3 +66,21 @@
 "empty_title" = "It's seem to be empty";
 "empty_subtitle" = "Upload your photo to start trying on house style";
 "start_transform" = "Start to transform";
+
+/* Setting — Phase 8 */
+"policy_updated" = "अंतिम अपडेट: November 2026";
+"policy_1_title" = "1. हम जो जानकारी एकत्र करते हैं";
+"policy_1_body" = "आपके द्वारा अपलोड की गई तस्वीरें केवल आपके डिज़ाइन बनाने के लिए उपयोग की जाती हैं। ऐप के प्रदर्शन को बेहतर बनाने के लिए हम बुनियादी डिवाइस जानकारी एकत्र कर सकते हैं।";
+"policy_2_title" = "2. हम आपके डेटा का उपयोग कैसे करते हैं";
+"policy_2_body" = "आपकी छवियों को AI रूम डिज़ाइन बनाने के लिए संसाधित किया जाता है और कभी भी किसी तीसरे पक्ष को नहीं बेचा जाता।";
+"policy_3_title" = "3. भंडारण और हटाना";
+"policy_3_body" = "डिज़ाइन आपके डिवाइस पर मेरे डिज़ाइन में सहेजे जाते हैं। आप उन्हें कभी भी हटा सकते हैं।";
+"policy_4_title" = "4. हमसे संपर्क करें";
+"policy_4_body" = "यदि इस नीति के बारे में आपका कोई प्रश्न है, तो कृपया हमारी सहायता टीम से संपर्क करें।";
+"offline_title" = "आप ऑफ़लाइन हैं";
+"offline_message" = "अपना Wi-Fi या मोबाइल डेटा जांचें, फिर पुनः प्रयास करें।";
+"server_error_title" = "कुछ गलत हो गया";
+"server_error_message" = "हम यह पृष्ठ लोड नहीं कर सके। कृपया कुछ देर बाद पुनः प्रयास करें।";
+"reload" = "पुनः लोड करें";
+"share_copy_link" = "लिंक कॉपी करें";
+"share_more" = "और";

@@ -10,7 +10,7 @@
 "home" = "Home";
 "search" = "Search";
 "favorites" = "Favorites";
-"settings" = "Settings";
+"settings" = "সেটিংস";
 "choose_your_language" = "Choose your language";
 "change_language_later" = "You can change this later in Settings.";
 "please_select_language" = "চালিয়ে যেতে একটি ভাষা নির্বাচন করুন";
@@ -36,9 +36,9 @@
 "intro_message_3" = "বিভিন্ন স্টাইল আবিষ্কার করুন এবং আপনার জায়গার জন্য উপযুক্ত লুক খুঁজুন।";
 "intro_title_4" = "অনুপ্রেরণা খুঁজুন";
 "intro_message_4" = "প্রতিটি ঘর ও স্টাইলের জন্য অনুপ্রেরণাদায়ী ইন্টেরিয়র ও আইডিয়া দেখুন।";
-"rate" = "Rate us";
-"share" = "Share app";
-"privacy_policy" = "Privacy Policy";
+"rate" = "আমাদের রেট করুন";
+"share" = "অ্যাপ শেয়ার করুন";
+"privacy_policy" = "গোপনীয়তা নীতি";
 "loading" = "লোড হচ্ছে";
 "create" = "তৈরি করুন";
 "inspiration" = "অনুপ্রেরণা";
@@ -66,3 +66,21 @@
 "empty_title" = "It's seem to be empty";
 "empty_subtitle" = "Upload your photo to start trying on house style";
 "start_transform" = "Start to transform";
+
+/* Setting — Phase 8 */
+"policy_updated" = "সর্বশেষ আপডেট: November 2026";
+"policy_1_title" = "1. আমরা যে তথ্য সংগ্রহ করি";
+"policy_1_body" = "আপনি যে ছবিগুলি আপলোড করেন তা শুধুমাত্র আপনার ডিজাইন তৈরি করতে ব্যবহৃত হয়। অ্যাপের পারফরম্যান্স উন্নত করতে আমরা মৌলিক ডিভাইস তথ্য সংগ্রহ করতে পারি।";
+"policy_2_title" = "2. আমরা কীভাবে আপনার ডেটা ব্যবহার করি";
+"policy_2_body" = "আপনার ছবিগুলি AI রুম ডিজাইন তৈরি করতে প্রক্রিয়া করা হয় এবং কখনও তৃতীয় পক্ষের কাছে বিক্রি করা হয় না।";
+"policy_3_title" = "3. সংরক্ষণ ও মুছে ফেলা";
+"policy_3_body" = "ডিজাইনগুলি আপনার ডিভাইসে আমার ডিজাইন-এ সংরক্ষিত হয়। আপনি যেকোনো সময় সেগুলি মুছে ফেলতে পারেন।";
+"policy_4_title" = "4. আমাদের সাথে যোগাযোগ করুন";
+"policy_4_body" = "এই নীতি সম্পর্কে আপনার কোনো প্রশ্ন থাকলে, অনুগ্রহ করে আমাদের সহায়তা দলের সাথে যোগাযোগ করুন।";
+"offline_title" = "আপনি অফলাইনে আছেন";
+"offline_message" = "আপনার Wi-Fi বা মোবাইল ডেটা পরীক্ষা করুন, তারপর আবার চেষ্টা করুন।";
+"server_error_title" = "কিছু একটা সমস্যা হয়েছে";
+"server_error_message" = "আমরা এই পৃষ্ঠাটি লোড করতে পারিনি। একটু পরে আবার চেষ্টা করুন।";
+"reload" = "পুনরায় লোড করুন";
+"share_copy_link" = "লিঙ্ক কপি করুন";
+"share_more" = "আরও";

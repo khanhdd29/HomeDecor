@@ -190,3 +190,21 @@
 "clear_chat_title" = "Clear this chat?";
 "clear_chat_message" = "All messages in this conversation will be deleted.";
 "clear" = "Clear";
+
+/* Setting — Phase 8 */
+"policy_updated" = "Last updated: November 2026";
+"policy_1_title" = "1. Information we collect";
+"policy_1_body" = "Photos you upload are used only to generate your designs. We may collect basic device information to improve app performance.";
+"policy_2_title" = "2. How we use your data";
+"policy_2_body" = "Your images are processed to create AI room designs and are never sold to third parties.";
+"policy_3_title" = "3. Storage & deletion";
+"policy_3_body" = "Designs are saved on your device in My look. You can delete them at any time.";
+"policy_4_title" = "4. Contact us";
+"policy_4_body" = "If you have any questions about this policy, please contact our support team.";
+"offline_title" = "You're offline";
+"offline_message" = "Check your Wi-Fi or mobile data, then try again.";
+"server_error_title" = "Something went wrong";
+"server_error_message" = "We couldn't load this page. Please try again in a moment.";
+"reload" = "Reload";
+"share_copy_link" = "Copy link";
+"share_more" = "More";

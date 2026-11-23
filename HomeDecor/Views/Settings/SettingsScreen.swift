@@ -14,6 +14,7 @@ struct SettingsScreen: View {
     @Injected(\.app) private var app
     @InjectedObject(\.appFlow) private var appFlow: AppFlowCoordinator
     @Environment(\.openURL) private var openURL
+    @State private var showShare = false
 
     var body: some View {
         ZStack(alignment: .top) {
@@ -35,10 +36,10 @@ struct SettingsScreen: View {
                     group {
                         row(icon: "star", title: "rate".localized) { viewModel.rateApp() }
                         divider
-                        row(icon: "square.and.arrow.up", title: "share".localized) { shareApp() }
+                        row(icon: "square.and.arrow.up", title: "share".localized) { showShare = true }
                         divider
                         row(icon: "checkmark.shield", title: "privacy_policy".localized) {
-                            if let url = viewModel.policyURL { openURL(url) }
+                            app.navi.push(.privacyPolicy)
                         }
                     }
                 }
@@ -49,6 +50,7 @@ struct SettingsScreen: View {
 
             header
         }
+        .sheet(isPresented: $showShare) { ShareAppSheet(onClose: { showShare = false }) }
         .trackScreen(.setting)
     }
 
@@ -113,12 +115,6 @@ struct SettingsScreen: View {
             .padding(.leading, 52).padding(.trailing, 16)
     }
 
-    private func shareApp() {
-        let items: [Any] = [viewModel.shareMessage]
-        let av = UIActivityViewController(activityItems: items, applicationActivities: nil)
-        UIApplication.shared.topViewController?.present(av, animated: true)
-    }
-
     // MARK: Pro card (hidden v1)
 
     private var proCard: some View {
@@ -133,14 +129,5 @@ struct SettingsScreen: View {
         .frame(maxWidth: .infinity, alignment: .leading)
         .padding(20)
         .background(.ultraThinMaterial, in: RoundedRectangle(cornerRadius: 28, style: .continuous))
-    }
-}
-
-private extension UIApplication {
-    var topViewController: UIViewController? {
-        let scene = connectedScenes.first { $0.activationState == .foregroundActive } as? UIWindowScene
-        var top = scene?.keyWindow?.rootViewController
-        while let presented = top?.presentedViewController { top = presented }
-        return top
     }
 }

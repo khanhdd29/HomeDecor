@@ -83,3 +83,21 @@
 "empty_title" = "It's seem to be empty";
 "empty_subtitle" = "Upload your photo to start trying on house style";
 "start_transform" = "Start to transform";
+
+/* Setting — Phase 8 */
+"policy_updated" = "Dernière mise à jour : November 2026";
+"policy_1_title" = "1. Informations que nous collectons";
+"policy_1_body" = "Les photos que vous importez servent uniquement à générer vos designs. Nous pouvons collecter des informations de base sur l'appareil afin d'améliorer les performances de l'application.";
+"policy_2_title" = "2. Comment nous utilisons vos données";
+"policy_2_body" = "Vos images sont traitées pour créer des designs de pièces par IA et ne sont jamais vendues à des tiers.";
+"policy_3_title" = "3. Stockage et suppression";
+"policy_3_body" = "Les designs sont enregistrés sur votre appareil dans Mes looks. Vous pouvez les supprimer à tout moment.";
+"policy_4_title" = "4. Nous contacter";
+"policy_4_body" = "Si vous avez des questions concernant cette politique, veuillez contacter notre équipe d'assistance.";
+"offline_title" = "Vous êtes hors ligne";
+"offline_message" = "Vérifiez votre Wi-Fi ou vos données mobiles, puis réessayez.";
+"server_error_title" = "Une erreur s'est produite";
+"server_error_message" = "Nous n'avons pas pu charger cette page. Veuillez réessayer dans un instant.";
+"reload" = "Recharger";
+"share_copy_link" = "Copier le lien";
+"share_more" = "Plus";
