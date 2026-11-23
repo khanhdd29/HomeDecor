@@ -72,13 +72,24 @@ def draw_centered(draw, text, font, y, fill):
     draw.text(((W - w) / 2, y), text, font=font, fill=fill)
 
 
+def fit_font(draw, lines, max_size=112, min_size=66, margin=130):
+    """Largest font (<= max_size) where every line fits within W - margin."""
+    size = max_size
+    while size > min_size:
+        f = load_font(size)
+        if all(draw.textbbox((0, 0), ln, font=f)[2] <= W - margin for ln in lines):
+            return f, size
+        size -= 2
+    return load_font(min_size), min_size
+
+
 def render(shot_name, line1, line2, out_name):
     canvas = background()
     draw = ImageDraw.Draw(canvas)
 
-    # Headline (two lines, two-tone).
-    font = load_font(108)
-    lh = 128
+    # Headline (two lines, two-tone) — auto-fit so long lines never clip.
+    font, size = fit_font(draw, [line1, line2])
+    lh = round(size * 1.18)
     top = 150
     draw_centered(draw, line1, font, top, INK)
     draw_centered(draw, line2, font, top + lh, CORAL)
@@ -118,11 +129,12 @@ def render(shot_name, line1, line2, out_name):
 
 
 FRAMES = [
-    ("home.png",     "Reimagine",      "any room",      "01_reimagine.png"),
-    ("chat.png",     "Your own",       "AI Designer",   "02_aidesigner.png"),
-    ("category.png", "A look for",      "every space",   "03_styles.png"),
-    ("detail.png",   "Try any style",  "in seconds",    "04_tryit.png"),
-    ("language.png", "Private —",       "16 languages",  "05_languages.png"),
+    ("home.png",        "Reimagine",   "any room",        "01_reimagine.png"),
+    ("upload.png",      "Start with",  "your own room",   "02_yourroom.png"),
+    ("choosestyle.png", "Pick any",    "style",           "03_pickstyle.png"),
+    ("result.png",      "See it",      "before & after",  "04_beforeafter.png"),
+    ("chat.png",        "Your own",    "AI Designer",     "05_aidesigner.png"),
+    ("detail.png",      "A look for",  "every space",     "06_styles.png"),
 ]
 
 if __name__ == "__main__":

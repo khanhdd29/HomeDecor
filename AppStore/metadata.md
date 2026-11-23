@@ -120,7 +120,7 @@ First release of Abodi.
 - Icon app: `AppStore/AppIcon-1024.png`, 1024×1024, không nền trong suốt, không bo góc (Apple tự bo). App Store lấy icon từ bản build nên **không cần tải file này lên** — để lưu trữ/gửi designer.
 - Ảnh chụp: ✅ **ảnh MARKETING** (nền Coral-Glass + headline 2 màu + mockup điện thoại chứa UI thật) — 5 ảnh **1206×2622** ở `AppStore/screenshots/en/` (+ bản 1290×2796 ở `src-1290x2796/`). Tạo bằng `python3 scripts/store/make_screenshots.py` (xem `screenshots/README.md`).
 - **Size:** ô "iPhone with Dynamic Island (medium display)" nhận **1206×2622**; ô "iPhone 6.9" Display" nhận **1290×2796**.
-- 5 ảnh (thứ tự upload): `01_reimagine` (Reimagine any room), `02_aidesigner` (Your own AI Designer), `03_styles` (A look for every space), `04_tryit` (Try any style in seconds), `05_languages` (Private — 16 languages).
+- 6 ảnh (thứ tự upload, kể trọn flow): `01_reimagine` (Reimagine any room), `02_yourroom` (Start with your own room), `03_pickstyle` (Pick any style), `04_beforeafter` (See it before & after — ⭐ slider), `05_aidesigner` (Your own AI Designer), `06_styles` (A look for every space).
 - App **chỉ iPhone** (`TARGETED_DEVICE_FAMILY = "1"`) → không cần ảnh iPad. Tối đa 10 ảnh/slot.
 - ⚠️ Khi AI wire thật, chụp lại màn **kết quả generate thật** rồi thêm 1 frame.
 
