@@ -1,22 +1,18 @@
 //
 //  LanguageView.swift
-//  SwiftBase
+//  HomeDecor
 //
-//  Created by VanTuan on 18/6/26.
+//  Coral Glass language picker (matches Figma node 10:23507 / settings 10:29655).
+//  16 languages, glass rows with circular flag + native/English name + radio.
+//  The back button shows ONLY when opened from Settings.
 //
 
 import SwiftUI
-import ads_swift
 import Factory
 
 struct LanguageView: View {
 
-    /// Where this picker was opened from. Controls the copy, the leading button,
-    /// and what happens when the user confirms / cancels.
-    enum Mode {
-        case onboarding
-        case settings
-    }
+    enum Mode { case onboarding, settings }
 
     let mode: Mode
 
@@ -24,175 +20,150 @@ struct LanguageView: View {
     @Injected(\.app) private var app
 
     @State private var hasChosen = false
-
     @State private var originalLanguage: AppLanguage = .deviceDefault
-
     @Namespace private var guideNS
 
-    @State private var nativeLanguageVM: NativeAdViewModel?
-    @State private var nativeLanguageSelectVM: NativeAdViewModel?
-    /// Used when the screen is opened from Settings — shows the shared `nativeAll`.
-    @State private var nativeAllVM: NativeAdViewModel?
+    init(mode: Mode = .onboarding) { self.mode = mode }
 
-    init(mode: Mode = .onboarding) {
-        self.mode = mode
-    }
-
-    // The language the onboarding guide points at first.
     private let guideLanguage: AppLanguage = .english
-
     private var isGuiding: Bool { mode == .onboarding }
     private var showRowGuide: Bool { isGuiding && !hasChosen }
-    private var showButtonGuide: Bool { isGuiding && hasChosen }
     private var canConfirm: Bool { hasChosen }
 
-    /// Settings shows the shared `nativeAll`; onboarding swaps to the post-select
-    /// native ad once the user has chosen a language.
-    private var currentAdVM: NativeAdViewModel? {
-        if mode == .settings { return nativeAllVM }
-        return hasChosen ? nativeLanguageSelectVM : nativeLanguageVM
-    }
-
     var body: some View {
-        VStack(spacing: 0) {
-            header
+        ZStack {
+            BlobBackground()
 
-            ScrollView {
-                VStack(spacing: 12) {
-                    ForEach(AppLanguage.allCases) { language in
-                        row(for: language)
+            VStack(spacing: 0) {
+                header
+
+                Text("please_select_language".localized)
+                    .font(.system(size: 13))
+                    .foregroundStyle(AppColor.ink.opacity(0.55))
+                    .padding(.bottom, 14)
+
+                ScrollView {
+                    VStack(spacing: 10) {
+                        ForEach(AppLanguage.allCases) { language in
+                            row(for: language)
+                        }
                     }
+                    .padding(.horizontal, 16)
+                    .padding(.bottom, 12)
                 }
-                .padding(.horizontal)
-                .padding(.top, 8)
-            }
 
-            if let vm = currentAdVM {
-                NativeContentView(nativeViewModel: vm, style: .nativeNormalMediaCtaTop)
-                    .padding(.horizontal)
-                    .padding(.bottom, 8)
             }
         }
         .onAppear {
             originalLanguage = coordinator.language
-            // Settings opens already on the current language; onboarding starts blank.
             if mode == .settings { hasChosen = true }
-            loadAds()
         }
         .trackScreen(mode == .onboarding ? .language : .settingsLanguage)
     }
 
+    // MARK: - Header
+
     private var header: some View {
-        VStack(spacing: 8) {
-            BasicHeaderView(
-                "language".localized,
-                showBack: mode == .settings,
-                backAction: { cancel() },
-                trailingView: { doneButton }
-            )
+        ZStack {
+            Text("language".localized)
+                .font(.system(size: 17, weight: .semibold))
+                .foregroundStyle(AppColor.ink)
 
-            if mode == .onboarding {
-                Text("please_select_language".localized)
-                    .font(.subheadline)
-                    .foregroundStyle(.secondary)
-                    .frame(maxWidth: .infinity)
-                    .multilineTextAlignment(.center)
-                    .padding(.horizontal)
+            HStack {
+                if mode == .settings {
+                    Button { cancel() } label: {
+                        Image(systemName: "chevron.left")
+                            .font(.system(size: 18, weight: .semibold))
+                            .foregroundStyle(AppColor.ink)
+                            .frame(width: 24, height: 24)
+                            .contentShape(Rectangle())
+                    }
+                    .buttonStyle(.plain)
+                } else {
+                    Color.clear.frame(width: 24, height: 24)
+                }
+
+                Spacer()
+
+                Button { confirm() } label: {
+                    Image(systemName: "checkmark")
+                        .font(.system(size: 17, weight: .bold))
+                        .foregroundStyle(canConfirm ? AppColor.coral : AppColor.inkTertiary.opacity(0.4))
+                        .frame(width: 24, height: 24)
+                        .contentShape(Rectangle())
+                }
+                .buttonStyle(.plain)
+                .disabled(!canConfirm)
             }
         }
-        .padding(.top, mode == .settings ? 8 : 4)
+        .padding(.horizontal, 16)
+        .frame(height: 44)
+        .padding(.top, 8)
     }
 
-    /// Top-right confirm. Disabled until a language is chosen (onboarding); the tap
-    /// guide flies here once a selection is made.
-    private var doneButton: some View {
-        Button {
-            confirm()
-        } label: {
-            Image(systemName: "checkmark")
-                .font(.title3.weight(.bold))
-                .foregroundStyle(canConfirm ? Color.accentColor : Color.secondary.opacity(0.4))
-                .frame(width: 36, height: 36)
-                .contentShape(Rectangle())
-        }
-        .buttonStyle(.plain)
-        .disabled(!canConfirm)
-        .overlay(alignment: .center) {
-            if showButtonGuide {
-                tapGuide.offset(x: 16, y: 22)
-            }
-        }
-    }
+    // MARK: - Row
 
     private func row(for language: AppLanguage) -> some View {
         let isSelected = hasChosen && coordinator.language == language
         return Button {
             select(language)
         } label: {
-            HStack(spacing: 14) {
-                Text(language.flag)
-                    .font(.title)
-                Text(language.displayName)
-                    .font(.body.weight(.medium))
-                    .foregroundStyle(.primary)
-                Spacer()
-                if isSelected {
-                    Image(systemName: "checkmark.circle.fill")
-                        .foregroundStyle(Color.accentColor)
+            HStack(spacing: 12) {
+                Image(language.flagAsset)
+                    .resizable()
+                    .scaledToFill()
+                    .frame(width: 34, height: 34)
+                    .clipShape(Circle())
+
+                VStack(alignment: .leading, spacing: 1) {
+                    Text(language.displayName)
+                        .font(.system(size: 15, weight: .semibold))
+                        .foregroundStyle(AppColor.ink)
+                    if let english = language.englishName {
+                        Text(english)
+                            .font(.system(size: 11))
+                            .foregroundStyle(AppColor.ink.opacity(0.55))
+                    }
                 }
+
+                Spacer()
+
+                radio(isSelected)
             }
-            .padding()
+            .padding(.horizontal, 16)
+            .frame(height: 56)
             .background(
-                RoundedRectangle(cornerRadius: 14)
-                    .fill(isSelected ? Color.accentColor.opacity(0.12) : Color(.secondarySystemBackground))
+                .ultraThinMaterial,
+                in: RoundedRectangle(cornerRadius: 24, style: .continuous)
             )
             .overlay(
-                RoundedRectangle(cornerRadius: 14)
-                    .stroke(isSelected ? Color.accentColor : .clear, lineWidth: 1.5)
+                RoundedRectangle(cornerRadius: 24, style: .continuous)
+                    .strokeBorder(isSelected ? AppColor.coral : AppColor.glassStroke,
+                                  lineWidth: isSelected ? 2 : 1)
             )
+            .shadow(color: Color(hex: 0x593826).opacity(0.07), radius: 12, x: 0, y: 8)
         }
         .buttonStyle(.plain)
         .overlay(alignment: .trailing) {
             if showRowGuide && language == guideLanguage {
-                tapGuide.offset(x: -10, y: 6)
+                tapGuide.offset(x: -6, y: 0)
             }
         }
     }
 
-    // MARK: - Ads
-
-    /// Load both native placements once. `isEnable` covers the master switch +
-    /// review-block gate, so we never show when disabled.
-    private func loadAds() {
-        // Opened from Settings → single shared `nativeAll` placement.
-        if mode == .settings {
-            let all = AdUtil.config.nativeAll
-            if all.isEnable, nativeAllVM == nil {
-                let vm = NativeAdViewModel(adUnitID: all.id)
-                vm.refreshAd()
-                nativeAllVM = vm
+    private func radio(_ on: Bool) -> some View {
+        ZStack {
+            Circle()
+                .strokeBorder(on ? AppColor.coral : AppColor.inkTertiary.opacity(0.45), lineWidth: 2)
+                .frame(width: 22, height: 22)
+            if on {
+                Circle().fill(AppColor.coral).frame(width: 12, height: 12)
             }
-            return
-        }
-
-        // Onboarding → dedicated language placements (initial + post-select).
-        let initial = AdUtil.config.nativeLanguage
-        if initial.isEnable, nativeLanguageVM == nil {
-            let vm = NativeAdViewModel(adUnitID: initial.id)
-            vm.refreshAd()
-            nativeLanguageVM = vm
-        }
-        let postSelect = AdUtil.config.nativeLanguageSelect
-        if postSelect.isEnable, nativeLanguageSelectVM == nil {
-            let vm = NativeAdViewModel(adUnitID: postSelect.id)
-            vm.refreshAd()
-            nativeLanguageSelectVM = vm
         }
     }
 
     // MARK: - Actions
 
-    /// Apply the picked language immediately (live preview).
     private func select(_ language: AppLanguage) {
         withAnimation(.spring(response: 0.45, dampingFraction: 0.8)) {
             hasChosen = true
@@ -200,19 +171,14 @@ struct LanguageView: View {
         }
     }
 
-    /// Top-right "Done": keep the applied language.
     private func confirm() {
         guard hasChosen else { return }
         switch mode {
-        case .onboarding:
-            // Already applied; persist + advance to the intro carousel.
-            coordinator.didSelectLanguage(coordinator.language)
-        case .settings:
-            app.navi.pop()
+        case .onboarding: coordinator.didSelectLanguage(coordinator.language)
+        case .settings:   app.navi.pop()
         }
     }
 
-    /// Settings back button: discard the live changes and restore the original.
     private func cancel() {
         if coordinator.language != originalLanguage {
             coordinator.updateLanguage(originalLanguage)
@@ -220,10 +186,8 @@ struct LanguageView: View {
         app.navi.pop()
     }
 
-    /// The looping tap hand. The shared `matchedGeometryEffect` id lets it animate
-    /// from the language row up to the done button when a selection is made.
     private var tapGuide: some View {
-        LottieTapView(name: "tap", tint: .accentColor)
+        LottieTapView(name: "tap", tint: AppColor.coral)
             .frame(width: 64, height: 64)
             .clipped()
             .allowsHitTesting(false)
@@ -233,12 +197,9 @@ struct LanguageView: View {
 
 #if DEBUG
 #Preview("Onboarding") {
-    LanguageView(mode: .onboarding)
-        .environmentObject(AppFlowCoordinator())
+    LanguageView(mode: .onboarding).environmentObject(AppFlowCoordinator())
 }
-
 #Preview("Settings") {
-    LanguageView(mode: .settings)
-        .environmentObject(AppFlowCoordinator())
+    LanguageView(mode: .settings).environmentObject(AppFlowCoordinator())
 }
 #endif

@@ -25,19 +25,19 @@ extension Container {
 // MARK: - One navigation tree per tab
 
 extension Container {
-    var homeNavi: Factory<Navigation> {
+    var createNavi: Factory<Navigation> {
         Factory(self) { @MainActor in Navigation() }.singleton
     }
 
-    var searchNavi: Factory<Navigation> {
+    var inspirationNavi: Factory<Navigation> {
         Factory(self) { @MainActor in Navigation() }.singleton
     }
 
-    var favoritesNavi: Factory<Navigation> {
+    var mylookNavi: Factory<Navigation> {
         Factory(self) { @MainActor in Navigation() }.singleton
     }
 
-    var settingsNavi: Factory<Navigation> {
+    var settingNavi: Factory<Navigation> {
         Factory(self) { @MainActor in Navigation() }.singleton
     }
 }

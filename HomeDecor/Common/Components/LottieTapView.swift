@@ -1,56 +1,49 @@
 //
 //  LottieTapView.swift
-//  SwiftBase
+//  HomeDecor
 //
-//  Created by VanTuan on 18/6/26.
+//  Pure-SwiftUI tap hint. Replaces the old Lottie-based animation (Lottie came
+//  transitively from the ad SDK, which was removed for the v1 App Store build).
+//  Keeps the same name/API so call sites don't change.
 //
 
 import SwiftUI
-import Lottie
 
-struct LottieTapView: UIViewRepresentable {
-    /// File name (without extension) of the animation in the bundle.
-    let name: String
-
-    /// Optional recolor. When set, every colored layer of the animation is
-    /// tinted to this color — used to match the app's accent / brand color.
+struct LottieTapView: View {
+    /// Kept for source compatibility with the old Lottie version (ignored).
+    var name: String = "tap"
+    /// Tint for the tapping hand.
     var tint: Color? = nil
 
-    func makeUIView(context: Context) -> LottieAnimationView {
-        let view = LottieAnimationView()
-        // Try the bundle root first, then the `Json` subdirectory (depends on how
-        // the build copies the resource folder).
-        view.animation = LottieAnimation.named(name)
-            ?? LottieAnimation.named(name, subdirectory: "Json")
-        view.loopMode = .loop
-        view.contentMode = .scaleAspectFit
-        view.backgroundBehavior = .pauseAndRestore
+    @State private var pressed = false
 
-        applyTint(to: view)
+    private var color: Color { tint ?? AppColor.coral }
 
-        // Lottie's intrinsic size is the animation's native size (here 600×600).
-        // Drop the layout priorities so the SwiftUI `.frame(...)` wins instead of
-        // the view spilling out at its natural size.
-        view.setContentHuggingPriority(.defaultLow, for: .horizontal)
-        view.setContentHuggingPriority(.defaultLow, for: .vertical)
-        view.setContentCompressionResistancePriority(.defaultLow, for: .horizontal)
-        view.setContentCompressionResistancePriority(.defaultLow, for: .vertical)
+    var body: some View {
+        ZStack {
+            // Ripple that expands as the finger "taps".
+            Circle()
+                .stroke(color.opacity(pressed ? 0 : 0.5), lineWidth: 2)
+                .scaleEffect(pressed ? 1.6 : 0.6)
+                .frame(width: 26, height: 26)
 
-        view.play()
-        return view
-    }
-
-    func updateUIView(_ uiView: LottieAnimationView, context: Context) {
-        applyTint(to: uiView)
-        if !uiView.isAnimationPlaying {
-            uiView.play()
+            Image(systemName: "hand.point.up.left.fill")
+                .font(.system(size: 20, weight: .semibold))
+                .foregroundStyle(color)
+                .scaleEffect(pressed ? 0.86 : 1.0)
+                .offset(x: 1, y: 2)
+        }
+        .frame(width: 36, height: 36)
+        .onAppear {
+            withAnimation(.easeInOut(duration: 0.8).repeatForever(autoreverses: true)) {
+                pressed = true
+            }
         }
     }
-
-    /// Recolor every fill/stroke (`**.Color`) of the animation to `tint`.
-    private func applyTint(to view: LottieAnimationView) {
-        guard let tint else { return }
-        let provider = ColorValueProvider(UIColor(tint).lottieColorValue)
-        view.setValueProvider(provider, keypath: AnimationKeypath(keypath: "**.Color"))
-    }
 }
+
+#if DEBUG
+#Preview {
+    LottieTapView(tint: .orange).padding()
+}
+#endif

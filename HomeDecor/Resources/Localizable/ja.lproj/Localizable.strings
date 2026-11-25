@@ -5,7 +5,6 @@
 "next" = "次へ";
 "get_started" = "はじめる";
 "back" = "戻る";
-
 /* Tabs */
 "home" = "ホーム";
 "search" = "検索";
@@ -15,8 +14,7 @@
 /* Language picker */
 "choose_your_language" = "言語を選択";
 "change_language_later" = "後で設定から変更できます。";
-"please_select_language" = "言語を選択してください";
-
+"please_select_language" = "続けるには言語を選択してください";
 /* Settings */
 "general" = "一般";
 "language" = "言語";
@@ -40,13 +38,12 @@
 "nothing_saved_yet" = "まだ保存されていません";
 
 /* Onboarding intro */
-"intro_title_1" = "すべてをひとつに";
-"intro_message_1" = "ナビゲーション、タブ、オンボーディングがあらかじめ組み込まれた、すっきりした出発点です。";
-"intro_title_2" = "より速く開発";
-"intro_message_2" = "再利用可能なモジュールにより、配線ではなく機能に集中できます。";
-"intro_title_3" = "リリース準備完了";
-"intro_message_3" = "実用的なデフォルトとテスト済みのナビゲーション基盤を、すぐに使えます。";
-
+"intro_title_1" = "AIで模様替え";
+"intro_message_1" = "AIの提案で、どんな部屋や屋外空間もデザインし直せます。";
+"intro_title_2" = "AIデザイン提案";
+"intro_message_2" = "AIからインテリアデザインのアドバイスとアイデアを受け取れます。";
+"intro_title_3" = "スタイルを探す";
+"intro_message_3" = "さまざまなスタイルから、あなたの空間にぴったりの雰囲気を見つけましょう。";
 /* Settings actions */
 "rate" = "評価する";
 "share" = "アプリを共有";
@@ -54,3 +51,164 @@
 
 /* Splash */
 "loading" = "読み込み中";
+/* Coral Glass — tabs & common */
+"create" = "作成";
+"inspiration" = "インスピレーション";
+"my_look" = "マイルック";
+"setting" = "設定";
+"before" = "ビフォー";
+"after" = "アフター";
+"try_now" = "試す";
+"pro" = "Pro";
+
+/* Onboarding (Coral Glass) */
+"splash_tagline" = "AIで理想の空間をデザイン";
+"intro_title_4" = "インスピレーション";
+"intro_message_4" = "あらゆる部屋とスタイルのインテリアやアイデアを発見できます。";
+"start" = "始める";
+
+/* Home */
+"show_all" = "すべて表示";
+"ai_concepts" = "数秒でAIデザイン";
+"reimagine_any_room" = "どんな部屋も\n生まれ変わる";
+"try_style" = "スタイルを試す";
+
+/* Category */
+"category" = "カテゴリ";
+"outside" = "屋外";
+"inside" = "屋内";
+
+/* My look */
+"gallery" = "ギャラリー";
+"empty_title" = "まだ何もないようです";
+"empty_subtitle" = "写真をアップロードしてお部屋のスタイルを試しましょう";
+"start_transform" = "変身を始める";
+
+/* Setting — Phase 8 */
+"policy_updated" = "最終更新: November 2026";
+"policy_1_title" = "1. 収集する情報";
+"policy_1_body" = "アップロードされた写真は、デザインの生成にのみ使用されます。アプリのパフォーマンス向上のため、基本的なデバイス情報を収集する場合があります。";
+"policy_2_title" = "2. データの使用方法";
+"policy_2_body" = "お客様の画像はAIによる部屋のデザイン作成のために処理され、第三者に販売されることは一切ありません。";
+"policy_3_title" = "3. 保存と削除";
+"policy_3_body" = "デザインはお使いのデバイスのマイルックに保存されます。いつでも削除できます。";
+"policy_4_title" = "4. お問い合わせ";
+"policy_4_body" = "このポリシーについてご質問がある場合は、サポートチームまでお問い合わせください。";
+"offline_title" = "オフラインです";
+"offline_message" = "Wi-Fiまたはモバイルデータを確認して、もう一度お試しください。";
+"server_error_title" = "問題が発生しました";
+"server_error_message" = "このページを読み込めませんでした。しばらくしてからもう一度お試しください。";
+"reload" = "再読み込み";
+"share_copy_link" = "リンクをコピー";
+"share_more" = "その他";
+
+/* Backlog (Phase 3–7) */
+"styles_count" = "%dスタイル";
+"download" = "ダウンロード";
+"share_action" = "共有";
+"delete" = "削除";
+"n_selected" = "%d件を選択中";
+"all" = "すべて";
+"delete_look_title" = "デザインを削除しますか？";
+"delete_look_message" = "このデザインはマイルックから削除されます。この操作は取り消せません。";
+"delete_selected_title" = "%d件のデザインを削除しますか？";
+"delete_selected_message" = "選択したデザインはマイルックから削除されます。この操作は取り消せません。";
+"saved_to_photos" = "写真に保存しました";
+"saved_n_to_photos" = "%d件を写真に保存しました";
+"deleted_toast" = "削除しました";
+"try_this_style" = "このスタイルを試す";
+"more_in" = "%@のその他";
+"upload_photo" = "写真をアップロード";
+"selected_style" = "選択中のスタイル";
+"change" = "変更";
+"change_photo" = "写真を変更";
+"no_style_title" = "スタイルが選択されていません";
+"no_style_sub" = "試すスタイルを選んでください";
+"upload_room_title" = "部屋の写真をアップロード";
+"upload_room_subtitle" = "タップして写真を撮るか、ライブラリから選択してください";
+"tips_title" = "きれいに仕上げるコツ";
+"tip_lighting" = "明るく均一な光で撮影する";
+"tip_whole_room" = "部屋の隅から全体を写す";
+"tip_no_people" = "人やペットを写さないようにする";
+"add_photo" = "写真を追加";
+"add_photo_subtitle" = "部屋の写真の取得元を選んでください";
+"take_photo" = "写真を撮る";
+"take_photo_sub" = "カメラを使う";
+"photo_library" = "フォトライブラリ";
+"photo_library_sub" = "ギャラリーから選ぶ";
+"cancel" = "キャンセル";
+"choose_style" = "スタイルを選択";
+"generate" = "生成";
+"room_type" = "部屋のタイプ";
+"style" = "スタイル";
+"generating" = "生成中";
+"generating_title" = "部屋をデザインしています…";
+"generating_subtitle" = "通常は数秒で完了します";
+"step_analyzing" = "部屋を分析中";
+"step_applying" = "%@スタイルを適用中";
+"step_rendering" = "最終的な詳細をレンダリング中";
+"your_design" = "あなたのデザイン";
+"save_to_my_look" = "マイルックに保存";
+"view_in_my_look" = "マイルックで表示";
+"drag_to_compare" = "ドラッグして比較";
+"choose_a_style" = "スタイルを選ぶ";
+"apply_style" = "スタイルを適用";
+"stop_title" = "生成を停止しますか？";
+"stop_message" = "デザインはもうすぐ完成します。今終了すると、進行状況が失われます。";
+"keep_waiting" = "待機を続ける";
+"stop" = "停止";
+"gen_failed_title" = "生成に失敗しました";
+"gen_failed_message" = "デザインの作成中に問題が発生しました。もう一度お試しください。";
+"no_internet_title" = "インターネット接続なし";
+"no_internet_message" = "オフラインです。再接続してもう一度お試しください。";
+"try_again" = "もう一度試す";
+"discard_title" = "デザインを破棄しますか？";
+"discard_message" = "このデザインは保存されていません。終了すると破棄されます。";
+"keep_editing" = "編集を続ける";
+"discard" = "破棄";
+"regenerate_title" = "デザインを再生成しますか？";
+"regenerate_message" = "同じ写真とスタイルで新しいバージョンを作成します。";
+"regenerate" = "再生成";
+"photo_quality_title" = "写真が暗いようです";
+"photo_quality_message" = "この写真は暗すぎてきれいに仕上がらない可能性があります。より明るい写真をお試しください。";
+"choose_another" = "別の写真を選ぶ";
+"use_anyway" = "このまま使う";
+"camera_access_title" = "カメラへのアクセス";
+"camera_access_message" = "部屋の写真を撮るには、カメラへのアクセスを許可してください。";
+"camera_off_title" = "カメラがオフです";
+"camera_off_message" = "写真を撮るには、設定でカメラへのアクセスを有効にしてください。";
+"open_settings" = "設定を開く";
+"not_now" = "後で";
+"take_a_photo" = "写真を撮る";
+"camera_hint" = "部屋全体をフレームに収めてください";
+"adjust_photo" = "写真を調整";
+"ratio_original" = "オリジナル";
+"reset" = "リセット";
+"done" = "完了";
+"ai_designer" = "AIデザイナー";
+"online" = "オンライン";
+"today" = "今日";
+"ai_welcome_title" = "こんにちは、AIデザイナーです";
+"ai_welcome_subtitle" = "スタイル、色、レイアウトなど、お部屋の装飾について何でも聞いてください。";
+"ai_suggest_1" = "居心地のよい小さな寝室のアイデア";
+"ai_suggest_2" = "ネイビーのソファに合う色は？";
+"ai_suggest_3" = "リビングを広く見せるには？";
+"ai_input_placeholder" = "お部屋について何でも聞いてください…";
+"attach_photo_subtitle" = "お部屋を共有すると、AIがより良いアドバイスをできます";
+"analyzing_room" = "お部屋を分析中…";
+"redesign_room" = "この部屋をデザインし直す";
+"not_delivered" = "未送信";
+"tap_to_retry" = "タップして再試行";
+"new_chat" = "新しいチャット";
+"clear_chat" = "チャットを消去";
+"clear_chat_title" = "このチャットを消去しますか？";
+"clear_chat_message" = "この会話のすべてのメッセージが削除されます。";
+"clear" = "消去";
+
+/* AI Chat history */
+"chat_history" = "チャット履歴";
+"no_history" = "チャットはまだありません";
+"search_chats" = "チャットを検索";
+"no_results" = "結果なし";
+"delete_chats_title" = "%d件のチャットを削除しますか？";
+"delete_chats_message" = "選択したチャットは完全に削除されます。元に戻せません。";

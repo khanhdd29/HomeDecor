@@ -3,9 +3,8 @@
 "save" = "Speichern";
 "skip" = "Überspringen";
 "next" = "Weiter";
-"get_started" = "Los geht’s";
+"get_started" = "Loslegen";
 "back" = "Zurück";
-
 /* Tabs */
 "home" = "Start";
 "search" = "Suchen";
@@ -15,8 +14,7 @@
 /* Language picker */
 "choose_your_language" = "Wähle deine Sprache";
 "change_language_later" = "Du kannst dies später in den Einstellungen ändern.";
-"please_select_language" = "Bitte wähle deine Sprache";
-
+"please_select_language" = "Wähle eine Sprache, um fortzufahren";
 /* Settings */
 "general" = "Allgemein";
 "language" = "Sprache";
@@ -40,17 +38,177 @@
 "nothing_saved_yet" = "Noch nichts gespeichert";
 
 /* Onboarding intro */
-"intro_title_1" = "Alles an einem Ort";
-"intro_message_1" = "Ein sauberer Ausgangspunkt mit bereits eingerichteter Navigation, Tabs und Einführung.";
-"intro_title_2" = "Schneller entwickeln";
-"intro_message_2" = "Wiederverwendbare Module lassen dich auf Funktionen statt auf Infrastruktur konzentrieren.";
-"intro_title_3" = "Bereit zur Veröffentlichung";
-"intro_message_3" = "Sinnvolle Voreinstellungen und ein getesteter Navigationskern, sofort einsatzbereit.";
-
+"intro_title_1" = "KI-Raumgestaltung";
+"intro_message_1" = "Gestalte jeden Raum oder Außenbereich mit KI-gestützten Ideen neu.";
+"intro_title_2" = "KI-Designberatung";
+"intro_message_2" = "Erhalte persönliche Einrichtungsberatung und Ideen von der KI.";
+"intro_title_3" = "Stile entdecken";
+"intro_message_3" = "Entdecke verschiedene Stile und finde den perfekten Look für deinen Raum.";
 /* Settings actions */
 "rate" = "Bewerte uns";
 "share" = "App teilen";
 "privacy_policy" = "Datenschutz";
 
 /* Splash */
-"loading" = "Laden";
+"loading" = "Lädt";
+/* Coral Glass — tabs & common */
+"create" = "Erstellen";
+"inspiration" = "Inspiration";
+"my_look" = "Meine Looks";
+"setting" = "Einstellungen";
+"before" = "Vorher";
+"after" = "Nachher";
+"try_now" = "Jetzt testen";
+"pro" = "Pro";
+
+/* Onboarding (Coral Glass) */
+"splash_tagline" = "Gestalte deinen Traumraum mit KI";
+"intro_title_4" = "Inspiration finden";
+"intro_message_4" = "Entdecke inspirierende Interieurs und Ideen für jeden Raum und Stil.";
+"start" = "Starten";
+
+/* Home */
+"show_all" = "Alle anzeigen";
+"ai_concepts" = "KI-Konzepte in Sekunden";
+"reimagine_any_room" = "Jeden Raum\nneu gestalten";
+"try_style" = "Stil testen";
+
+/* Category */
+"category" = "Kategorie";
+"outside" = "Außen";
+"inside" = "Innen";
+
+/* My look */
+"gallery" = "Galerie";
+"empty_title" = "Scheint leer zu sein";
+"empty_subtitle" = "Lade dein Foto hoch, um Wohnstile auszuprobieren";
+"start_transform" = "Verwandlung starten";
+
+/* Setting — Phase 8 */
+"policy_updated" = "Zuletzt aktualisiert: November 2026";
+"policy_1_title" = "1. Informationen, die wir erfassen";
+"policy_1_body" = "Fotos, die du hochlädst, werden ausschließlich zur Erstellung deiner Designs verwendet. Wir erfassen möglicherweise grundlegende Geräteinformationen, um die App-Leistung zu verbessern.";
+"policy_2_title" = "2. Wie wir deine Daten verwenden";
+"policy_2_body" = "Deine Bilder werden zur Erstellung von KI-Raumdesigns verarbeitet und niemals an Dritte verkauft.";
+"policy_3_title" = "3. Speicherung & Löschung";
+"policy_3_body" = "Designs werden auf deinem Gerät unter Meine Looks gespeichert. Du kannst sie jederzeit löschen.";
+"policy_4_title" = "4. Kontakt";
+"policy_4_body" = "Wenn du Fragen zu dieser Richtlinie hast, wende dich bitte an unser Support-Team.";
+"offline_title" = "Du bist offline";
+"offline_message" = "Überprüfe dein WLAN oder deine mobilen Daten und versuche es erneut.";
+"server_error_title" = "Etwas ist schiefgelaufen";
+"server_error_message" = "Diese Seite konnte nicht geladen werden. Bitte versuche es gleich noch einmal.";
+"reload" = "Neu laden";
+"share_copy_link" = "Link kopieren";
+"share_more" = "Mehr";
+
+/* Backlog (Phase 3–7) */
+"styles_count" = "%d Stile";
+"download" = "Herunterladen";
+"share_action" = "Teilen";
+"delete" = "Löschen";
+"n_selected" = "%d ausgewählt";
+"all" = "Alle";
+"delete_look_title" = "Design löschen?";
+"delete_look_message" = "Dieses Design wird aus Meine Looks entfernt. Dies kann nicht rückgängig gemacht werden.";
+"delete_selected_title" = "%d Designs löschen?";
+"delete_selected_message" = "Die ausgewählten Designs werden aus Meine Looks entfernt. Dies kann nicht rückgängig gemacht werden.";
+"saved_to_photos" = "In Fotos gespeichert";
+"saved_n_to_photos" = "%d in Fotos gespeichert";
+"deleted_toast" = "Gelöscht";
+"try_this_style" = "Diesen Stil testen";
+"more_in" = "Mehr in %@";
+"upload_photo" = "Foto hochladen";
+"selected_style" = "Ausgewählter Stil";
+"change" = "Ändern";
+"change_photo" = "Foto ändern";
+"no_style_title" = "Kein Stil ausgewählt";
+"no_style_sub" = "Wähle einen Stil zum Ausprobieren";
+"upload_room_title" = "Lade ein Foto deines Raums hoch";
+"upload_room_subtitle" = "Tippe, um ein Foto aufzunehmen oder aus deiner Mediathek zu wählen";
+"tips_title" = "Tipps für beste Ergebnisse";
+"tip_lighting" = "Fotografiere bei gutem, gleichmäßigem Licht";
+"tip_whole_room" = "Erfasse den ganzen Raum aus einer Ecke";
+"tip_no_people" = "Halte Menschen und Haustiere aus dem Bild";
+"add_photo" = "Foto hinzufügen";
+"add_photo_subtitle" = "Wähle, woher dein Raumfoto kommt";
+"take_photo" = "Foto aufnehmen";
+"take_photo_sub" = "Nutze deine Kamera";
+"photo_library" = "Fotomediathek";
+"photo_library_sub" = "Aus der Galerie wählen";
+"cancel" = "Abbrechen";
+"choose_style" = "Stil wählen";
+"generate" = "Generieren";
+"room_type" = "Raumtyp";
+"style" = "Stil";
+"generating" = "Wird generiert";
+"generating_title" = "Dein Raum wird gestaltet…";
+"generating_subtitle" = "Das dauert normalerweise nur wenige Sekunden";
+"step_analyzing" = "Dein Raum wird analysiert";
+"step_applying" = "Stil %@ wird angewendet";
+"step_rendering" = "Letzte Details werden gerendert";
+"your_design" = "Dein Design";
+"save_to_my_look" = "In Meine Looks speichern";
+"view_in_my_look" = "In Meine Looks ansehen";
+"drag_to_compare" = "Zum Vergleichen ziehen";
+"choose_a_style" = "Wähle einen Stil";
+"apply_style" = "Stil anwenden";
+"stop_title" = "Generierung stoppen?";
+"stop_message" = "Dein Design ist fast fertig. Wenn du jetzt gehst, geht der Fortschritt verloren.";
+"keep_waiting" = "Weiter warten";
+"stop" = "Stoppen";
+"gen_failed_title" = "Generierung fehlgeschlagen";
+"gen_failed_message" = "Beim Erstellen deines Designs ist etwas schiefgelaufen. Bitte versuche es erneut.";
+"no_internet_title" = "Kein Internet";
+"no_internet_message" = "Du bist offline. Stelle die Verbindung wieder her und versuche es erneut.";
+"try_again" = "Erneut versuchen";
+"discard_title" = "Design verwerfen?";
+"discard_message" = "Dieses Design wurde nicht gespeichert. Beim Verlassen wird es verworfen.";
+"keep_editing" = "Weiter bearbeiten";
+"discard" = "Verwerfen";
+"regenerate_title" = "Design neu generieren?";
+"regenerate_message" = "Erstelle eine neue Version mit demselben Foto und Stil.";
+"regenerate" = "Neu generieren";
+"photo_quality_title" = "Foto wirkt dunkel";
+"photo_quality_message" = "Dieses Foto ist möglicherweise zu dunkel für ein gutes Ergebnis. Versuche ein helleres.";
+"choose_another" = "Anderes wählen";
+"use_anyway" = "Trotzdem verwenden";
+"camera_access_title" = "Kamerazugriff";
+"camera_access_message" = "Erlaube den Kamerazugriff, um ein Foto deines Raums aufzunehmen.";
+"camera_off_title" = "Kamera ist aus";
+"camera_off_message" = "Aktiviere den Kamerazugriff in den Einstellungen, um ein Foto aufzunehmen.";
+"open_settings" = "Einstellungen öffnen";
+"not_now" = "Nicht jetzt";
+"take_a_photo" = "Ein Foto aufnehmen";
+"camera_hint" = "Fasse den ganzen Raum ins Bild";
+"adjust_photo" = "Foto anpassen";
+"ratio_original" = "Original";
+"reset" = "Zurücksetzen";
+"done" = "Fertig";
+"ai_designer" = "KI-Designer";
+"online" = "Online";
+"today" = "Heute";
+"ai_welcome_title" = "Hallo, ich bin dein KI-Designer";
+"ai_welcome_subtitle" = "Frag mich alles rund um die Einrichtung deines Zuhauses — Stile, Farben, Grundrisse und mehr.";
+"ai_suggest_1" = "Ideen für ein gemütliches kleines Schlafzimmer";
+"ai_suggest_2" = "Welche Farben passen zu einem marineblauen Sofa?";
+"ai_suggest_3" = "Wie wirkt mein Wohnzimmer größer?";
+"ai_input_placeholder" = "Frag alles über deinen Raum…";
+"attach_photo_subtitle" = "Teile deinen Raum, damit die KI besser beraten kann";
+"analyzing_room" = "Dein Raum wird analysiert…";
+"redesign_room" = "Diesen Raum neu gestalten";
+"not_delivered" = "Nicht zugestellt";
+"tap_to_retry" = "Zum Wiederholen tippen";
+"new_chat" = "Neuer Chat";
+"clear_chat" = "Chat leeren";
+"clear_chat_title" = "Diesen Chat leeren?";
+"clear_chat_message" = "Alle Nachrichten in dieser Unterhaltung werden gelöscht.";
+"clear" = "Leeren";
+
+/* AI Chat history */
+"chat_history" = "Chatverlauf";
+"no_history" = "Noch keine Chats";
+"search_chats" = "Chats suchen";
+"no_results" = "Keine Ergebnisse";
+"delete_chats_title" = "%d Chats löschen?";
+"delete_chats_message" = "Die ausgewählten Chats werden dauerhaft gelöscht. Dies kann nicht rückgängig gemacht werden.";

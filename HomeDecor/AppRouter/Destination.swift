@@ -12,23 +12,52 @@ enum Destination: Equatable {
         String(describing: lhs) == String(describing: rhs)
     }
 
-    case home
-    case search
-    case favorites
-    case settings
+    case create
+    case inspiration
+    case mylook
+    case setting
     case homeDetail(id: Int)
     case language
+    // Create / Generate flow (Phase 4)
+    case styleDetail
+    case uploadPhoto
+    case chooseStyle
+    case generating
+    case result
+    case compare
+    case camera
+    case adjustPhoto
+    case categorySeeAll
+    case styleImagePreview
+    case galleryDetail
+    // AI Chat (Phase 7)
+    case aiChat
+    // Setting (Phase 8)
+    case privacyPolicy
 }
 
 extension Destination {
     var identifier: String {
         switch self {
-        case .home:               return "home"
-        case .search:             return "search"
-        case .favorites:          return "favorites"
-        case .settings:           return "settings"
+        case .create:             return "create"
+        case .inspiration:        return "inspiration"
+        case .mylook:             return "mylook"
+        case .setting:            return "setting"
         case .homeDetail(let id): return "homeDetail-\(id)"
         case .language:           return "language"
+        case .styleDetail:        return "styleDetail"
+        case .uploadPhoto:        return "uploadPhoto"
+        case .chooseStyle:        return "chooseStyle"
+        case .generating:         return "generating"
+        case .result:             return "result"
+        case .compare:            return "compare"
+        case .camera:             return "camera"
+        case .adjustPhoto:        return "adjustPhoto"
+        case .categorySeeAll:     return "categorySeeAll"
+        case .styleImagePreview:  return "styleImagePreview"
+        case .galleryDetail:      return "galleryDetail"
+        case .aiChat:             return "aiChat"
+        case .privacyPolicy:      return "privacyPolicy"
         }
     }
 }
@@ -37,18 +66,44 @@ extension Navigation {
     @ViewBuilder
     internal func screen(for destinationWrapper: DestinationWrapper) -> some View {
         switch destinationWrapper.destination {
-        case .home:
+        case .create:
             HomeScreen()
-        case .search:
+        case .inspiration:
             SearchScreen()
-        case .favorites:
+        case .mylook:
             FavoritesScreen()
-        case .settings:
+        case .setting:
             SettingsScreen()
         case .homeDetail(let id):
             HomeDetailScreen(id: id)
         case .language:
             LanguageView(mode: .settings)
+        case .styleDetail:
+            StyleDetailScreen()
+        case .uploadPhoto:
+            UploadPhotoScreen()
+        case .chooseStyle:
+            ChooseStyleScreen()
+        case .generating:
+            GeneratingScreen()
+        case .result:
+            ResultScreen()
+        case .compare:
+            CompareScreen()
+        case .camera:
+            CameraScreen()
+        case .adjustPhoto:
+            AdjustPhotoScreen()
+        case .categorySeeAll:
+            CategorySeeAllScreen()
+        case .styleImagePreview:
+            StyleImagePreviewScreen()
+        case .galleryDetail:
+            GalleryDetailScreen()
+        case .aiChat:
+            AIChatScreen()
+        case .privacyPolicy:
+            PrivacyPolicyScreen()
         }
     }
 }

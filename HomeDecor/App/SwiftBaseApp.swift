@@ -15,11 +15,5 @@ struct SwiftBaseApp: App {
         WindowGroup {
             ContainerView()
         }
-        // Mute app-open ads when the user leaves to Safari / App Store and
-        // returns — otherwise the app-open ad fires on resume, which is jarring.
-        .environment(\.openURL, OpenURLAction { _ in
-            AdUtil.suppressAdsUntilReturn()
-            return .systemAction
-        })
     }
 }

@@ -14,6 +14,14 @@ final class Navigation: ObservableObject {
 
     private var removedDestinationWrapper: DestinationWrapper?
 
+    /// True while nothing is pushed/presented on this stack. Observed by the
+    /// tab shell to hide the floating tab bar + FAB during pushed flows.
+    @Published private(set) var isAtRoot: Bool = true
+
+    private func updateIsAtRoot() {
+        isAtRoot = navigationControllers.count == 1 && rootNavigationController.navigationPath.isEmpty
+    }
+
     init() {
         setupInitialNavigationController()
     }
@@ -57,6 +65,7 @@ final class Navigation: ObservableObject {
             })
             navigationControllers.append(navigationController)
         }
+        updateIsAtRoot()
     }
 
     func pop(onComplete: (() -> Void)? = nil) {
@@ -74,6 +83,7 @@ final class Navigation: ObservableObject {
             navigationControllers.removeLast()
             topNavigationController.navigationPresent = nil
         }
+        updateIsAtRoot()
     }
 
     func pop(last popCount: Int, onComplete: (() -> Void)? = nil) {
@@ -93,6 +103,7 @@ final class Navigation: ObservableObject {
     }
 
     private func pop(to destination: Destination, withAnimation: inout Bool?, onComplete: (() -> Void)? = nil) {
+        defer { updateIsAtRoot() }
         if !topNavigationController.navigationPath.isEmpty {
             let destinationWrapper = topNavigationController.navigationPath.last
 
@@ -140,6 +151,7 @@ final class Navigation: ObservableObject {
     }
 
     func popToRoot(_ type: PopToRootType, animated: Bool = true, onComplete: (() -> Void)? = nil) {
+        defer { updateIsAtRoot() }
         switch type {
         case .modal(let modalType):
             guard navigationControllers.count > 1 else { return }

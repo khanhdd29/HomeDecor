@@ -1,68 +1,97 @@
 //
 //  HomeTabView.swift
-//  SwiftBase
+//  HomeDecor
 //
-//  Created by VanTuan on 18/6/26.
+//  Four-tab shell with the floating Coral Glass tab bar + AI Chat FAB
+//  (Figma 10:2386). Content scrolls behind the floating bar.
 //
 
 import SwiftUI
 import Factory
 
 struct HomeTabView: View {
-    @InjectedObject(\.homeNavi) private var homeNavi: Navigation
-    @InjectedObject(\.searchNavi) private var searchNavi: Navigation
-    @InjectedObject(\.favoritesNavi) private var favoritesNavi: Navigation
-    @InjectedObject(\.settingsNavi) private var settingsNavi: Navigation
+    @InjectedObject(\.createNavi) private var createNavi: Navigation
+    @InjectedObject(\.inspirationNavi) private var inspirationNavi: Navigation
+    @InjectedObject(\.mylookNavi) private var mylookNavi: Navigation
+    @InjectedObject(\.settingNavi) private var settingNavi: Navigation
     @InjectedObject(\.app) private var app: AppManager
+    @InjectedObject(\.chatStore) private var chatStore: ChatStore
     @EnvironmentObject private var coordinator: AppFlowCoordinator
 
     @State private var isFirstAppear = false
+    @State private var showAIChat = false
 
     var body: some View {
-        // Observe the language so the tab titles re-read `.localized` when it
-        // changes at runtime (e.g. from the Settings language sheet).
+        // Observe the language so tab titles re-read `.localized` at runtime.
         let _ = coordinator.language
-        return TabView(selection: $app.activeTab) {
-            NavigationRoot(destination: .home, navigation: homeNavi)
-                .tabItem { Label(HomeTab.home.title, systemImage: HomeTab.home.icon) }
-                .tag(HomeTab.home)
+        return ZStack(alignment: .bottom) {
+            ZStack {
+                tab(.create, destination: .create, navigation: createNavi)
+                tab(.inspiration, destination: .inspiration, navigation: inspirationNavi)
+                tab(.mylook, destination: .mylook, navigation: mylookNavi)
+                tab(.setting, destination: .setting, navigation: settingNavi)
+            }
 
-            NavigationRoot(destination: .search, navigation: searchNavi)
-                .tabItem { Label(HomeTab.search.title, systemImage: HomeTab.search.icon) }
-                .tag(HomeTab.search)
-
-            NavigationRoot(destination: .favorites, navigation: favoritesNavi)
-                .tabItem { Label(HomeTab.favorites.title, systemImage: HomeTab.favorites.icon) }
-                .tag(HomeTab.favorites)
-
-            NavigationRoot(destination: .settings, navigation: settingsNavi)
-                .tabItem { Label(HomeTab.settings.title, systemImage: HomeTab.settings.icon) }
-                .tag(HomeTab.settings)
+            if activeNavigation.isAtRoot && !app.hideShellChrome {
+                ZStack(alignment: .topTrailing) {
+                    CoralTabBar(selection: $app.activeTab)
+                    // Always open the FAB on a fresh, empty chat. The previous
+                    // conversation is already saved in history; a new one is
+                    // only persisted once the user actually sends a message.
+                    AIChatFAB(action: { chatStore.newConversation(); showAIChat = true })
+                        .offset(x: 2, y: -76)
+                }
+                .padding(.horizontal, 20)
+                .padding(.bottom, 6)
+                .transition(.move(edge: .bottom).combined(with: .opacity))
+            }
+        }
+        .animation(.easeInOut(duration: 0.2), value: activeNavigation.isAtRoot)
+        .animation(.easeInOut(duration: 0.2), value: app.hideShellChrome)
+        .fullScreenCover(isPresented: $showAIChat) {
+            HostedChat(onClose: { showAIChat = false })
+                .ignoresSafeArea()
         }
         .onAppear {
             guard !isFirstAppear else { return }
             isFirstAppear = true
-            app.navi = homeNavi
+            app.navi = createNavi
         }
         .onChange(of: app.activeTab) { tab in
             didSelectTab(tab)
         }
     }
 
-    /// Keep `app.navi` pointing at the active tab's navigation tree.
+    @ViewBuilder
+    private func tab(_ tab: HomeTab, destination: Destination, navigation: Navigation) -> some View {
+        let active = app.activeTab == tab
+        NavigationRoot(destination: destination, navigation: navigation)
+            .opacity(active ? 1 : 0)
+            .allowsHitTesting(active)
+            .zIndex(active ? 1 : 0)
+    }
+
+    private var activeNavigation: Navigation {
+        switch app.activeTab {
+        case .create:      return createNavi
+        case .inspiration: return inspirationNavi
+        case .mylook:      return mylookNavi
+        case .setting:     return settingNavi
+        }
+    }
+
     private func didSelectTab(_ tab: HomeTab) {
         switch tab {
-        case .home:      app.navi = homeNavi
-        case .search:    app.navi = searchNavi
-        case .favorites: app.navi = favoritesNavi
-        case .settings:  app.navi = settingsNavi
+        case .create:      app.navi = createNavi
+        case .inspiration: app.navi = inspirationNavi
+        case .mylook:      app.navi = mylookNavi
+        case .setting:     app.navi = settingNavi
         }
     }
 }
 
 #if DEBUG
 #Preview {
-    HomeTabView()
-        .environmentObject(AppFlowCoordinator())
+    HomeTabView().environmentObject(AppFlowCoordinator())
 }
 #endif

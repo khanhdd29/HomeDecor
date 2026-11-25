@@ -7,42 +7,56 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		00853075507E2E0A3C773FA7 /* IosArtMagic.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = FAFC937ADB3958E36DA45617 /* IosArtMagic.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		2B745AF85551C12A50736312 /* IosArtMagic.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = FAFC937ADB3958E36DA45617 /* IosArtMagic.xcframework */; };
 		3A1F00010000000000000022 /* Factory in Frameworks */ = {isa = PBXBuildFile; productRef = 3A1F00010000000000000021 /* Factory */; };
 		3A1F00010000000000000057 /* Factory in Frameworks */ = {isa = PBXBuildFile; productRef = 3A1F00010000000000000059 /* Factory */; };
-		5F02775F2FE3EC5A00CFAE5F /* FacebookCore in Frameworks */ = {isa = PBXBuildFile; productRef = 5F02775E2FE3EC5A00CFAE5F /* FacebookCore */; };
-		5F02779F2FE3EF0000CFAE5F /* ads-swift in Frameworks */ = {isa = PBXBuildFile; productRef = 5F02779E2FE3EF0000CFAE5F /* ads-swift */; };
-		5F0277A12FE3EF0500CFAE5F /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 5F0277A02FE3EF0500CFAE5F /* FirebaseAnalytics */; };
-		5F0277A32FE3EF0E00CFAE5F /* FirebaseCrashlytics in Frameworks */ = {isa = PBXBuildFile; productRef = 5F0277A22FE3EF0E00CFAE5F /* FirebaseCrashlytics */; };
-		5F0277A52FE3EF1C00CFAE5F /* FirebaseRemoteConfig in Frameworks */ = {isa = PBXBuildFile; productRef = 5F0277A42FE3EF1C00CFAE5F /* FirebaseRemoteConfig */; };
-		5F0277A72FE3EF3700CFAE5F /* ads-swift in Frameworks */ = {isa = PBXBuildFile; productRef = 5F0277A62FE3EF3700CFAE5F /* ads-swift */; };
-		5F0277A92FE3EF3C00CFAE5F /* FacebookCore in Frameworks */ = {isa = PBXBuildFile; productRef = 5F0277A82FE3EF3C00CFAE5F /* FacebookCore */; };
-		5F0277AB2FE3EF4200CFAE5F /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 5F0277AA2FE3EF4200CFAE5F /* FirebaseAnalytics */; };
-		5F0277AD2FE3EF6E00CFAE5F /* FirebaseCrashlytics in Frameworks */ = {isa = PBXBuildFile; productRef = 5F0277AC2FE3EF6E00CFAE5F /* FirebaseCrashlytics */; };
-		5F0277AF2FE3EF7300CFAE5F /* FirebaseRemoteConfig in Frameworks */ = {isa = PBXBuildFile; productRef = 5F0277AE2FE3EF7300CFAE5F /* FirebaseRemoteConfig */; };
-		5F0277B12FE3EFC200CFAE5F /* FirebaseCore in Frameworks */ = {isa = PBXBuildFile; productRef = 5F0277B02FE3EFC200CFAE5F /* FirebaseCore */; };
-		5F0277B32FE3EFCF00CFAE5F /* FirebaseCore in Frameworks */ = {isa = PBXBuildFile; productRef = 5F0277B22FE3EFCF00CFAE5F /* FirebaseCore */; };
-		5F0277B62FE3F03A00CFAE5F /* AdjustSdk in Frameworks */ = {isa = PBXBuildFile; productRef = 5F0277B52FE3F03A00CFAE5F /* AdjustSdk */; };
-		5F0277B82FE3F05100CFAE5F /* AdjustSdk in Frameworks */ = {isa = PBXBuildFile; productRef = 5F0277B72FE3F05100CFAE5F /* AdjustSdk */; };
+		9D71B07AC6CE4B41CA3838A0 /* IosArtMagic.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = FAFC937ADB3958E36DA45617 /* IosArtMagic.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		A5313CC4146B380CBBCC2956 /* IosArtMagic.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = FAFC937ADB3958E36DA45617 /* IosArtMagic.xcframework */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		60B5296A0BD137D5E6DE226E /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				00853075507E2E0A3C773FA7 /* IosArtMagic.xcframework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D6420972C8D3C0EA18D7D999 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				9D71B07AC6CE4B41CA3838A0 /* IosArtMagic.xcframework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		3A1F00010000000000000001 /* SwiftBase.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftBase.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3A1F00010000000000000002 /* SwiftBase-dev.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "SwiftBase-dev.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		FAFC937ADB3958E36DA45617 /* IosArtMagic.xcframework */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = wrapper.xcframework; name = IosArtMagic.xcframework; path = Frameworks/IosArtMagic.xcframework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
-		3A1F00010000000000000060 /* Exceptions for "SwiftBase" folder in "SwiftBase" target */ = {
+		3A1F00010000000000000060 /* Exceptions for "HomeDecor" folder in "SwiftBase" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
-				"Resources/GoogleService-Info-dev.plist",
 				Resources/Info.plist,
 			);
 			target = 3A1F00010000000000000008 /* SwiftBase */;
 		};
-		3A1F00010000000000000061 /* Exceptions for "SwiftBase" folder in "SwiftBase-dev" target */ = {
+		3A1F00010000000000000061 /* Exceptions for "HomeDecor" folder in "SwiftBase-dev" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
-				"Resources/GoogleService-Info.plist",
 				Resources/Info.plist,
 			);
 			target = 3A1F00010000000000000050 /* SwiftBase-dev */;
@@ -50,13 +64,13 @@
 /* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
-		5F246F362FE3A1E300F2A107 /* SwiftBase */ = {
+		5F246F362FE3A1E300F2A107 /* HomeDecor */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			exceptions = (
-				3A1F00010000000000000060 /* Exceptions for "SwiftBase" folder in "SwiftBase" target */,
-				3A1F00010000000000000061 /* Exceptions for "SwiftBase" folder in "SwiftBase-dev" target */,
+				3A1F00010000000000000060 /* Exceptions for "HomeDecor" folder in "SwiftBase" target */,
+				3A1F00010000000000000061 /* Exceptions for "HomeDecor" folder in "SwiftBase-dev" target */,
 			);
-			path = SwiftBase;
+			path = HomeDecor;
 			sourceTree = "<group>";
 		};
 /* End PBXFileSystemSynchronizedRootGroup section */
@@ -67,13 +81,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3A1F00010000000000000022 /* Factory in Frameworks */,
-				5F02775F2FE3EC5A00CFAE5F /* FacebookCore in Frameworks */,
-				5F0277A32FE3EF0E00CFAE5F /* FirebaseCrashlytics in Frameworks */,
-				5F0277A52FE3EF1C00CFAE5F /* FirebaseRemoteConfig in Frameworks */,
-				5F0277B32FE3EFCF00CFAE5F /* FirebaseCore in Frameworks */,
-				5F0277A12FE3EF0500CFAE5F /* FirebaseAnalytics in Frameworks */,
-				5F0277B62FE3F03A00CFAE5F /* AdjustSdk in Frameworks */,
-				5F02779F2FE3EF0000CFAE5F /* ads-swift in Frameworks */,
+				A5313CC4146B380CBBCC2956 /* IosArtMagic.xcframework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -82,13 +90,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3A1F00010000000000000057 /* Factory in Frameworks */,
-				5F0277A92FE3EF3C00CFAE5F /* FacebookCore in Frameworks */,
-				5F0277AD2FE3EF6E00CFAE5F /* FirebaseCrashlytics in Frameworks */,
-				5F0277AF2FE3EF7300CFAE5F /* FirebaseRemoteConfig in Frameworks */,
-				5F0277B12FE3EFC200CFAE5F /* FirebaseCore in Frameworks */,
-				5F0277AB2FE3EF4200CFAE5F /* FirebaseAnalytics in Frameworks */,
-				5F0277B82FE3F05100CFAE5F /* AdjustSdk in Frameworks */,
-				5F0277A72FE3EF3700CFAE5F /* ads-swift in Frameworks */,
+				2B745AF85551C12A50736312 /* IosArtMagic.xcframework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -98,7 +100,7 @@
 		3A1F00010000000000000006 = {
 			isa = PBXGroup;
 			children = (
-				5F246F362FE3A1E300F2A107 /* SwiftBase */,
+				5F246F362FE3A1E300F2A107 /* HomeDecor */,
 				5F02779D2FE3EF0000CFAE5F /* Frameworks */,
 				3A1F00010000000000000007 /* Products */,
 			);
@@ -116,6 +118,7 @@
 		5F02779D2FE3EF0000CFAE5F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				FAFC937ADB3958E36DA45617 /* IosArtMagic.xcframework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -130,25 +133,18 @@
 				3A1F0001000000000000000A /* Sources */,
 				3A1F00010000000000000005 /* Frameworks */,
 				3A1F0001000000000000000B /* Resources */,
-				5FB8733D2FE3F9B50084F7DE /* Firebase Crashlytics */,
+				D6420972C8D3C0EA18D7D999 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
 			fileSystemSynchronizedGroups = (
-				5F246F362FE3A1E300F2A107 /* SwiftBase */,
+				5F246F362FE3A1E300F2A107 /* HomeDecor */,
 			);
 			name = SwiftBase;
 			packageProductDependencies = (
 				3A1F00010000000000000021 /* Factory */,
-				5F02775E2FE3EC5A00CFAE5F /* FacebookCore */,
-				5F02779E2FE3EF0000CFAE5F /* ads-swift */,
-				5F0277A02FE3EF0500CFAE5F /* FirebaseAnalytics */,
-				5F0277A22FE3EF0E00CFAE5F /* FirebaseCrashlytics */,
-				5F0277A42FE3EF1C00CFAE5F /* FirebaseRemoteConfig */,
-				5F0277B22FE3EFCF00CFAE5F /* FirebaseCore */,
-				5F0277B52FE3F03A00CFAE5F /* AdjustSdk */,
 			);
 			productName = SwiftBase;
 			productReference = 3A1F00010000000000000001 /* SwiftBase.app */;
@@ -161,24 +157,18 @@
 				3A1F00010000000000000054 /* Sources */,
 				3A1F00010000000000000055 /* Frameworks */,
 				3A1F00010000000000000056 /* Resources */,
+				60B5296A0BD137D5E6DE226E /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
 			fileSystemSynchronizedGroups = (
-				5F246F362FE3A1E300F2A107 /* SwiftBase */,
+				5F246F362FE3A1E300F2A107 /* HomeDecor */,
 			);
 			name = "SwiftBase-dev";
 			packageProductDependencies = (
 				3A1F00010000000000000059 /* Factory */,
-				5F0277A62FE3EF3700CFAE5F /* ads-swift */,
-				5F0277A82FE3EF3C00CFAE5F /* FacebookCore */,
-				5F0277AA2FE3EF4200CFAE5F /* FirebaseAnalytics */,
-				5F0277AC2FE3EF6E00CFAE5F /* FirebaseCrashlytics */,
-				5F0277AE2FE3EF7300CFAE5F /* FirebaseRemoteConfig */,
-				5F0277B02FE3EFC200CFAE5F /* FirebaseCore */,
-				5F0277B72FE3F05100CFAE5F /* AdjustSdk */,
 			);
 			productName = "SwiftBase-dev";
 			productReference = 3A1F00010000000000000002 /* SwiftBase-dev.app */;
@@ -202,7 +192,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 3A1F0001000000000000000D /* Build configuration list for PBXProject "SwiftBase" */;
+			buildConfigurationList = 3A1F0001000000000000000D /* Build configuration list for PBXProject "HomeDecor" */;
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -213,15 +203,22 @@
 				fr,
 				de,
 				ja,
+				ar,
+				"zh-Hans",
+				ko,
+				"zh-Hant",
+				tr,
+				"pt-BR",
+				ru,
+				id,
+				bn,
+				"pt-PT",
+				hi,
 			);
 			mainGroup = 3A1F00010000000000000006;
 			minimizedProjectReferenceProxies = 1;
 			packageReferences = (
 				3A1F00010000000000000020 /* XCRemoteSwiftPackageReference "Factory" */,
-				5F02775D2FE3EC5A00CFAE5F /* XCRemoteSwiftPackageReference "facebook-ios-sdk" */,
-				5F0277602FE3EC9900CFAE5F /* XCRemoteSwiftPackageReference "ads-swift" */,
-				5F02779C2FE3EE3100CFAE5F /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
-				5F0277B42FE3F03A00CFAE5F /* XCRemoteSwiftPackageReference "ios_sdk" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 3A1F00010000000000000007 /* Products */;
@@ -250,28 +247,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
-
-/* Begin PBXShellScriptBuildPhase section */
-		5FB8733D2FE3F9B50084F7DE /* Firebase Crashlytics */ = {
-			isa = PBXShellScriptBuildPhase;
-			alwaysOutOfDate = 1;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-			);
-			name = "Firebase Crashlytics";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "UPLOAD_SYMBOLS_SCRIPT=\"${BUILD_DIR%/Build/*}/SourcePackages/checkouts/firebase-ios-sdk/Crashlytics/run\"\n\nGOOGLE_PLIST=\"${PROJECT_DIR}/SwiftBase/Resources/GoogleService-Info.plist\"\n\necho \"📍 upload-symbols script: $UPLOAD_SYMBOLS_SCRIPT\"\necho \"📍 GoogleService-Info.plist: $GOOGLE_PLIST\"\n\n\"$UPLOAD_SYMBOLS_SCRIPT\" \\\n  -gsp \"$GOOGLE_PLIST\"\n\necho \"✅ [Crashlytics] Finished uploading dSYM\"\n";
-		};
-/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		3A1F0001000000000000000A /* Sources */ = {
@@ -418,8 +393,13 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				ENABLE_PREVIEWS = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Frameworks",
+				);
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = SwiftBase/Resources/Info.plist;
+				INFOPLIST_FILE = HomeDecor/Resources/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "Abodi Home";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
@@ -428,11 +408,11 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.vtn.SwiftBase;
+				PRODUCT_BUNDLE_IDENTIFIER = com.abodi.home.interior.room.design;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -444,8 +424,13 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				ENABLE_PREVIEWS = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Frameworks",
+				);
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = SwiftBase/Resources/Info.plist;
+				INFOPLIST_FILE = HomeDecor/Resources/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "Abodi Home";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
@@ -454,11 +439,11 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.vtn.SwiftBase;
+				PRODUCT_BUNDLE_IDENTIFIER = com.abodi.home.interior.room.design;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
@@ -470,9 +455,13 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				ENABLE_PREVIEWS = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Frameworks",
+				);
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = SwiftBase/Resources/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = "SwiftBase Dev";
+				INFOPLIST_FILE = HomeDecor/Resources/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "Abodi Home Dev";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
@@ -481,12 +470,12 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.vtn.SwiftBase.dev;
+				PRODUCT_BUNDLE_IDENTIFIER = com.abodi.home.interior.room.design.dev;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) DEV";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -498,9 +487,13 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				ENABLE_PREVIEWS = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Frameworks",
+				);
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = SwiftBase/Resources/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = "SwiftBase Dev";
+				INFOPLIST_FILE = HomeDecor/Resources/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "Abodi Home Dev";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
@@ -509,12 +502,12 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.vtn.SwiftBase.dev;
+				PRODUCT_BUNDLE_IDENTIFIER = com.abodi.home.interior.room.design.dev;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) DEV";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
@@ -530,7 +523,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		3A1F0001000000000000000D /* Build configuration list for PBXProject "SwiftBase" */ = {
+		3A1F0001000000000000000D /* Build configuration list for PBXProject "HomeDecor" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				3A1F0001000000000000000E /* Debug */,
@@ -559,38 +552,6 @@
 				minimumVersion = 2.5.3;
 			};
 		};
-		5F02775D2FE3EC5A00CFAE5F /* XCRemoteSwiftPackageReference "facebook-ios-sdk" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/facebook/facebook-ios-sdk";
-			requirement = {
-				branch = main;
-				kind = branch;
-			};
-		};
-		5F0277602FE3EC9900CFAE5F /* XCRemoteSwiftPackageReference "ads-swift" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://DucManh98@bitbucket.org/innofyapp/ads-swift.git";
-			requirement = {
-				branch = feature/update_meta;
-				kind = branch;
-			};
-		};
-		5F02779C2FE3EE3100CFAE5F /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/firebase/firebase-ios-sdk.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 12.15.0;
-			};
-		};
-		5F0277B42FE3F03A00CFAE5F /* XCRemoteSwiftPackageReference "ios_sdk" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/adjust/ios_sdk.git";
-			requirement = {
-				branch = master;
-				kind = branch;
-			};
-		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -603,76 +564,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 3A1F00010000000000000020 /* XCRemoteSwiftPackageReference "Factory" */;
 			productName = Factory;
-		};
-		5F02775E2FE3EC5A00CFAE5F /* FacebookCore */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 5F02775D2FE3EC5A00CFAE5F /* XCRemoteSwiftPackageReference "facebook-ios-sdk" */;
-			productName = FacebookCore;
-		};
-		5F02779E2FE3EF0000CFAE5F /* ads-swift */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 5F0277602FE3EC9900CFAE5F /* XCRemoteSwiftPackageReference "ads-swift" */;
-			productName = "ads-swift";
-		};
-		5F0277A02FE3EF0500CFAE5F /* FirebaseAnalytics */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 5F02779C2FE3EE3100CFAE5F /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
-			productName = FirebaseAnalytics;
-		};
-		5F0277A22FE3EF0E00CFAE5F /* FirebaseCrashlytics */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 5F02779C2FE3EE3100CFAE5F /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
-			productName = FirebaseCrashlytics;
-		};
-		5F0277A42FE3EF1C00CFAE5F /* FirebaseRemoteConfig */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 5F02779C2FE3EE3100CFAE5F /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
-			productName = FirebaseRemoteConfig;
-		};
-		5F0277A62FE3EF3700CFAE5F /* ads-swift */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 5F0277602FE3EC9900CFAE5F /* XCRemoteSwiftPackageReference "ads-swift" */;
-			productName = "ads-swift";
-		};
-		5F0277A82FE3EF3C00CFAE5F /* FacebookCore */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 5F02775D2FE3EC5A00CFAE5F /* XCRemoteSwiftPackageReference "facebook-ios-sdk" */;
-			productName = FacebookCore;
-		};
-		5F0277AA2FE3EF4200CFAE5F /* FirebaseAnalytics */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 5F02779C2FE3EE3100CFAE5F /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
-			productName = FirebaseAnalytics;
-		};
-		5F0277AC2FE3EF6E00CFAE5F /* FirebaseCrashlytics */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 5F02779C2FE3EE3100CFAE5F /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
-			productName = FirebaseCrashlytics;
-		};
-		5F0277AE2FE3EF7300CFAE5F /* FirebaseRemoteConfig */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 5F02779C2FE3EE3100CFAE5F /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
-			productName = FirebaseRemoteConfig;
-		};
-		5F0277B02FE3EFC200CFAE5F /* FirebaseCore */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 5F02779C2FE3EE3100CFAE5F /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
-			productName = FirebaseCore;
-		};
-		5F0277B22FE3EFCF00CFAE5F /* FirebaseCore */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 5F02779C2FE3EE3100CFAE5F /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
-			productName = FirebaseCore;
-		};
-		5F0277B52FE3F03A00CFAE5F /* AdjustSdk */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 5F0277B42FE3F03A00CFAE5F /* XCRemoteSwiftPackageReference "ios_sdk" */;
-			productName = AdjustSdk;
-		};
-		5F0277B72FE3F05100CFAE5F /* AdjustSdk */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 5F0277B42FE3F03A00CFAE5F /* XCRemoteSwiftPackageReference "ios_sdk" */;
-			productName = AdjustSdk;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

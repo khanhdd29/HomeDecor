@@ -1,0 +1,15 @@
+<svg preserveAspectRatio="none" overflow="visible" style="display: block;" width="56" height="56" viewBox="0 0 56 56" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="App/Messages" clip-path="url(#clip0_0_789)">
+<path id="Vector" d="M43 0H13C5.8203 0 0 5.8203 0 13V43C0 50.1797 5.8203 56 13 56H43C50.1797 56 56 50.1797 56 43V13C56 5.8203 50.1797 0 43 0Z" fill="url(#paint0_linear_0_789)"/>
+<path id="Vector_2" d="M28 13.5C18.6 13.5 11 19.7 11 27.4C11 31.8 13.5 35.7 17.4 38.3C17.1 40.5 16 42.6 14.2 44.2C17.6 44.3 20.8 43.1 23.1 41.1C24.7 41.5 26.3 41.7 28 41.7C37.4 41.7 45 35.5 45 27.4C45 19.3 37.4 13.5 28 13.5Z" fill="#121212"/>
+</g>
+<defs>
+<linearGradient id="paint0_linear_0_789" x1="0" y1="0" x2="0" y2="56" gradientUnits="userSpaceOnUse">
+<stop stop-color="#65F87A"/>
+<stop offset="1" stop-color="#0BBD2A"/>
+</linearGradient>
+<clipPath id="clip0_0_789">
+<rect width="56" height="56" fill="white"/>
+</clipPath>
+</defs>
+</svg>

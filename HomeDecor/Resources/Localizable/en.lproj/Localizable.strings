@@ -5,7 +5,6 @@
 "next" = "Next";
 "get_started" = "Get Started";
 "back" = "Back";
-
 /* Tabs */
 "home" = "Home";
 "search" = "Search";
@@ -15,8 +14,7 @@
 /* Language picker */
 "choose_your_language" = "Choose your language";
 "change_language_later" = "You can change this later in Settings.";
-"please_select_language" = "Please select your language";
-
+"please_select_language" = "Please select language to continue";
 /* Settings */
 "general" = "General";
 "language" = "Language";
@@ -40,13 +38,12 @@
 "nothing_saved_yet" = "Nothing saved yet";
 
 /* Onboarding intro */
-"intro_title_1" = "Everything in one place";
-"intro_message_1" = "A clean starting point with navigation, tabs and onboarding already wired up.";
-"intro_title_2" = "Build faster";
-"intro_message_2" = "Reusable modules let you focus on features instead of plumbing.";
-"intro_title_3" = "Ready to ship";
-"intro_message_3" = "Sensible defaults and a tested navigation core, straight out of the box.";
-
+"intro_title_1" = "AI Room Makeover";
+"intro_message_1" = "Redesign any room or outdoor space with AI-powered interior ideas.";
+"intro_title_2" = "AI Design Advice";
+"intro_message_2" = "Get personalized interior design advice and room ideas from AI.";
+"intro_title_3" = "Explore Interior Styles";
+"intro_message_3" = "Discover different styles and find the perfect look for your space.";
 /* Settings actions */
 "rate" = "Rate us";
 "share" = "Share app";
@@ -54,3 +51,168 @@
 
 /* Splash */
 "loading" = "Loading";
+/* Coral Glass — tabs & common */
+"create" = "Create";
+"inspiration" = "Inspiration";
+"my_look" = "My look";
+"setting" = "Setting";
+"before" = "Before";
+"after" = "After";
+"try_now" = "Try Now";
+"pro" = "Pro";
+
+/* Onboarding (Coral Glass) */
+"splash_tagline" = "Design your dream space with AI";
+"intro_title_4" = "Discover Inspiration";
+"intro_message_4" = "Explore inspiring interiors and ideas for every room and style.";
+"start" = "Start";
+
+/* Home */
+"show_all" = "Show all";
+"ai_concepts" = "AI concepts in seconds";
+"reimagine_any_room" = "Reimagine\nany room";
+"try_style" = "Try style";
+
+/* Category */
+"category" = "Category";
+"outside" = "Outside";
+"inside" = "Inside";
+"styles_count" = "%d styles";
+
+/* My look */
+"gallery" = "Gallery";
+"empty_title" = "It's seem to be empty";
+"empty_subtitle" = "Upload your photo to start trying on house style";
+"start_transform" = "Start to transform";
+"download" = "Download";
+"share_action" = "Share";
+"delete" = "Delete";
+"n_selected" = "%d selected";
+"all" = "All";
+"delete_look_title" = "Delete design?";
+"delete_look_message" = "This design will be removed from My look. This can't be undone.";
+"delete_selected_title" = "Delete %d designs?";
+"delete_selected_message" = "The selected designs will be removed from My look. This can't be undone.";
+"saved_to_photos" = "Saved to Photos";
+"saved_n_to_photos" = "Saved %d to Photos";
+"deleted_toast" = "Deleted";
+
+/* Create flow — Phase 4 */
+"try_this_style" = "Try this style";
+"more_in" = "More in %@";
+"upload_photo" = "Upload Photo";
+"selected_style" = "Selected style";
+"change" = "Change";
+"change_photo" = "Change photo";
+"no_style_title" = "No style selected";
+"no_style_sub" = "Pick a style to try";
+"upload_room_title" = "Upload a photo of your room";
+"upload_room_subtitle" = "Tap to take a photo or choose from your library";
+"tips_title" = "Tips for best results";
+"tip_lighting" = "Shoot in good, even lighting";
+"tip_whole_room" = "Capture the whole room from a corner";
+"tip_no_people" = "Keep people and pets out of frame";
+"add_photo" = "Add a photo";
+"add_photo_subtitle" = "Choose where your room photo comes from";
+"take_photo" = "Take photo";
+"take_photo_sub" = "Use your camera";
+"photo_library" = "Photo library";
+"photo_library_sub" = "Pick from gallery";
+"cancel" = "Cancel";
+"choose_style" = "Choose Style";
+"generate" = "Generate";
+"room_type" = "Room type";
+"style" = "Style";
+"generating" = "Generating";
+"generating_title" = "Designing your room…";
+"generating_subtitle" = "This usually takes a few seconds";
+"step_analyzing" = "Analyzing your room";
+"step_applying" = "Applying %@ style";
+"step_rendering" = "Rendering final details";
+"your_design" = "Your Design";
+"save_to_my_look" = "Save to My look";
+"view_in_my_look" = "View in My look";
+"drag_to_compare" = "Drag to compare";
+"choose_a_style" = "Choose a style";
+"apply_style" = "Apply style";
+
+/* Create flow — popups */
+"stop_title" = "Stop generating?";
+"stop_message" = "Your design is almost ready. If you leave now, progress will be lost.";
+"keep_waiting" = "Keep waiting";
+"stop" = "Stop";
+"gen_failed_title" = "Generation failed";
+"gen_failed_message" = "Something went wrong while creating your design. Please try again.";
+"no_internet_title" = "No internet";
+"no_internet_message" = "You're offline. Reconnect and try again.";
+"try_again" = "Try again";
+"discard_title" = "Discard design?";
+"discard_message" = "This design hasn't been saved. Leaving will discard it.";
+"keep_editing" = "Keep editing";
+"discard" = "Discard";
+"regenerate_title" = "Regenerate design?";
+"regenerate_message" = "Create a new version with the same photo and style.";
+"regenerate" = "Regenerate";
+"photo_quality_title" = "Photo looks dark";
+"photo_quality_message" = "This photo may be too dark for a good result. Try a brighter one.";
+"choose_another" = "Choose another";
+"use_anyway" = "Use anyway";
+"camera_access_title" = "Camera access";
+"camera_access_message" = "Allow camera access to take a photo of your room.";
+"camera_off_title" = "Camera is off";
+"camera_off_message" = "Enable camera access in Settings to take a photo.";
+"open_settings" = "Open Settings";
+"not_now" = "Not now";
+"take_a_photo" = "Take a photo";
+"camera_hint" = "Fit the whole room in the frame";
+"adjust_photo" = "Adjust photo";
+"ratio_original" = "Original";
+"reset" = "Reset";
+"done" = "Done";
+
+/* AI Chat — Phase 7 */
+"ai_designer" = "AI Designer";
+"online" = "Online";
+"today" = "Today";
+"ai_welcome_title" = "Hi, I'm your AI Designer";
+"ai_welcome_subtitle" = "Ask me anything about decorating your home — styles, colors, layouts and more.";
+"ai_suggest_1" = "Ideas for a cozy small bedroom";
+"ai_suggest_2" = "Which colors go with a navy sofa?";
+"ai_suggest_3" = "How can my living room feel bigger?";
+"ai_input_placeholder" = "Ask anything about your space…";
+"attach_photo_subtitle" = "Share your room so the AI can give better advice";
+"analyzing_room" = "Analyzing your room…";
+"redesign_room" = "Redesign this room";
+"not_delivered" = "Not delivered";
+"tap_to_retry" = "Tap to retry";
+"new_chat" = "New chat";
+"clear_chat" = "Clear chat";
+"clear_chat_title" = "Clear this chat?";
+"clear_chat_message" = "All messages in this conversation will be deleted.";
+"clear" = "Clear";
+
+/* Setting — Phase 8 */
+"policy_updated" = "Last updated: November 2026";
+"policy_1_title" = "1. Information we collect";
+"policy_1_body" = "Photos you upload are used only to generate your designs. We may collect basic device information to improve app performance.";
+"policy_2_title" = "2. How we use your data";
+"policy_2_body" = "Your images are processed to create AI room designs and are never sold to third parties.";
+"policy_3_title" = "3. Storage & deletion";
+"policy_3_body" = "Designs are saved on your device in My look. You can delete them at any time.";
+"policy_4_title" = "4. Contact us";
+"policy_4_body" = "If you have any questions about this policy, please contact our support team.";
+"offline_title" = "You're offline";
+"offline_message" = "Check your Wi-Fi or mobile data, then try again.";
+"server_error_title" = "Something went wrong";
+"server_error_message" = "We couldn't load this page. Please try again in a moment.";
+"reload" = "Reload";
+"share_copy_link" = "Copy link";
+"share_more" = "More";
+
+/* AI Chat history */
+"chat_history" = "Chat history";
+"no_history" = "No chats yet";
+"search_chats" = "Search chats";
+"no_results" = "No results";
+"delete_chats_title" = "Delete %d chats?";
+"delete_chats_message" = "The selected chats will be permanently deleted. This can't be undone.";
