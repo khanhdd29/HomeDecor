@@ -15,6 +15,7 @@ struct HomeTabView: View {
     @InjectedObject(\.mylookNavi) private var mylookNavi: Navigation
     @InjectedObject(\.settingNavi) private var settingNavi: Navigation
     @InjectedObject(\.app) private var app: AppManager
+    @InjectedObject(\.chatStore) private var chatStore: ChatStore
     @EnvironmentObject private var coordinator: AppFlowCoordinator
 
     @State private var isFirstAppear = false
@@ -34,7 +35,10 @@ struct HomeTabView: View {
             if activeNavigation.isAtRoot && !app.hideShellChrome {
                 ZStack(alignment: .topTrailing) {
                     CoralTabBar(selection: $app.activeTab)
-                    AIChatFAB(action: { showAIChat = true })
+                    // Always open the FAB on a fresh, empty chat. The previous
+                    // conversation is already saved in history; a new one is
+                    // only persisted once the user actually sends a message.
+                    AIChatFAB(action: { chatStore.newConversation(); showAIChat = true })
                         .offset(x: 2, y: -76)
                 }
                 .padding(.horizontal, 20)
