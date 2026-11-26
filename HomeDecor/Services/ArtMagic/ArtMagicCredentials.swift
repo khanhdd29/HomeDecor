@@ -14,7 +14,9 @@
 import Foundation
 
 enum ArtMagicCredentials {
-    static let appId = ""
-    static let secretKey = ""
+    static let appId = "NTD_1009"
+    static let secretKey = "27e4852ab7bd21ced12b0d2f94753ceb"
+    // Chat agent assigned to THIS app by Code12. Empty until provisioned —
+    // while empty, the AI Chat stays on local mock (see ChatStore.useMock).
     static let agentId = ""
 }

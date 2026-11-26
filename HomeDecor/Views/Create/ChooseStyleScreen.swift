@@ -16,12 +16,14 @@ struct ChooseStyleScreen: View {
     @InjectedObject(\.createSession) private var session: CreateSession
 
     @State private var roomType = "Living room"
+    @State private var remoteStyles: [CreateStyle] = []
+    @State private var loadingStyles = false
 
     private let roomTypes = ["Living room", "Bedroom", "Bathroom", "Kitchen", "Office"]
 
-    /// Style options: the incoming style first, then a sample set (dedup by id).
-    private var styles: [CreateStyle] {
-        let samples: [CreateStyle] = [
+    /// Fallback shown only if the real catalog can't be loaded (e.g. offline).
+    private var sampleStyles: [CreateStyle] {
+        [
             .init(image: "cat_warm_minimal", name: "Warm Minimal", category: roomType),
             .init(image: "cat_earthy_loft", name: "Earthy Loft", category: roomType),
             .init(image: "cat_sunlit", name: "Sunlit", category: roomType),
@@ -29,9 +31,33 @@ struct ChooseStyleScreen: View {
             .init(image: "cat_enchanted", name: "Enchanted", category: roomType),
             .init(image: "cat_neon_night", name: "Neon Night", category: roomType),
         ]
-        var all = session.style.map { [$0] } ?? []
-        for s in samples where !all.contains(where: { $0.id == s.id }) { all.append(s) }
-        return all
+    }
+
+    /// The grid: real ArtMagic templates when loaded, else the sample fallback.
+    private var styles: [CreateStyle] { remoteStyles.isEmpty ? sampleStyles : remoteStyles }
+
+    /// Load the real templates for the current Inside/Outside group, and select
+    /// one so Generate always sends a real template code.
+    private func loadStyles(isOutside: Bool) async {
+        await MainActor.run { loadingStyles = remoteStyles.isEmpty }
+        do {
+            let service = Container.shared.artMagic()
+            let group = try await service.groupCode(containing: isOutside ? "outside" : "inside")
+            let sections = try await service.sections(groupCode: group, categorySize: 8, templateSize: 8)
+            var seen = Set<String>()
+            let loaded: [CreateStyle] = sections.flatMap(\.templates).compactMap { t in
+                guard seen.insert(t.id).inserted else { return nil }
+                return CreateStyle(image: "", imageURL: t.imageURL, name: t.name, category: "", templateCode: t.id)
+            }
+            await MainActor.run {
+                loadingStyles = false
+                guard !loaded.isEmpty else { return }
+                remoteStyles = loaded
+                if session.style?.templateCode == nil { session.select(loaded[0]) }
+            }
+        } catch {
+            await MainActor.run { loadingStyles = false }   // keep the fallback
+        }
     }
 
     private let columns = Array(repeating: GridItem(.flexible(), spacing: 10), count: 3)
@@ -63,6 +89,7 @@ struct ChooseStyleScreen: View {
         .background(BlobBackground().ignoresSafeArea())
         .toolbar(.hidden, for: .navigationBar)
         .onAppear { session.roomType = roomType }
+        .task(id: session.isOutside) { await loadStyles(isOutside: session.isOutside) }
     }
 
     // MARK: Your photo
@@ -144,11 +171,31 @@ struct ChooseStyleScreen: View {
     private var styleSection: some View {
         VStack(alignment: .leading, spacing: 12) {
             Text("style".localized).font(.system(size: 17, weight: .semibold)).foregroundStyle(AppColor.ink)
-            LazyVGrid(columns: columns, spacing: 14) {
-                ForEach(styles) { style in
-                    styleCell(style)
+            if loadingStyles && remoteStyles.isEmpty {
+                HStack { Spacer(); ProgressView().padding(.vertical, 44); Spacer() }
+            } else {
+                LazyVGrid(columns: columns, spacing: 14) {
+                    ForEach(styles) { style in
+                        styleCell(style)
+                    }
                 }
             }
+        }
+    }
+
+    /// Thumbnail: remote preview for real templates, bundled asset for samples.
+    @ViewBuilder
+    private func styleThumb(_ style: CreateStyle) -> some View {
+        if let url = style.imageURL {
+            AsyncImage(url: url) { phase in
+                switch phase {
+                case .success(let img): img.resizable().scaledToFill()
+                case .empty: ZStack { Color.black.opacity(0.04); ProgressView().scaleEffect(0.7) }
+                default: Color.black.opacity(0.06)
+                }
+            }
+        } else {
+            Image(style.image).resizable().scaledToFill()
         }
     }
 
@@ -158,7 +205,7 @@ struct ChooseStyleScreen: View {
             VStack(spacing: 6) {
                 ZStack(alignment: .topTrailing) {
                     Color.clear.frame(height: 104)
-                        .overlay(Image(style.image).resizable().scaledToFill())
+                        .overlay(styleThumb(style))
                         .clipShape(RoundedRectangle(cornerRadius: 16, style: .continuous))
                         .overlay(RoundedRectangle(cornerRadius: 16, style: .continuous)
                             .strokeBorder(selected ? AppColor.coral : AppColor.ink.opacity(0.12),

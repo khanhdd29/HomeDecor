@@ -10,12 +10,13 @@
 import SwiftUI
 import Factory
 
-/// A style the user can try. Sample catalog for now (asset-backed); `templateCode`
-/// is filled from `HomeTemplate` once Code12 credentials arrive so `generate` can
-/// run for real.
+/// A style the user can try. Browsing visuals come from the asset catalog;
+/// the styles shown on Choose Style are the real ArtMagic templates, so they
+/// carry a `templateCode` (what `generate` sends) and a remote `imageURL`.
 struct CreateStyle: Identifiable, Hashable {
-    var id: String { image }
-    let image: String        // asset name (sample catalog)
+    var id: String { templateCode ?? image }
+    let image: String        // asset name (sample catalog); "" when remote
+    var imageURL: URL? = nil // remote preview (real catalog)
     let name: String
     let category: String
     var templateCode: String? = nil
