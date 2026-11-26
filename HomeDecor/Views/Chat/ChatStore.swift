@@ -76,11 +76,18 @@ final class ChatStore: ObservableObject {
     /// Server-side conversation key. One per install; renewed on New/Clear chat.
     private(set) var userId: String
 
-    /// Flip to false once Code12 credentials + a real `agentId` are wired.
-    private let useMock = true
-    /// The chat agent Code12 assigns THIS app. The original app used "400"
-    /// ("AI Designer") — do NOT assume it is ours. Empty until provisioned.
-    private let agentId = ""
+    /// The real server is used only when the app has credentials AND a chat
+    /// agent id (from Code12). Until the agent is provisioned (agentId empty),
+    /// chat stays on local mock so the UI is still exercisable — no code change
+    /// needed to go live, just fill `ArtMagicCredentials.agentId`.
+    private var useMock: Bool {
+        agentId.isEmpty || ArtMagicCredentials.appId.isEmpty || ArtMagicCredentials.secretKey.isEmpty
+    }
+    /// The chat agent Code12 assigns THIS app (from `ArtMagicCredentials`). The
+    /// original app used "400" ("AI Designer") — do NOT assume it is ours.
+    private var agentId: String { ArtMagicCredentials.agentId.trimmingCharacters(in: .whitespacesAndNewlines) }
+    /// Language code sent to the chat agent (follows the user's app language).
+    private var chatLang: String { (OnboardingStore().language ?? .deviceDefault).chatCode }
 
     private let userIdKey = "chat.userId"
 
@@ -183,11 +190,25 @@ final class ChatStore: ObservableObject {
                     persist()
                 }
             } else {
-                // GO LIVE: swap the mock above for the real server call.
-                // let reply = try await Container.shared.artMagic().chat(
-                //     text, language: AppLanguage.current.chatCode,
-                //     userId: userId, agentId: agentId)
-                // pending = nil; messages.append(ChatMessage(id: UUID().uuidString, role: .assistant, text: reply))
+                do {
+                    let reply = try await Container.shared.artMagic().chat(
+                        text, language: chatLang, userId: userId, agentId: agentId)
+                    await MainActor.run {
+                        pending = nil
+                        messages.append(ChatMessage(
+                            id: UUID().uuidString, role: .assistant,
+                            text: reply.trimmingCharacters(in: .whitespacesAndNewlines)))
+                        persist()
+                    }
+                } catch {
+                    await MainActor.run {
+                        pending = nil
+                        // Let the user retry by tapping their failed message.
+                        if let idx = messages.lastIndex(where: { $0.role == .user && $0.text == text }) {
+                            messages[idx].failed = true
+                        }
+                    }
+                }
             }
         }
     }

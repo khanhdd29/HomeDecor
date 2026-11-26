@@ -14,7 +14,10 @@
 import Foundation
 
 enum ArtMagicCredentials {
-    static let appId = ""
-    static let secretKey = ""
-    static let agentId = ""
+    static let appId = "NTD_1009"
+    static let secretKey = "27e4852ab7bd21ced12b0d2f94753ceb"
+    // Chat agent for THIS app on Code12 (same NTD_1009 account as the original
+    // HomeDecor reference, which uses agent "400"). Empty → chat falls back to
+    // local mock (see ChatStore.useMock).
+    static let agentId = "400"
 }
